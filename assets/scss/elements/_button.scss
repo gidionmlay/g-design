@@ -1,0 +1,74 @@
+
+// button area start
+.wpr-btn{
+    max-width: max-content;
+    padding: 16px 24px 16px;
+    line-height: 1;
+    transition: var(--transition);
+    font-weight: 600;
+    background-color: var(--color-primary);
+    overflow: hidden;
+    position: relative;
+    border: none;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background: radial-gradient(62.56% 62.56% at 28.14% -10.42%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, linear-gradient(137.66deg, #40454A 21.13%, #292C2E 80.53%);
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1), inset 0px 1px 0px rgba(255, 255, 255, 0.6), inset 0px -3px 0px #1A1A1A, inset 0px -4px 0px 1px rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+
+
+    &:hover{
+    }
+    &:focus{
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.under-line-btn{
+    color: var(--color-primary);
+    text-align: center;
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: -0.32px;
+    position: relative;
+    transition: all .4s;
+    &::after{
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: -5px;
+        height: 1px;
+        background: #BCBFDB;
+        width: 100%;
+    }
+    &::before{
+        position: absolute;
+        content: '';
+        right: 0;
+        bottom: -5px;
+        height: 1px;
+        background: var(--color-primary);
+        width: 0;
+        z-index: 1;
+        transition: all .4s;
+    }
+    &:hover{
+        &::before{
+            left: 0;
+            width: 100%;
+        }
+    }
+}
+
+.btn-check:focus+.btn-primary,.btn-primary:focus {
+    background-color: var(--color-primary);
+    border-color: unset;
+    -webkit-box-shadow: none;
+    box-shadow: none
+}
