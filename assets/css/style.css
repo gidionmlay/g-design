@@ -13176,7 +13176,7 @@ body.architechture-home .wpr-btn {
 
 .wpr-banner-area {
   position: relative;
-  z-index: 1;
+  z-index: 0;
   height: 800px;
   margin: 0 16px 16px;
   border: 1px solid rgba(3, 7, 18, 0.1);
