@@ -13192,6 +13192,7 @@ body.architechture-home .wpr-btn {
 }
 .wpr-banner-area .bg-shape img {
   width: 100%;
+  height: 100%;
 }
 .wpr-banner-area .banner-shape-area img {
   position: absolute;
@@ -13206,7 +13207,7 @@ body.architechture-home .wpr-btn {
   right: 0;
 }
 .wpr-banner-area .banner-content-area {
-  padding: 170px 0 115px;
+  padding: 172px 0 115px;
 }
 .wpr-banner-area .banner-content-area .section-title {
   display: flex;
@@ -13219,19 +13220,19 @@ body.architechture-home .wpr-btn {
   width: 100%;
   text-align: center;
   background: var(--color-bg-1);
-  padding: 21px 0;
+  padding: 35px 0;
   border-width: 1px 0;
   border-style: dotted;
   border-color: rgba(67, 67, 67, 0.5);
 }
 .wpr-banner-area .banner-content-area .section-title .left-area .arrow-track {
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: end;
   gap: 38px;
   padding: 0;
   position: absolute;
-  width: 95%;
+  width: 96%;
   left: 50%;
   transform: translateX(-50%);
   bottom: -34px;
@@ -13280,7 +13281,7 @@ body.architechture-home .wpr-btn {
   width: 100%;
   text-align: center;
   background: var(--color-bg-1);
-  padding: 21px 0;
+  padding: 35px 0;
   border-width: 1px 0;
   border-style: dotted;
   border-color: rgba(67, 67, 67, 0.5);
@@ -13289,12 +13290,11 @@ body.architechture-home .wpr-btn {
 }
 .wpr-banner-area .banner-content-area .section-title .right-area .arrow-track {
   display: flex;
-  justify-content: space-around;
   align-items: center;
   gap: 38px;
   padding: 0;
   position: absolute;
-  width: 95%;
+  width: 96%;
   right: 50%;
   transform: translateX(50%);
   top: -34px;
