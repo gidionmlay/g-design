@@ -17,9 +17,26 @@
     background: radial-gradient(62.56% 62.56% at 28.14% -10.42%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, linear-gradient(137.66deg, #40454A 21.13%, #292C2E 80.53%);
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1), inset 0px 1px 0px rgba(255, 255, 255, 0.6), inset 0px -3px 0px #1A1A1A, inset 0px -4px 0px 1px rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-
-
+    &.btn-white{
+        background: radial-gradient(62.56% 62.56% at 28.14% -10.42%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #FFFFFF;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.04), inset 0px 1px 0px rgba(255, 255, 255, 0.6), inset 0px -5px 0px #E4E4E4, inset 0px -6px 0px 1px #FAFAFA;
+        border-radius: 12px;
+    }
+    &.with-icon{
+        padding: 5px 24px 11px 5px;
+        .icon{
+            background: linear-gradient(178.82deg, #B2FF43 1.01%, #98FF03 105.12%);
+            box-shadow: 4px 8px 2px rgba(0, 0, 0, 0.08), inset 0px -2px 0.5px #75C500, inset 0px 1px 0px #FFFFFF;
+            border-radius: 8px;
+            width: 52px;
+            height: 52px;
+            line-height: 52px;
+            display: block;
+            text-align: center;
+        }
+    }
     &:hover{
+
     }
     &:focus{
         border: none;

@@ -13,7 +13,7 @@
     --color-bg-dark: #181818;
     --color-bg-dark-2: #0B0B0B;
     // border color
-    --color-border: #D9D9D9;
+    --color-border: rgba(3, 7, 18, 0.1);
     --color-border-dark: #2C2C2C;
     // title color
     --color-heading-1: #030712;
@@ -65,7 +65,7 @@
     --s-black: 900;
 
     //transition easing
-    --transition: all 0.4s;
+    --transition: all 0.6s;
 
     // Font Family
     --font-primary: "Space Grotesk", sans-serif;
@@ -88,9 +88,9 @@
 
     // Heading Font
     --h1: 100px;
-    --h2: 60px;
+    --h2: 64px;
     --h3: 48px;
-    --h4: 36px;
+    --h4: 40px;
     --h5: 30px;
     --h6: 24px;
 }

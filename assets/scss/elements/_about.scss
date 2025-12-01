@@ -1,0 +1,71 @@
+
+.wpr-about-area{
+    .section-inner{
+        .section-top-area{
+            padding: 100px 0 80px 56px;
+            .section-title-area{
+                max-width: 740px;
+            }
+        }
+        .about-bottom-content{
+            display: flex;
+            .left-area{
+                max-width: 606px;
+                width: 100%;
+                ul{
+                    padding: 0;
+                    margin: 0;
+                    li{
+                        padding: 26px 56px;
+                        margin: 0;
+                        p{
+                            color: var(--color-body-1);
+                            &.top-description{
+                                font-size: 14px;
+                            }
+                        }
+                        &.with-icon{
+                            display: flex;
+                            align-items: center;
+                            gap: 22px;
+                            .text{
+                                .title{
+                                    margin-bottom: 10px;
+                                    display: flex;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .right-area{
+                .image-area{
+                    position: relative;
+                    z-index: 1;
+                    .image-shape-right-bottom{
+                        position: absolute;
+                        z-index: 1;
+                        bottom: 0;
+                        right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner, .odometer.odometer-theme-default .odometer-digit .odometer-digit-inner{
+    min-width: max-content;
+    transition: var(--transition);
+}
+.odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-default .odometer-digit{
+    padding-right: 5px;
+    margin-left: -2px;
+    letter-spacing: -0.02em;
+}
+.odometer.odometer-auto-theme{
+
+    .odometer-digit:first-child{
+        padding-right: 3px; 
+    }
+}

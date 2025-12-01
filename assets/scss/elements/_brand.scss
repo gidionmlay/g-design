@@ -1,2 +1,53 @@
 
 // brand area style
+
+.wpr-brand-area{
+    .section-inner{
+        display: flex;
+        align-items: center;
+        background: var(--color-white);
+        border: 1px solid rgba(#030712, $alpha: .1);
+        .left-text{
+            min-width: 200px;
+            height: 100%;
+            text-align: center;
+            p{
+                text-align: start;
+                max-width: max-content;
+                margin: auto;
+                color: var(--color-heading-1);
+            }
+        }
+        .right-marquee-area{
+            border-left: 1px solid rgba(#030712, $alpha: .1);
+            overflow: hidden;
+            .brand-inner{
+                display: flex;
+                align-items: center;
+                will-change: transform;
+                animation: marquee 20s linear infinite;
+            }
+            .brand-wrapper{
+                width: 200px;
+                height: 200px;
+                border-width: 0 1px;
+                border-style: solid;
+                border-color: rgba(#030712, $alpha: .1);
+                text-align: center;
+                line-height: 200px;
+                display: block;
+                flex: 0 0 auto;
+            }
+        }
+    }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
