@@ -1,0 +1,93 @@
+.wpr-working-process{
+    .section-inner{
+        padding: 100px 56px;
+    }
+    .working-process-left{
+        display: flex;
+        flex-direction: column;
+        gap: 188px;
+        position: sticky;
+        top: 100px;
+        .text-area{
+            .desc{
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+.working-process-wrapper{
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(137.66deg, #F5F5F5 21.13%, #F2F2F2 80.53%);
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.6), inset 0px -5px 0px #E4E4E4, inset 0px -6px 0px 1px #FAFAFA;
+    border-radius: 12px;
+    padding: 16px 16px 32px 16px;
+    transition: all .5s;
+    margin-bottom: 24px;
+    position: sticky;
+    top: 100px;
+    &:hover{
+        .image-area{
+            img{
+                transform: scale(1.1);
+            }
+        }
+    }
+    .image-area{
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        transition: all .5s;
+        border-radius: 12px;
+        img{
+            transform: scale(1);
+            transition: all .5s;
+        }
+    }
+    .content-area{
+        display: flex;
+        gap: 30px;
+        padding: 25px 20px 0;
+        .title{
+            font-weight: 600;
+            text-transform: none;
+            letter-spacing: 0;
+            margin-bottom: 10px;
+        }
+    }
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+
+.wpr-marquee-area{
+    .section-inner{
+        .title{
+            min-width: max-content;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            font-size: 120px;
+            letter-spacing: -0.04em;
+            margin: 0;
+            span{
+                display: flex;
+                margin: 0 50px;
+            }
+        }
+        .first-text{
+            transform: translateX(-40%);
+        }
+        .text-wrapper{
+            padding: 30px 0;
+            &:last-child{
+                border-top: 1px solid var(--color-border);
+            }
+        }
+    }
+}
+.scrollingtext-1{
+    display: inline-block;
+    white-space: nowrap;
+}

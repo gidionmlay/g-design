@@ -1,0 +1,23 @@
+<svg width="38" height="48" viewBox="0 0 38 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_92_323" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="38" height="48">
+<ellipse cx="3.99997" cy="3.99991" rx="3.99997" ry="3.99991" fill="#02324F"/>
+<ellipse cx="3.99997" cy="3.99991" rx="3.99997" ry="3.99991" transform="matrix(-1 0 0 1 27.9995 30)" fill="#02324F"/>
+<ellipse cx="13.9995" cy="13.9994" rx="3.99997" ry="3.99991" fill="#02324F"/>
+<ellipse cx="3.99997" cy="3.99991" rx="3.99997" ry="3.99991" transform="matrix(-1 0 0 1 18 40)" fill="#02324F"/>
+<ellipse cx="24.0005" cy="23.998" rx="3.99997" ry="3.99991" fill="#02324F"/>
+<ellipse cx="13.9995" cy="3.99991" rx="3.99997" ry="3.99991" fill="#02324F"/>
+<ellipse cx="3.99997" cy="3.99991" rx="3.99997" ry="3.99991" transform="matrix(-1 0 0 1 18 30)" fill="#02324F"/>
+<ellipse cx="24.0005" cy="13.9994" rx="3.99997" ry="3.99991" fill="#02324F"/>
+<ellipse cx="3.99997" cy="3.99991" rx="3.99997" ry="3.99991" transform="matrix(-1 0 0 1 8.00049 40)" fill="#02324F"/>
+<ellipse cx="33.999" cy="23.998" rx="3.99997" ry="3.99991" fill="#02324F"/>
+</mask>
+<g mask="url(#mask0_92_323)">
+<rect x="-13.999" y="-8.00049" width="61.9995" height="63.9985" fill="url(#paint0_linear_92_323)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_92_323" x1="31.0006" y1="18.9989" x2="6.00081" y2="18.9989" gradientUnits="userSpaceOnUse">
+<stop stop-color="#030712" stop-opacity="0.3"/>
+<stop offset="1" stop-color="#030712"/>
+</linearGradient>
+</defs>
+</svg>

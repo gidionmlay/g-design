@@ -87,6 +87,8 @@
         rdJs.slice_slider();
         rdJs.text_highlight();
         rdJs.showRightRevel();
+        rdJs.scrollingText();
+        rdJs.scrollingText2();
       },
   
     swiperActivation: function(){
@@ -120,6 +122,18 @@
         },
         });
       });
+      // $(document).ready(function () {
+      //   var bgSwiper = new Swiper(".project-image-slider", {
+      //     slidesPerView: 1,
+      //     loop: true,
+      //     spaceBetween: 0,
+      //     speed: 1500,
+      //     navigation: {
+      //       nextEl: ".swiper-btn-next",
+      //       prevEl: ".swiper-btn-prev",
+      //     },
+      //   });
+      // });
     },
       jarallax: function (e) {
       $(document).ready(function () {
@@ -314,6 +328,7 @@
         })
       });
     },
+
     title_animation : function(){
 
       gsap.registerPlugin(ScrollTrigger);
@@ -407,7 +422,48 @@
         if (firstActivePane) animateTabContent(firstActivePane);
       });
     },
+    scrollingText: function () {
+        $(document).ready(function () {
+            let el = document.getElementsByClassName('scrollingtext-1');
+            if (el.length) {
 
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Scroll-reactive movement only
+                gsap.to('.scrollingtext-1', {
+                    xPercent: 2,           // scroll অনুযায়ী কত movement হবে
+                    scrollTrigger: {
+                        trigger: '.scrollingtext-1', // scroll trigger
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: 1                 // smooth animation
+                    },
+                    ease: "none"
+                });
+            }
+        });
+    },
+    scrollingText2: function () {
+        $(document).ready(function () {
+            let el = document.getElementsByClassName('scrollingtext-2');
+            if (el.length) {
+
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Scroll-reactive movement only (বামে)
+                gsap.to('.scrollingtext-2', {
+                    xPercent: -10,          // scroll অনুযায়ী move left
+                    scrollTrigger: {
+                        trigger: '.scrollingtext-2',  // scroll trigger
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: 1                     // smooth scroll
+                    },
+                    ease: "none"
+                });
+            }
+        });
+    },
     typing_text_animation: function () {
       gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -613,9 +669,6 @@
               stagger: 0.2,
             });
           });
-        
-        
-        
         quotes2.forEach(quote2 => {
         
             quote2.split = new SplitText(quote2, { 
@@ -639,13 +692,9 @@
             });
           });
         }
-        
         // ScrollTrigger.addEventListener("refresh", setupSplits);
         setupSplits();
-      }
-
-
-        
+      }  
     },
     text_highlight: function () {
       const highlights = document.querySelectorAll(".title-highlight");
