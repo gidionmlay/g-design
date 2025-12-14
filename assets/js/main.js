@@ -89,6 +89,7 @@
         rdJs.showRightRevel();
         rdJs.scrollingText();
         rdJs.scrollingText2();
+        rdJs.awardAccordion();
       },
   
     swiperActivation: function(){
@@ -924,6 +925,19 @@
       });
     },
 
+    awardAccordion: function () {
+      const projectBlocks = document.querySelectorAll('.award-item');
+
+      // Click event to change active block
+      projectBlocks.forEach(block => {
+          block.addEventListener('click', function() {
+              // Remove active from all
+              projectBlocks.forEach(b => b.classList.remove('active'));
+              // Add active to clicked one
+              this.classList.add('active');
+          });
+      });
+  },
     metismenu:function(){
       $('#mobile-menu-active').metisMenu();
     },  
