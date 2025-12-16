@@ -193,11 +193,32 @@
     }
 }
 
+.wpr-awards-area{
+    .section-inner{
+        .section-title-area{
+            max-width: max-content;
+            margin: auto;
+            padding: 100px 0 70px;
+            .section-title{
+                margin-bottom: 0;
+            }
+        }
+        .award-accordion-area{
+            margin-bottom: 100px;
+        }
+    }
+}
+
 .award-item {
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #E5E7EB;
   padding: 40px 56px;
   cursor: pointer;
   transition: var(--transition);
+  position: relative;
+  z-index: 1;
+  &:first-child{
+    border-top: 1px solid #E5E7EB;
+  }
   &.active{
     .left{
         .content{
@@ -221,6 +242,21 @@
             }
         }
     }
+    .image-area{
+        opacity: 1;
+        img{
+            transform: scale(1);
+        }
+    }
+}
+.image-area{
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    z-index: 1;
+    opacity: 0;
+    transition: var(--transition);
   }
 }
 

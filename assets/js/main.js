@@ -135,6 +135,40 @@
       //     },
       //   });
       // });
+
+      $(document).ready(function () {
+
+        var imageSwiper = new Swiper(".testimonials-image-slider", {
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+        spaceBetween: 0,
+        speed: 1800,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false
+        },
+        navigation: {
+          nextEl: ".swiper-btn-next",
+          prevEl: ".swiper-btn-prev",
+        },
+      });
+
+      var contentSwiper = new Swiper(".testimonials-content-slider", {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        effect:  'fade',
+        speed: 1800,
+        loop: true,
+        autoplay: false,
+      });
+
+      // 🔗 control each other
+      imageSwiper.controller.control = contentSwiper;
+      contentSwiper.controller.control = imageSwiper;
+
+    });
+
     },
       jarallax: function (e) {
       $(document).ready(function () {

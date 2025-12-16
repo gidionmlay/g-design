@@ -74,3 +74,45 @@
         }
     }
 }
+
+.wpr-why-choose-us-area2{
+    .section-inner{
+        position: relative;
+        z-index: 1;
+        .section-title-area{
+            padding: 100px 56px 200px;
+            .sub-title{
+                background: var(--color-white);
+            }
+        }
+        .bottom-content-area{
+            display: flex;
+            border-top: 1px solid rgba( #030712, $alpha: .1);
+        }
+        .top-right-shape{
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            right: 0;
+        }
+    }
+}
+
+.why-choose-wrapper2{
+    width: 25%;
+    padding: 56px;
+    border-right: 1px solid rgba( #030712, $alpha: .1);
+    .icon{
+        margin-bottom: 45px;
+    }
+    .title{
+        line-height: 1;
+        margin-bottom: 12px;
+    }
+    .desc{
+        font-weight: 400;
+    }
+    &:last-child{
+        border: none;
+    }
+}
