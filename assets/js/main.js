@@ -704,6 +704,9 @@
               stagger: 0.2,
             });
           });
+        
+        
+        
         quotes2.forEach(quote2 => {
         
             quote2.split = new SplitText(quote2, { 
@@ -727,9 +730,13 @@
             });
           });
         }
+        
         // ScrollTrigger.addEventListener("refresh", setupSplits);
         setupSplits();
-      }  
+      }
+
+
+        
     },
     text_highlight: function () {
       const highlights = document.querySelectorAll(".title-highlight");
@@ -1106,5 +1113,20 @@
         }
       });
     });
+
+     var win=$(window);
+      var totop = $('.scroll-top-btn');    
+      win.on('scroll', function() {
+          if (win.scrollTop() > 150) {
+              totop.fadeIn();
+          } else {
+              totop.fadeOut();
+          }
+      });
+      totop.on('click', function() {
+          $("html,body").animate({
+              scrollTop: 0
+          }, 500)
+      });
   
   })(jQuery, window)  

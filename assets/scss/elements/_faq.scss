@@ -1,273 +1,96 @@
-.faq-left-content{
-    .desc{
-        max-width: 546px;
-    }
-}
+.wpr-faq-area {
+    .section-inner {
+        position: relative;
+        z-index: 1;
+        .section-content-area {
+            padding: 100px 0;
+            position: relative;
+            z-index: 1;
 
-.accordion-collapse {
-  transition: height 0.4s ease, opacity 0.4s ease;
-}
-
-.accordion-button {
-  transition: all 0.3s ease;
-}
-
-.accordion-button:focus {
-  box-shadow: none;
-}
-
-.accordion-button:not(.collapsed) {
-  background-color: #f6f8fb;
-  color: #000;
-}
-
-/* Optional: smooth fade effect */
-.accordion-collapse.collapse.show {
-  opacity: 1;
-}
-
-.accordion-collapse.collapse {
-  opacity: 0;
-}
-.accordion-item:first-of-type .accordion-button,
-.accordion-item:first-of-type {
-    border-radius: 0 !important;
-}
-.accordion-item:last-of-type .accordion-button,
-.accordion-item:last-of-type {
-    border-radius: 0 !important;
-}
-
-.accordion-one{
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid var(--color-border);
-    .accordion-item{
-        border: none;
-        border-bottom: 1px solid var(--color-border);
-        padding: 28px 30px;
-        &:last-child{
-            border: none !important;
-        }
-    }
-    .accordion-header{
-        button{
-            line-height: 1;
-            font-size: 24px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: -0.04em;
-            background: transparent;
-            box-shadow: none !important;
-            padding: 0;
-            &::after{
-                // content: '\2b';
-                content: '—';
-                width: 30px;
-                height: 30px;
-                line-height: 30px;
-                background: var(--color-primary);
-                border-radius: 4px;
-                color: var(--color-white);
-                font-family: "Font Awsome 6 Pro";
-                transform: none;
-                display: block;
-                text-align: center;
-                font-size: 10px;
+            .accordion-one {
+                max-width: 856px;
+                width: 100%;
+                margin: auto;
+                margin-top: 60px;
             }
-            &.collapsed{
-                &:after{
-                    content: '\2b';
-                    font-size: 16px;
-                    transition: var(--transition);
+
+            .accordion-one {
+                border-radius: 10px;
+                overflow: hidden;
+
+                .accordion-item {
+                    border: none;
+                    padding: 24px 32px;
+                    margin-bottom: 16px;
+                    background: linear-gradient(137.66deg, #F5F5F5 21.13%, #F2F2F2 80.53%);
+                    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.6), inset 0px -5px 0px #E4E4E4, inset 0px -6px 0px 1px #FAFAFA;
+                    border-radius: 12px;
                 }
-            }
-        }
-    }
-    .accordion-body{
-        padding: 0;
-        padding-top: 15px;
-    }
-}
-.accordion-two{
-    border-radius: 0;
-    overflow: hidden;
-    border: none;
-    .accordion-item{
-        border: none;
-        border-bottom: 1px solid var(--color-border);
-        padding: 30px 0;
-        &:first-child{
-            border-top: 1px solid var(--color-border);
-        }
-    }
-    .accordion-header{
-        .accordion-button{
-            line-height: 1;
-            font-size: 34px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: -0.04em;
-            background: transparent;
-            box-shadow: none !important;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            &::after{
-                display: none;
-            }
-            &.collapsed{
-                &:after{
-                    display: none;
-                }
-            }
-            .left{
-                display: flex;
-                align-items: center;
-                gap: 20px;
-                span{
-                    font-size: 20px;
-                    line-height: 1;
-                    font-family: var(--font-secondary);
-                }
-            }
-        }
-    }
-    .accordion-body{
-        padding: 0;
-        padding-top: 15px;
-        padding-left: 45px;
-        p{
-            margin-bottom: 45px;
-        }
-        .image-area{
-            margin-bottom: 30px;
-        }
-        .wpr-button-area{
-            .wpr-btn{
-                padding: 0;
-                color: var(--color-heading-1);
-                background: none;
-                gap: 0;
-                .wpr-btn-text{
-                    span{
-                        font-family: "Bricolage Grotesque", sans-serif;
-                        text-decoration: underline;
-                    }
-                }
-                .icon{
-                    height: 20px;
-                    line-height: 20px;
-                    i{
-                        svg{
-                            path{
-                                fill: var(--color-heading-1);
+
+                .accordion-header {
+                    button {
+                        line-height: 1;
+                        font-size: 18px;
+                        font-weight: 600;
+                        font-family: var(--font-secondary);
+                        text-transform: none;
+                        letter-spacing: 0;
+                        background: transparent;
+                        box-shadow: none !important;
+                        padding: 0;
+                        color: var(--color-heading-1);
+
+                        &::after {
+                            // content: '\2b';
+                            content: '—';
+                            width: 28px;
+                            height: 28px;
+                            line-height: 28px;
+                            background: var(--color-heading-1);
+                            background: linear-gradient(137.66deg, #40454A 21.13%, #292C2E 80.53%);
+                            border-radius: 4px;
+                            color: var(--color-primary);
+                            font-family: "Font Awsome 6 Pro";
+                            transform: none;
+                            display: block;
+                            text-align: center;
+                            font-size: 10px;
+                        }
+
+                        &.collapsed {
+                            &:after {
+                                content: '\2b';
+                                font-size: 16px;
+                                transition: var(--transition);
                             }
                         }
                     }
                 }
+
+                .accordion-body {
+                    padding: 0;
+                    padding-top: 20px;
+                    p{
+                        color: var(--color-heading-1);
+                        font-weight: 500;
+                    }
+                }
             }
+        }
+        .top-left-shape{
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top: 0;
+        }
+        .bg-shape{
+            position: absolute;
+            z-index: -1;
+            bottom: 0;
+            right: 0;
         }
     }
 }
-.wpr-faq-area.area-2{
-    .accordion-one .accordion-header button::after{
-        border-radius: 0;
-    }
-}
-.accordion-three{
-    border-radius: 0;
-    overflow: hidden;
-    border: 1px solid var(--color-border);
-    padding: 40px 55px 40px 40px;
-    .accordion-item{
-        border-width: 1px 0 0;
-        border-style: solid;
-        border-color: var(--color-border);
-        padding: 20px 0;
-        &:first-child{
-            padding-top: 0;
-            border-top: 0;
-        }
-        &:last-child{
-            padding-bottom: 0;
-            .accordion-body{
-                padding-bottom: 0;
-            }
-        }
-    }
-    .accordion-header{
-        .accordion-button{
-            line-height: 1;
-            font-size: 24px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: -0.04em;
-            background: transparent;
-            box-shadow: none !important;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            &::after{
-                content: "+";
-                background: none;
-            }
-            &.collapsed{
-                &:after{
-                    content: "+";
-                    height: unset;
-                    width: unset;
-                }
-            }
-            .left{
-                display: flex;
-                align-items: center;
-                gap: 20px;
-                span{
-                    font-size: 20px;
-                    line-height: 1;
-                    font-family: var(--font-secondary);
-                }
-            }
-        }
-    }
-    .accordion-body{
-        padding: 30px 0;
-        border-top: 1px solid var(--color-border);
-        margin-top: 20px;
-        p{
-            margin-bottom: 30px;
-        }
-        ul{
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            li{
-                padding: 0;
-                margin: 0;
-                position: relative;
-                z-index: 1;
-                padding-left: 16px;
-                color: var(--color-black);
-                line-height: 1;
-                font-weight: 500;
-                font-family: var(--font-secondary);
-                &::after{
-                    content: '';
-                    position: absolute;
-                    z-index: 1;
-                    left: 0;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    width: 6px;
-                    height: 6px;
-                    background: var(--color-primary);
-                }
-            }
-        }
-    }
+.accordion-collapse {
+  transition: height 0.4s ease, opacity 0.4s ease;
 }

@@ -1,0 +1,185 @@
+.wpr-pricing-plans-area{
+    .section-inner{
+        .section-top-area{
+            padding: 100px 0 60px;
+        }
+        .section-mid-area{
+            display: flex;
+            border-top: 1px solid #E5E7EB;
+            .pricing-inner{
+                width: 50%;
+                padding: 60px;
+                border-right: 1px solid #E5E7EB;
+                z-index: 9;
+                &:last-child{
+                    border: none;
+                }
+            }
+        }
+    }
+}
+.pricing-wrapper{
+    background: linear-gradient(137.66deg, #F5F5F5 21.13%, #F2F2F2 80.53%);
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.6), inset 0px -5px 0px #E4E4E4, inset 0px -6px 0px 1px #FAFAFA;
+    border-radius: 12px;
+    padding: 16px 16px 54px;
+    .pricing-header{
+        background: var(--color-white);
+        padding: 32px 24px;
+        position: relative;
+        z-index: 1;
+        border-radius: 8px;
+        overflow: hidden;
+        .plan-type{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+            h6{
+                font-family: var(--font-secondary);
+                text-transform: none;
+                font-weight: 600;
+                line-height: 1;
+                margin-bottom: 0;
+                font-size: 18px;
+            }
+            p{
+                font-size: 14px;
+                line-height: 1;
+                padding: 3px 6px 3px 22px;
+                background: rgba($color: #98FF03, $alpha: .15);
+                position: relative;
+                z-index: 1;
+                font-family: var(--font-primary);
+                color: var(--color-heading-1);
+                font-weight: 400;
+                &::after{
+                    content: '';
+                    position: absolute;
+                    z-index: 1;
+                    width: 8px;
+                    height: 8px;
+                    background: var(--color-primary);
+                    top: 50%;
+                    left: 6px;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+        .title{
+            font-family: var(--font-secondary);
+            text-transform: none;
+            font-weight: 600;
+            margin-bottom: 65px;
+            span{
+                color: var(--color-body-1);
+            }
+        }
+        .bottom-pricing{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .price{
+                font-family: var(--font-secondary);
+                text-transform: none;
+                font-weight: 600;
+                margin-bottom: 0;
+                span{
+                    font-size: 14px;
+                    color: var(--color-body-1);
+                    font-weight: 400;
+                    letter-spacing: 0;
+                }
+            }
+            .button-area{
+                .wpr-btn{
+                    background: radial-gradient(62.56% 62.56% at 28.14% -10.42%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, linear-gradient(137.66deg, #40454A 21.13%, #292C2E 80.53%);
+                    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1), 60px 50px 80px rgba(0, 0, 0, 0.15), 20px 41.7776px 33.4221px rgba(0, 0, 0, 0.1503), 10px 22.3363px 17.869px rgba(0, 0, 0, 0.1417), 4px 12.5216px 10.0172px rgba(0, 0, 0, 0.135), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.1283), 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.1197), inset 0px 1px 0px rgba(255, 255, 255, 0.6), inset 0px -3px 0px #1A1A1A, inset 0px -4px 0px 1px rgba(255, 255, 255, 0.1);
+                    border-radius: 12px;
+                    max-width: 100%;
+                    width: 253px;
+                    text-align: center;
+                    justify-content: center;
+                }
+            }
+        }
+        .shape-one{
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            right: 0;
+        }
+        .shape-two{
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            right: 0;
+        }
+    }
+    .pricing-body{
+        padding: 54px 24px 0 24px;
+        ul{
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            li{
+                width: 48%;
+                padding: 0;
+                margin: 0;
+                color: var(--color-heading-1);
+                font-weight: 500;
+                display: flex;
+                line-height: 1;
+                gap: 10px;
+            }
+        }
+    }
+    &.dark{
+        background: radial-gradient(62.56% 62.56% at 28.14% -10.42%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, linear-gradient(137.66deg, #40454A 21.13%, #292C2E 80.53%);
+        box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.6), inset 0px -5px 0px #E4E4E4, inset 0px -6px 0px 1px #FAFAFA;
+        border-radius: 12px;
+        .pricing-header{
+            background: rgba(#FFFFFF, $alpha: .1);
+            .plan-type{
+                h6{
+                    color: #F9FAFB;
+                }
+                p{
+                    background: rgba(#FFFFFF, $alpha: .2);
+                    color: #F9FAFB;
+                }
+            }
+            .title{
+                color: var(--color-white);
+                span{
+                    color: rgba(#FFFFFF, $alpha: .6);
+                }
+            }
+            .bottom-pricing{
+                .price{
+                    color: #F9FAFB;
+                    span{
+                        color: #F9FAFB;
+                    }
+                }
+                .button-area{
+                    .wpr-btn{
+                        background: radial-gradient(62.56% 62.56% at 28.14% -10.42%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, linear-gradient(137.66deg, #40454A 21.13%, #292C2E 80.53%);
+                        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1), 60px 50px 80px rgba(0, 0, 0, 0.15), 20px 41.7776px 33.4221px rgba(0, 0, 0, 0.1503), 10px 22.3363px 17.869px rgba(0, 0, 0, 0.1417), 4px 12.5216px 10.0172px rgba(0, 0, 0, 0.135), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.1283), 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.1197), inset 0px 1px 0px rgba(255, 255, 255, 0.6), inset 0px -3px 0px #1A1A1A, inset 0px -4px 0px 1px rgba(255, 255, 255, 0.1);
+                        border-radius: 12px;
+                    }
+                }
+            }
+        }
+        .pricing-body{
+            ul{
+                li{
+                    color: #F9FAFB;
+                }
+            }
+        }
+    }
+}

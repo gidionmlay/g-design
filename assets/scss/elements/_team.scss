@@ -176,6 +176,11 @@
         max-width: 100%;
         .icon{
             min-width: 52px;
+            span{
+                img{
+                    min-width: 20px;
+                }
+            }
         }
         span{
             display: block;
