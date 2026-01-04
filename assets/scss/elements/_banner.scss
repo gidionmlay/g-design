@@ -3,13 +3,19 @@
   position: relative;
   z-index: 0;
   margin: 0 0 16px;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: rgba(#030712, $alpha: .1);
   
   .banner-content-area{
     height: 800px;
     padding: 172px 0 115px;
     position: relative;
     z-index: 1;
-    border: 1px solid rgba(#030712, $alpha: .1);
+    border-width: 0 1px;
+    border-style: solid;
+    border-color: rgba(#030712, $alpha: .1);
+    overflow: hidden;
     .top-shape{
       position: absolute;
       width: 100px;
@@ -48,11 +54,13 @@
           left: 50%;
           transform: translateX(-50%);
           bottom: -35px;
+          overflow: hidden;
           .arrow {
             height: 16px;
             opacity: 0.15;
             display: flex;
             animation: fadeMove 1.2s infinite;
+            min-width: 13px;
             img{
               position: unset;
             }
@@ -90,11 +98,13 @@
           right: 50%;
           transform: translateX(50%);
           top: -35px;
+          overflow: hidden;
           .arrow {
             height: 16px;
             opacity: 0.15;
             display: flex;
             animation: fadeMove 1.2s infinite;
+            min-width: 13px;
             img{
               position: unset;
             }

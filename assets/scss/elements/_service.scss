@@ -30,6 +30,10 @@
                             opacity: 1;
                             color: #D1D5DB;
                         }
+                        .tag{
+                            background: #F3F4F6;
+                            color: var(--color-heading-1);
+                        }
                     }
                     .mid{
                         h2{
@@ -80,7 +84,7 @@
                 justify-content: space-between;
                 .top{
                     .tag{
-                        color: var(--color-heading-1);
+                        color: #F9FAFB;
                         margin-bottom: 15px;
                         font-size: 14px;
                         line-height: 1;
@@ -89,9 +93,10 @@
                         position: relative;
                         padding: 4px 5px 3px 24px;
                         z-index: 1;
-                        background: #F3F4F6;
+                        background: var(--color-heading-1);
                         max-width: max-content;
                         font-family: var(--font-primary);
+                        transition: var(--transition);
                         &::after{
                         content: '';
                         position: absolute;

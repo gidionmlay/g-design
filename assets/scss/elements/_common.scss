@@ -213,7 +213,7 @@
 
 @media(min-width: 768px) {
     .container,.container-md,.container-sm {
-        max-width:720px
+        max-width:100%
     }
 }
 
@@ -225,7 +225,7 @@
 
 @media(min-width: 1200px) {
     .container,.container-lg,.container-md,.container-sm,.container-xl {
-        max-width:1140px
+        max-width:1170px
     }
 }
 
@@ -913,4 +913,23 @@ ul{
 
 .white-low{
   color: rgba(#FFFFFF, $alpha: .1) !important;
+}
+
+section{
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: transparent;
+  @media(max-width:1440px){
+    border-color: rgba(#030712, $alpha: .1);
+  }
+  .section-inner{
+    &.border-1{
+      border-width: 1px 1px !important;
+      border-style: solid;
+      border-color: rgba(#030712, $alpha: .1);
+      @media(max-width:1440px){
+        border-width: 0 1px !important;
+      }
+    }
+  }
 }
