@@ -35,6 +35,8 @@
         .button-area-start{
             padding: 12px 50px;
             border-left: 1px solid rgba( #030712, $alpha: .1);
+            display: flex;
+            gap: 20px;
         }
     }
 }

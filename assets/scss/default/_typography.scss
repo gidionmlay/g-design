@@ -26,13 +26,13 @@ body {
     position: relative;
     overflow-x: hidden;
     @media #{$lg-layout} {
-        overflow: hidden;
+        overflow-x: visible;
     }
     @media #{$md-layout} {
-        overflow: hidden;
+        overflow-x: visible;
     }
     @media #{$sm-layout} {
-        overflow: hidden;
+        overflow-x: visible;
     }
 }
 

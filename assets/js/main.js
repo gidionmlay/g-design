@@ -161,6 +161,9 @@
         speed: 1800,
         loop: true,
         autoplay: false,
+        fadeEffect: {
+            crossFade: true
+        }
       });
 
       // 🔗 control each other

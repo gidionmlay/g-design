@@ -25,6 +25,29 @@
     .pricing-wrapper .pricing-header .bottom-pricing .button-area .wpr-btn{
         width: 100%;
     }
+    .wpr-testimonials-area .section-inner .top-left-shape{
+        max-width: 300px;
+    }
+    .award-header .left .content{
+        max-width: 350px;
+    }
+    .award-item{
+        padding: 40px 30px;
+    }
+    .award-header .left .content .title{
+        br{
+            display: none;
+        }
+    }
+    .why-choose-wrapper .wrapper-header .title{
+        font-size: 42px;
+    }
+    .why-choose-wrapper .wrapper-list{
+        padding: 0 10px !important;
+    }
+    .why-choose-wrapper .wrapper-list li{
+        font-size: 14px;
+    }
 }
 
 @media(max-width:1440px) and (min-width:1200px) {
@@ -34,6 +57,20 @@
 
     .why-choose-wrapper2 {
         padding: 56px 28px;
+    }
+    .team-apply-wrapper{
+        padding: 20px;
+    }
+    .wpr-services-area .section-bottom-content .service-wrapper .content{
+        padding: 32px 20px 40px;
+    }
+    .wpr-services-area .section-bottom-content .service-wrapper .content .bottom ul li{
+        font-size: 14px;
+    }
+    .wpr-services-area .section-bottom-content .service-wrapper .content .bottom .service-btn-area{
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
     }
 }
 
@@ -109,6 +146,12 @@
     .wpr-faq-area .section-inner .top-left-shape{
         max-width: 225px;
     }
+    .wpr-why-choose-us-area2 .section-inner .top-right-shape{
+        max-width: 450px;
+    }
+    .wpr-testimonials-area .section-inner .testimonials-content-slider{
+        max-width: 480px;
+    }
 }
 
 @media(max-width:1200px) and (min-width:991px) {
@@ -142,6 +185,10 @@
     }
     .pricing-wrapper .pricing-body ul li{
         font-size: 14px;
+    }
+    .wpr-testimonials-area .section-inner .testimonials-content-slider .testimonials-content .top{
+        height: 200px;
+        padding: 20px;
     }
 }
 
@@ -222,6 +269,47 @@
     }
     .pricing-wrapper .pricing-header .title{
         font-size: 36px;
+    }
+    .wpr-why-choose-us-area2 .section-inner .top-right-shape{
+        max-width: 400px;
+    }
+    .wpr-testimonials-area .section-inner .testimonials-content-slider{
+        max-width: 100%;
+        position: relative;
+        top: unset;
+        left: unset;
+        right: unset;
+        bottom: unset;
+        background: rgb(0 0 0 / 67%);
+    }
+    .wpr-testimonials-area .section-inner .testimonials-content-slider .testimonials-content{
+        background: rgb(0 0 0 / 67%);
+    }
+    .wpr-testimonials-area .section-inner .top-left-shape{
+        max-width: 250px;
+    }
+    .wpr-testimonials-area .section-inner .testimonials-content-slider .testimonials-content .top{
+        height: auto;
+    }
+    .award-header .left{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .award-item.active .left .content .desc{
+        margin-top: 25px;
+        height: 80px;
+    }
+    .wpr-why-choose-us-area .wpr-content-area .content-inner{
+        margin: 0 20px;
+    }
+    .why-choose-wrapper .wrapper-header .title{
+        font-size: 38px;
+    }
+    .wpr-working-process .working-process-left{
+        margin-bottom: 50px;
+    }
+    .wpr-working-process .working-process-left{
+        gap: 40px;
     }
 }
 
@@ -328,6 +416,53 @@
     }
     .pricing-wrapper .pricing-body{
         padding: 54px 15px 0 15px;
+    }
+    .wpr-why-choose-us-area2 .section-inner .top-right-shape{
+        max-width: 300px;
+    }
+    .wpr-why-choose-us-area2 .section-inner .section-title-area{
+        padding: 100px 30px;
+    }
+    .wpr-testimonials-area .section-inner .top-left-shape{
+        max-width: 200px;
+    }
+    .award-item .image-area{
+        position: relative;
+        transform: none;
+        top: unset;
+        right: unset;
+        height: 0;
+    }
+    .award-header .left{
+        max-width: 90%;
+    }
+    .award-item.active .image-area{
+        margin-top: 30px;
+        height: auto;
+    }
+    .team-wrapper.down,
+    .team-apply-wrapper{
+        transform: translateY(0);
+    }
+    .team-apply-wrapper{
+        gap: 30px;
+    }
+    .team-apply-wrapper .wpr-btn{
+        height: 100px;
+    }
+    .wpr-working-process .section-inner{
+        padding: 60px 20px;
+    }
+    .wpr-services-area .section-bottom-content .service-wrapper .content{
+        padding: 32px 20px 40px;
+    }
+    .wpr-services-area .section-bottom-content .service-wrapper .content .bottom ul li{
+        font-size: 14px;
+    }
+    .wpr-services-area .section-bottom-content .service-wrapper .content .bottom .service-btn-area{
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
     }
 }
 
@@ -453,6 +588,45 @@
     .pricing-wrapper .pricing-header .title{
         font-size: 32px;
     }
+    .wpr-why-choose-us-area2 .section-inner .top-right-shape{
+        max-width: 200px;
+    }
+    .wpr-why-choose-us-area2 .section-inner .section-title-area{
+        padding: 60px 30px;
+    }
+    .wpr-testimonials-area .section-inner .top-left-shape{
+        max-width: 130px;
+    }
+    .wpr-testimonials-area .section-inner .testimonials-content-slider .testimonials-content .author-area{
+        padding: 25px 20px;
+    }
+    .wpr-testimonials-area .section-inner .swiper-navigation .swiper-btn{
+        width: 70px;
+        height: 92px;
+        line-height: 92px;
+    }
+    .wpr-testimonials-area .section-inner .testimonials-content-slider .testimonials-content .top{
+        height: 250px;
+    }
+    .wpr-team-area .section-bottom-inner{
+        padding: 0 20px;
+    }
+    .wpr-marquee-area .section-inner .title{
+        font-size: 64px;
+    }
+    .working-process-wrapper .content-area{
+        flex-direction: column;
+        gap: 15px;
+    }
+    .header-style-one .header-style-one-wrapper .button-area-start .wpr-btn{
+        display: none;
+    }
+    .header-style-one .header-style-one-wrapper .left-area{
+        padding: 21px 20px 20px;
+    }
+    .header-style-one .header-style-one-wrapper .button-area-start{
+        padding: 12px 20px;
+    }
 }
 
 @media(max-width:576px) and (min-width:450px) {}
@@ -517,5 +691,63 @@
     }
     .wpr-faq-area .section-inner .top-left-shape{
         max-width: 170px;
+    }
+    .pricing-wrapper .pricing-header{
+        padding: 30px 20px;
+    }
+    .pricing-wrapper .pricing-header .plan-type{
+        flex-direction: column;
+        align-items: self-start;
+    }
+    .pricing-wrapper .pricing-header .title{
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+    .pricing-wrapper .pricing-header .shape-one{
+        max-width: 75px;
+    }
+    .pricing-wrapper .pricing-header .bottom-pricing{
+        flex-direction: column;
+        align-items: self-start;
+        gap: 15px;
+    }
+    .pricing-wrapper .pricing-body{
+        padding: 40px 0 0;
+    }
+    .wpr-pricing-plans-area .section-inner .section-top-area{
+        padding: 60px 0;
+    }
+    .wpr-why-choose-us-area2 .section-inner .top-right-shape{
+        max-width: 140px;
+    }
+    .wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner{
+        padding: 60px 20px;
+    }
+    .wpr-testimonials-area .section-inner .top-left-shape{
+        max-width: 100px;
+    }
+    .wpr-testimonials-area .section-inner .testimonials-content-slider .testimonials-content .top .desc{
+        font-size: 16px;
+    }
+    .wpr-testimonials-area .section-inner .swiper-navigation .swiper-btn{
+        width: 50px;
+    }
+    .wpr-testimonials-area .section-inner .testimonials-content-slider .testimonials-content .top{
+        height: 280px;
+    }
+    .award-header .left .content .title{
+        font-size: 20px;
+    }
+    .why-choose-wrapper .wrapper-list{
+        padding:  0 !important;
+    }
+    .why-choose-wrapper .wrapper-header .title{
+        font-size: 32px;
+    }
+    .wpr-marquee-area .section-inner .title{
+        font-size: 56px;
+    }
+    .working-process-wrapper .content-area{
+        padding: 25px 0 0;
     }
 }
