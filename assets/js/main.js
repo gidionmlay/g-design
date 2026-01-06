@@ -89,6 +89,7 @@
       rdJs.scrollingText();
       rdJs.scrollingText2();
       rdJs.awardAccordion();
+      rdJs.containerResize();
     },
 
     swiperActivation: function () {
@@ -1075,9 +1076,55 @@ sideMenu: function () {
         setInterval(showNextImage, 2000);
       }
     },
+    containerResize: function () {
+      document.addEventListener("DOMContentLoaded", function () {
+        gsap.registerPlugin(ScrollTrigger);
 
+        const pinWrap = document.querySelector(".rts-video-pin");
+        const wrapper = document.querySelector(".rts-video-wrapper");
+        const slider = document.querySelector(".gsap-slider");
+        const slides = gsap.utils.toArray(".gsap-slider .slide");
 
+        if (!pinWrap || slides.length === 0) return;
 
+        const slideCount = slides.length;
+
+        // Initial state (before pin)
+        gsap.set(wrapper, {
+          scale: 0.1,
+          opacity: 0,              
+          transformOrigin: "center center",
+          willChange: "transform, opacity",
+        });
+
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: pinWrap,
+            end: () => "+=" + window.innerHeight * slideCount,
+            scrub: 0.7,
+            pin: true,
+            pinSpacing: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        })
+        .to(wrapper, {
+          opacity: 1,
+          duration: 0.2,
+          ease: "power1.out",
+        })
+        .to(wrapper, {
+          scale: 1,
+          duration: 1.4,
+          ease: "power2.out",
+        })
+        .to(slider, {
+          xPercent: -100 * (slideCount - 1),
+          duration: slideCount - 1,
+          ease: "none",
+        });
+      });
+    },
 
   }
   rdJs.m();
@@ -1168,6 +1215,8 @@ sideMenu: function () {
       scrollTop: 0
     }, 500)
   });
+
+  
 
 
 })(jQuery, window)  
