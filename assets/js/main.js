@@ -41,59 +41,59 @@
 ==================================================*/
 
 (function ($) {
-    'use strict';
-    let device_width = window.innerWidth;
-    $.exists = function (selector) {
-      return $(selector).length > 0;
-    };
-  
-    gsap.registerPlugin(ScrollTrigger, SplitText);
-  
-    var rdJs = {
-      m: function (e) {
-        rdJs.d();
-        rdJs.methods();
-      },
-      d: function (e) {
-        this._window = $(window),
-          this._document = $(document),
-          this._body = $('body'),
-          this._html = $('html')
-      },
-      methods: function (e) {
-        rdJs.swiperActivation();
-        rdJs.wowActive();
-        rdJs.jarallax();
-        rdJs.customSelectActive();
-        rdJs.videoActivation();
-        rdJs.odoMeter();
-        rdJs.searchOption();
-        rdJs.stickyHeader();
-        rdJs.stickySidebar();
-        rdJs.title_animation();
-        rdJs.typing_text_animation();
-        rdJs.splitText();
-        rdJs.skew_up();
-        rdJs.textTitleAnimation__1();
-        rdJs.gsapAnimationImageScale();
-        rdJs.feedbackCollupsShow();
-        rdJs.imageSlideGsap();
-        rdJs.imageParalax();
-        rdJs.sideMenu();
-        rdJs.metismenu();
-        rdJs.preloader();
-        rdJs.tab_content_animation();
-        rdJs.smoothScroll();
-        rdJs.slice_slider();
-        rdJs.text_highlight();
-        rdJs.showRightRevel();
-        rdJs.scrollingText();
-        rdJs.scrollingText2();
-        rdJs.awardAccordion();
-      },
-  
-    swiperActivation: function(){
-      
+  'use strict';
+  let device_width = window.innerWidth;
+  $.exists = function (selector) {
+    return $(selector).length > 0;
+  };
+
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  var rdJs = {
+    m: function (e) {
+      rdJs.d();
+      rdJs.methods();
+    },
+    d: function (e) {
+      this._window = $(window),
+        this._document = $(document),
+        this._body = $('body'),
+        this._html = $('html')
+    },
+    methods: function (e) {
+      rdJs.swiperActivation();
+      rdJs.wowActive();
+      rdJs.jarallax();
+      rdJs.customSelectActive();
+      rdJs.videoActivation();
+      rdJs.odoMeter();
+      rdJs.searchOption();
+      rdJs.stickyHeader();
+      rdJs.stickySidebar();
+      rdJs.title_animation();
+      rdJs.typing_text_animation();
+      rdJs.splitText();
+      rdJs.skew_up();
+      rdJs.textTitleAnimation__1();
+      rdJs.gsapAnimationImageScale();
+      rdJs.feedbackCollupsShow();
+      rdJs.imageSlideGsap();
+      rdJs.imageParalax();
+      rdJs.sideMenu();
+      rdJs.metismenu();
+      rdJs.preloader();
+      rdJs.tab_content_animation();
+      rdJs.smoothScroll();
+      rdJs.slice_slider();
+      rdJs.text_highlight();
+      rdJs.showRightRevel();
+      rdJs.scrollingText();
+      rdJs.scrollingText2();
+      rdJs.awardAccordion();
+    },
+
+    swiperActivation: function () {
+
       $(document).ready(function () {
         var bgSwiper = new Swiper(".bg-slider", {
           slidesPerView: 1,
@@ -110,17 +110,17 @@
             prevEl: ".swiper-btn-prev",
           },
           creativeEffect: {
-          prev: {
-            scale: 1.1,
-            opacity: 0,
-            translate: [0, 0, 0],
+            prev: {
+              scale: 1.1,
+              opacity: 0,
+              translate: [0, 0, 0],
+            },
+            next: {
+              scale: 1.3,
+              opacity: 0,
+              translate: [0, 0, 0],
+            },
           },
-          next: {
-            scale: 1.3,
-            opacity: 0,
-            translate: [0, 0, 0],
-          },
-        },
         });
       });
       // $(document).ready(function () {
@@ -139,41 +139,41 @@
       $(document).ready(function () {
 
         var imageSwiper = new Swiper(".testimonials-image-slider", {
-        slidesPerView: 1,
-        slidesPerGroup: 1,
-        spaceBetween: 0,
-        speed: 1800,
-        loop: true,
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false
-        },
-        navigation: {
-          nextEl: ".swiper-btn-next",
-          prevEl: ".swiper-btn-prev",
-        },
-      });
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+          spaceBetween: 0,
+          speed: 1800,
+          loop: true,
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false
+          },
+          navigation: {
+            nextEl: ".swiper-btn-next",
+            prevEl: ".swiper-btn-prev",
+          },
+        });
 
-      var contentSwiper = new Swiper(".testimonials-content-slider", {
-        slidesPerView: 1,
-        spaceBetween: 0,
-        effect:  'fade',
-        speed: 1800,
-        loop: true,
-        autoplay: false,
-        fadeEffect: {
+        var contentSwiper = new Swiper(".testimonials-content-slider", {
+          slidesPerView: 1,
+          spaceBetween: 0,
+          effect: 'fade',
+          speed: 1800,
+          loop: true,
+          autoplay: false,
+          fadeEffect: {
             crossFade: true
-        }
+          }
+        });
+
+        // 🔗 control each other
+        imageSwiper.controller.control = contentSwiper;
+        contentSwiper.controller.control = imageSwiper;
+
       });
-
-      // 🔗 control each other
-      imageSwiper.controller.control = contentSwiper;
-      contentSwiper.controller.control = imageSwiper;
-
-    });
 
     },
-      jarallax: function (e) {
+    jarallax: function (e) {
       $(document).ready(function () {
         // Function to detect if the device is mobile
         function isMobileDevice() {
@@ -243,7 +243,7 @@
     },
 
     videoActivation: function (e) {
-      $(document).ready(function(){
+      $(document).ready(function () {
         $('.popup-youtube, .popup-video').magnificPopup({
           disableOn: 700,
           type: 'iframe',
@@ -254,18 +254,64 @@
         });
       });
     },
-    preloader:function(){
-      window.addEventListener('load',function(){
-        document.querySelector('body').classList.add("loaded")  
-      });          
+    preloader: function () {
+      if ($(".preloader").length) {
+        var innerBars = document.querySelectorAll(".inner-bar");
+        var increment = 0;
+
+        function animateBars() {
+          for (var i = 0; i < 2; i++) {
+            var randomWidth = Math.floor(Math.random() * 101);
+            gsap.to(innerBars[i + increment], {
+              width: randomWidth + "%",
+              duration: 0.3,
+              ease: "none",
+            });
+          }
+
+          gsap.delayedCall(0.3, function () {
+            for (var i = 0; i < 2; i++) {
+              gsap.to(innerBars[i + increment], {
+                width: "100%",
+                duration: 0.3,
+                ease: "none",
+              });
+            }
+
+            increment += 2;
+
+            if (increment < innerBars.length) {
+              animateBars();
+            } else {
+              var preloaderTL = gsap.timeline({
+                onComplete: function () {
+                  $(".preloader").remove();
+                },
+              });
+
+              preloaderTL.to(".preloader", {
+                "--preloader-clip": "100%",
+                duration: 0.3,
+                ease: "none",
+              });
+            }
+          });
+        }
+
+        $(window).on("load", function () {
+          animateBars();
+        });
+      } else {
+        
+      }
     },
     stickySidebar: function (e) {
       // stickySidebar
-  if (typeof $.fn.theiaStickySidebar !== "undefined") {
-    $(".sticky-coloum-wrap .sticky-coloum-item").theiaStickySidebar({
-      additionalMarginTop: 130,
-    });
-  }
+      if (typeof $.fn.theiaStickySidebar !== "undefined") {
+        $(".sticky-coloum-wrap .sticky-coloum-item").theiaStickySidebar({
+          additionalMarginTop: 130,
+        });
+      }
     },
     // search popup
     searchOption: function () {
@@ -321,11 +367,11 @@
     // sticky header activation
     stickyHeader: function (e) {
       $(window).scroll(function () {
-          if ($(this).scrollTop() > 150) {
-              $('.header--sticky').addClass('sticky')
-          } else {
-              $('.header--sticky').removeClass('sticky')
-          }
+        if ($(this).scrollTop() > 150) {
+          $('.header--sticky').addClass('sticky')
+        } else {
+          $('.header--sticky').removeClass('sticky')
+        }
       })
     },
     imageSlideGsap: function () {
@@ -367,54 +413,54 @@
       });
     },
 
-    title_animation : function(){
+    title_animation: function () {
 
       gsap.registerPlugin(ScrollTrigger);
       gsap.registerPlugin(SplitText);
       if (window.innerWidth > 768) {
-      $(document).ready(function(){
-        let addAnimation = function () {
-          $(".split-collab").each(function (index) {
-            const textInstance = $(this);
-            const text = new SplitText(textInstance, {
-              type: "chars",
-            });
-        
-            let letters = text.chars;
-        
-            let tl = gsap.timeline({
-              scrollTrigger: {
-                trigger: textInstance,
-                start: "top 85%",
-                end: "top 85%",
-                onComplete: function () {
-                  textInstance.removeClass(".split-collab");
-                }
-              }
-            });
-        
-            tl.set(textInstance, { opacity: 1 }).from(letters, {
-              duration: .5,
-              autoAlpha: 0,
-              x: 50,
-              // scaleY: 0,
-              // skewX: 50,
-              stagger: { amount: 1 },
-              ease: "back.out(1)"
-            });
-          });
-        };
-        
-        addAnimation();
-        
-        window.addEventListener("resize", function (event) {
-          if ($(window).width() >= 992) {
-            addAnimation();
-          }
-        });
+        $(document).ready(function () {
+          let addAnimation = function () {
+            $(".split-collab").each(function (index) {
+              const textInstance = $(this);
+              const text = new SplitText(textInstance, {
+                type: "chars",
+              });
 
-      });
-    }
+              let letters = text.chars;
+
+              let tl = gsap.timeline({
+                scrollTrigger: {
+                  trigger: textInstance,
+                  start: "top 85%",
+                  end: "top 85%",
+                  onComplete: function () {
+                    textInstance.removeClass(".split-collab");
+                  }
+                }
+              });
+
+              tl.set(textInstance, { opacity: 1 }).from(letters, {
+                duration: .5,
+                autoAlpha: 0,
+                x: 50,
+                // scaleY: 0,
+                // skewX: 50,
+                stagger: { amount: 1 },
+                ease: "back.out(1)"
+              });
+            });
+          };
+
+          addAnimation();
+
+          window.addEventListener("resize", function (event) {
+            if ($(window).width() >= 992) {
+              addAnimation();
+            }
+          });
+
+        });
+      }
 
     },
     tab_content_animation: function () {
@@ -461,46 +507,46 @@
       });
     },
     scrollingText: function () {
-        $(document).ready(function () {
-            let el = document.getElementsByClassName('scrollingtext-1');
-            if (el.length) {
+      $(document).ready(function () {
+        let el = document.getElementsByClassName('scrollingtext-1');
+        if (el.length) {
 
-                gsap.registerPlugin(ScrollTrigger);
+          gsap.registerPlugin(ScrollTrigger);
 
-                // Scroll-reactive movement only
-                gsap.to('.scrollingtext-1', {
-                    xPercent: 2,           // scroll অনুযায়ী কত movement হবে
-                    scrollTrigger: {
-                        trigger: '.scrollingtext-1', // scroll trigger
-                        start: "top bottom",
-                        end: "bottom top",
-                        scrub: 1                 // smooth animation
-                    },
-                    ease: "none"
-                });
-            }
-        });
+          // Scroll-reactive movement only
+          gsap.to('.scrollingtext-1', {
+            xPercent: 2,           // scroll অনুযায়ী কত movement হবে
+            scrollTrigger: {
+              trigger: '.scrollingtext-1', // scroll trigger
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1                 // smooth animation
+            },
+            ease: "none"
+          });
+        }
+      });
     },
     scrollingText2: function () {
-        $(document).ready(function () {
-            let el = document.getElementsByClassName('scrollingtext-2');
-            if (el.length) {
+      $(document).ready(function () {
+        let el = document.getElementsByClassName('scrollingtext-2');
+        if (el.length) {
 
-                gsap.registerPlugin(ScrollTrigger);
+          gsap.registerPlugin(ScrollTrigger);
 
-                // Scroll-reactive movement only (বামে)
-                gsap.to('.scrollingtext-2', {
-                    xPercent: -10,          // scroll অনুযায়ী move left
-                    scrollTrigger: {
-                        trigger: '.scrollingtext-2',  // scroll trigger
-                        start: "top bottom",
-                        end: "bottom top",
-                        scrub: 1                     // smooth scroll
-                    },
-                    ease: "none"
-                });
-            }
-        });
+          // Scroll-reactive movement only (বামে)
+          gsap.to('.scrollingtext-2', {
+            xPercent: -10,          // scroll অনুযায়ী move left
+            scrollTrigger: {
+              trigger: '.scrollingtext-2',  // scroll trigger
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1                     // smooth scroll
+            },
+            ease: "none"
+          });
+        }
+      });
     },
     typing_text_animation: function () {
       gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -567,87 +613,87 @@
       }
     },
 
-    skew_up: function(){
+    skew_up: function () {
       gsap.registerPlugin(SplitText);
       if (window.innerWidth > 768) {
-      
-      $(document).ready(function(){
-        let addAnimation = function () {
-          $(".skew-up").each(function (index) {
-            const text = new SplitType($(this), {
-              types: "lines, words",
-              lineClass: "word-line"
-            });    let textInstance = $(this);
-            let line = textInstance.find(".word-line");
-            let word = line.find(".word");    let tl = gsap.timeline({
-              scrollTrigger: {
-                trigger: textInstance,
-                start: "top 85%",
-                end: "top 85%",
-                onComplete: function () {
-                  $(textInstance).removeClass("skew-up");
+
+        $(document).ready(function () {
+          let addAnimation = function () {
+            $(".skew-up").each(function (index) {
+              const text = new SplitType($(this), {
+                types: "lines, words",
+                lineClass: "word-line"
+              }); let textInstance = $(this);
+              let line = textInstance.find(".word-line");
+              let word = line.find(".word"); let tl = gsap.timeline({
+                scrollTrigger: {
+                  trigger: textInstance,
+                  start: "top 85%",
+                  end: "top 85%",
+                  onComplete: function () {
+                    $(textInstance).removeClass("skew-up");
+                  }
                 }
-              }
-            });    
-            tl.set(textInstance, { opacity: 1 }).from(word, {
-              y: "100%",
-              skewX: "-5",
-              duration: 2,
-              stagger: 0.09,
-              ease: "expo.out"
+              });
+              tl.set(textInstance, { opacity: 1 }).from(word, {
+                y: "100%",
+                skewX: "-5",
+                duration: 2,
+                stagger: 0.09,
+                ease: "expo.out"
+              });
             });
-          });
           };
-          addAnimation();window.addEventListener("resize", function (event) {
-            if ($(window).width() >= 992) {addAnimation(); }
+          addAnimation(); window.addEventListener("resize", function (event) {
+            if ($(window).width() >= 992) { addAnimation(); }
           });
-      });
-    }
-
-    if (window.innerWidth > 768) {
-      $(document).ready(function(){
-        let addAnimation = function () {
-          $(".skew-up-2").each(function (index) {
-            const textInstance = $(this);
-            const text = new SplitText(textInstance, {
-              type: "chars",
-            });
-        
-            let letters = text.chars;
-        
-            let tl = gsap.timeline({
-              scrollTrigger: {
-                trigger: textInstance,
-                start: "top 85%",
-                end: "top 85%",
-                onComplete: function () {
-                  textInstance.removeClass("skew-up-2");
-                }
-              }
-            });
-        
-            tl.set(textInstance, { opacity: 1 }).from(letters, {
-              duration: .4,
-              autoAlpha: 0,
-              y: 50,
-              // scaleX: 0,
-              // skewX: 50,
-              stagger: { amount: 1 },
-              ease: "back.out(0)"
-            });
-          });
-        };
-        
-        addAnimation();
-        
-        window.addEventListener("resize", function (event) {
-          if ($(window).width() >= 992) {
-            addAnimation();
-          }
         });
+      }
 
-      });
-    }
+      if (window.innerWidth > 768) {
+        $(document).ready(function () {
+          let addAnimation = function () {
+            $(".skew-up-2").each(function (index) {
+              const textInstance = $(this);
+              const text = new SplitText(textInstance, {
+                type: "chars",
+              });
+
+              let letters = text.chars;
+
+              let tl = gsap.timeline({
+                scrollTrigger: {
+                  trigger: textInstance,
+                  start: "top 85%",
+                  end: "top 85%",
+                  onComplete: function () {
+                    textInstance.removeClass("skew-up-2");
+                  }
+                }
+              });
+
+              tl.set(textInstance, { opacity: 1 }).from(letters, {
+                duration: .4,
+                autoAlpha: 0,
+                y: 50,
+                // scaleX: 0,
+                // skewX: 50,
+                stagger: { amount: 1 },
+                ease: "back.out(0)"
+              });
+            });
+          };
+
+          addAnimation();
+
+          window.addEventListener("resize", function (event) {
+            if ($(window).width() >= 992) {
+              addAnimation();
+            }
+          });
+
+        });
+      }
     },
     gsapAnimationImageScale: function (e) {
       $(document).ready(function () {
@@ -672,25 +718,25 @@
       });
 
     },
-    textTitleAnimation__1: function(){
-      if(window.innerWidth> 650){
+    textTitleAnimation__1: function () {
+      if (window.innerWidth > 650) {
 
         const quotes = document.querySelectorAll(".quote");
         const quotes2 = document.querySelectorAll(".quote-2");
-        
+
         function setupSplits() {
-          $(document).ready(function(){
+          $(document).ready(function () {
             $(".split-line").wrap('<div class="split-parent"></div>');
           });
-          
-          
+
+
           quotes.forEach(quote => {
-        
-            quote.split = new SplitText(quote, { 
+
+            quote.split = new SplitText(quote, {
               type: "lines,words,chars",
               linesClass: "split-line"
             });
-        
+
             // Set up the anim
             quote.anim = gsap.from(quote.split.lines, {
               scrollTrigger: {
@@ -700,22 +746,22 @@
                 start: "bottom 100%",
                 markers: true,
               },
-              duration: 0.6, 
+              duration: 0.6,
               delay: 0.3,
-              ease: "circ.out", 
-              yPercent: 100, 
+              ease: "circ.out",
+              yPercent: 100,
               stagger: 0.2,
             });
           });
-        
-        
-        
-        quotes2.forEach(quote2 => {
-        
-            quote2.split = new SplitText(quote2, { 
+
+
+
+          quotes2.forEach(quote2 => {
+
+            quote2.split = new SplitText(quote2, {
               type: "lines"
             });
-        
+
             // Set up the anim
             quote2.anim = gsap.from(quote2.split.lines, {
               scrollTrigger: {
@@ -727,19 +773,19 @@
               },
               duration: 0.6,
               autoAlpha: 0,
-              ease: "circ.out", 
-              yPercent: 100, 
+              ease: "circ.out",
+              yPercent: 100,
               stagger: 0.2,
             });
           });
         }
-        
+
         // ScrollTrigger.addEventListener("refresh", setupSplits);
         setupSplits();
       }
 
 
-        
+
     },
     text_highlight: function () {
       const highlights = document.querySelectorAll(".title-highlight");
@@ -762,25 +808,25 @@
 
         tl.to(highlightText.lines, {
           "--highlight-offset": "100%",
-          stagger: 0.5, 
-          duration: 2, 
-          ease: "power2.out", 
+          stagger: 0.5,
+          duration: 2,
+          ease: "power2.out",
         });
       });
     },
-     showRightRevel: function () {
+    showRightRevel: function () {
       let hoverTab = document.getElementsByClassName('wpr-hover-tab');
       if (hoverTab.length) {
 
         $(".wpr-hover-tab").on("mouseenter", function () {
-            $(this).addClass("active").siblings().removeClass("active");
-          }),
+          $(this).addClass("active").siblings().removeClass("active");
+        }),
 
           gsap.utils.toArray(".wpr-show-revel-right").forEach((e) => {
             gsap.set(e, {
-                opacity: 0,
-                y: 100
-              }),
+              opacity: 0,
+              y: 100
+            }),
               gsap.to(e, {
                 scrollTrigger: {
                   trigger: e,
@@ -799,58 +845,58 @@
 
     },
 
-    feedbackCollupsShow: function(){
+    feedbackCollupsShow: function () {
 
       // feedback button click show start
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function () {
         var rdBtn = document.querySelector('.button-area-box-shadow .wpr-btn');
         var overlaySection = document.querySelector('.overlay-bottom-section');
         var isToggled = false;
 
         if (rdBtn && overlaySection) {
-            rdBtn.addEventListener('click', function() {
-                if (!isToggled) {
-                    // Change margin of .wpr-btn
-                    rdBtn.style.margin = '0px auto 0 auto';
-                    rdBtn.innerHTML= 'View less feedbacks';
-                    // Remove the overlay-bottom-section class
-                    overlaySection.classList.remove('overlay-bottom-section');
-                } else {
-                    // Revert margin of .wpr-btn
-                    rdBtn.style.margin = '';
-                    rdBtn.innerHTML= 'View all feedbacks';
-                    
-                    // Add the overlay-bottom-section class back
-                    overlaySection.classList.add('overlay-bottom-section');
-                }
-                
-                // Toggle the state
-                isToggled = !isToggled;
-            });
+          rdBtn.addEventListener('click', function () {
+            if (!isToggled) {
+              // Change margin of .wpr-btn
+              rdBtn.style.margin = '0px auto 0 auto';
+              rdBtn.innerHTML = 'View less feedbacks';
+              // Remove the overlay-bottom-section class
+              overlaySection.classList.remove('overlay-bottom-section');
+            } else {
+              // Revert margin of .wpr-btn
+              rdBtn.style.margin = '';
+              rdBtn.innerHTML = 'View all feedbacks';
+
+              // Add the overlay-bottom-section class back
+              overlaySection.classList.add('overlay-bottom-section');
+            }
+
+            // Toggle the state
+            isToggled = !isToggled;
+          });
         }
-    });
-    // feedback button click show End
+      });
+      // feedback button click show End
     },
 
     imageParalax: function () {
 
-      $(document).ready(function(){
+      $(document).ready(function () {
         let paralax = document.getElementsByClassName('anim-image-parallax');
         if (paralax.length) {
           $(".anim-image-parallax").each(function () {
-  
+
             // Add wrap <div>.
             $(this).wrap('<div class="anim-image-parallax-wrap"><div class="anim-image-parallax-inner"></div></div>');
-  
+
             // Add overflow hidden.
             $(".anim-image-parallax-wrap").css({
               "overflow": "hidden"
             });
-  
+
             var $animImageParallax = $(this);
             var $aipWrap = $animImageParallax.parents(".anim-image-parallax-wrap");
             var $aipInner = $aipWrap.find(".anim-image-parallax-inner");
-  
+
             // Parallax
             gsap.to($animImageParallax, {
               yPercent: 80,
@@ -863,7 +909,7 @@
                 markers: false,
               },
             });
-  
+
             // Zoom in
             let tl_aipZoomIn = gsap.timeline({
               scrollTrigger: {
@@ -879,26 +925,26 @@
               ease: Power2.easeOut,
               clearProps: "all"
             });
-  
+
           });
         };
       })
-      
-      $(document).ready(function(){
+
+      $(document).ready(function () {
         let paralax = document.getElementsByClassName('anim-image-parallax-2');
         if (paralax.length) {
           $(".anim-image-parallax-2").each(function () {
             // Add wrap <div>.
             $(this).wrap('<div class="anim-image-parallax-wrap"><div class="anim-image-parallax-inner"></div></div>');
-  
+
             // Add overflow hidden.
             $(".anim-image-parallax-wrap").css({
               "overflow": "hidden"
-            });    
+            });
             var $animImageParallax = $(this);
             var $aipWrap = $animImageParallax.parents(".anim-image-parallax-wrap");
             var $aipInner = $aipWrap.find(".anim-image-parallax-inner");
-  
+
             // Parallax
             gsap.to($animImageParallax, {
               yPercent: 20,
@@ -911,7 +957,7 @@
                 markers: false,
               },
             });
-  
+
             // Zoom in
             let tl_aipZoomIn = gsap.timeline({
               scrollTrigger: {
@@ -927,7 +973,7 @@
               ease: Power2.easeOut,
               clearProps: "all"
             });
-  
+
           });
         };
       })
@@ -936,7 +982,7 @@
     },
 
     // side menu desktop
-    sideMenu:function(){
+    sideMenu: function () {
       $(document).on('click', '#menu-btn', function () {
         $("#side-bar").addClass("show");
         $("#anywhere-home").addClass("bgshow");
@@ -974,89 +1020,91 @@
 
       // Click event to change active block
       projectBlocks.forEach(block => {
-          block.addEventListener('click', function() {
-              // Remove active from all
-              projectBlocks.forEach(b => b.classList.remove('active'));
-              // Add active to clicked one
-              this.classList.add('active');
-          });
+        block.addEventListener('click', function () {
+          // Remove active from all
+          projectBlocks.forEach(b => b.classList.remove('active'));
+          // Add active to clicked one
+          this.classList.add('active');
+        });
       });
-  },
-    metismenu:function(){
+    },
+    metismenu: function () {
       $('#mobile-menu-active').metisMenu();
-    },  
+    },
     slice_slider: function () {
-  // Slice Constructor
-  var Slice = function (element) {
-    var sliceDiv = element;
-    var gridX = 4;
-    var w = sliceDiv.offsetWidth;
-    var h = sliceDiv.offsetHeight;
-    var img = sliceDiv.querySelector("img").src;
-    var delay = 0.05;
+      // Slice Constructor
+      var Slice = function (element) {
+        var sliceDiv = element;
+        var gridX = 4;
+        var w = sliceDiv.offsetWidth;
+        var h = sliceDiv.offsetHeight;
+        var img = sliceDiv.querySelector("img").src;
+        var delay = 0.05;
 
-    this.create = function () {
-      for (let x = 0; x < gridX; x++) {
-        var width = (x * w) / gridX + "px";
-        var div = document.createElement("span");
-        div.className = "slice-part";
-        sliceDiv.appendChild(div);
-        div.style.left = width;
-        div.style.top = 0;
-        div.style.width = w / gridX + "px";
-        div.style.height = h + "px";
-        div.style.backgroundImage = "url(" + img + ")";
-        div.style.backgroundPosition = "-" + width + " 0";
-        div.style.backgroundSize = w + "px auto";
-        div.style.transitionDelay = x * delay + "s";
+        this.create = function () {
+          for (let x = 0; x < gridX; x++) {
+            var width = (x * w) / gridX + "px";
+            var div = document.createElement("span");
+            div.className = "slice-part";
+            sliceDiv.appendChild(div);
+            div.style.left = width;
+            div.style.top = 0;
+            div.style.width = w / gridX + "px";
+            div.style.height = h + "px";
+            div.style.backgroundImage = "url(" + img + ")";
+            div.style.backgroundPosition = "-" + width + " 0";
+            div.style.backgroundSize = w + "px auto";
+            div.style.transitionDelay = x * delay + "s";
+          }
+        };
+
+        this.create();
+      };
+
+      // Create slices on window load
+      window.addEventListener("load", function () {
+        var sliceElements = document.querySelectorAll(".slice");
+        sliceElements.forEach(function (el) {
+          new Slice(el);
+        });
+      });
+
+      // Image slider logic
+      const rwdSliderImages = document.querySelectorAll(".wpr-image-slider .slice");
+
+      if (rwdSliderImages?.length) {
+        let index = 0;
+
+        function showNextImage() {
+          rwdSliderImages.forEach(slice => slice.classList.remove("active"));
+          rwdSliderImages[index].classList.add("active");
+          index = (index + 1) % rwdSliderImages.length;
+        }
+
+        // Initial display
+        showNextImage();
+        setInterval(showNextImage, 2000);
       }
-    };
+    },
 
-    this.create();
-  };
 
-  // Create slices on window load
-  window.addEventListener("load", function () {
-    var sliceElements = document.querySelectorAll(".slice");
-    sliceElements.forEach(function (el) {
-      new Slice(el);
+
+
+  }
+  rdJs.m();
+
+  $(document).ready(function () {
+    // Listen for the collapse show event
+    $('.working-process-accordion-one .accordion-collapse').on('show.bs.collapse', function () {
+      // Find the parent .accordion-item and add the 'show' class
+      $(this).closest('.accordion-item').addClass('show');
     });
-  });
 
-  // Image slider logic
-  const rwdSliderImages = document.querySelectorAll(".wpr-image-slider .slice");
-
-  if (rwdSliderImages?.length) {
-    let index = 0;
-
-    function showNextImage() {
-      rwdSliderImages.forEach(slice => slice.classList.remove("active"));
-      rwdSliderImages[index].classList.add("active");
-      index = (index + 1) % rwdSliderImages.length;
-    }
-
-    // Initial display
-    showNextImage();
-    setInterval(showNextImage, 2000);
-  }
-},
-
-
-  }
-  rdJs.m(); 
-
-    $(document).ready(function() {
-      // Listen for the collapse show event
-      $('.working-process-accordion-one .accordion-collapse').on('show.bs.collapse', function () {
-        // Find the parent .accordion-item and add the 'show' class
-        $(this).closest('.accordion-item').addClass('show');
-      });
-    
-      // Listen for the collapse hide event
-      $('.working-process-accordion-one .accordion-collapse').on('hide.bs.collapse', function () {
-        // Find the parent .accordion-item and remove the 'show' class
-        $(this).closest('.accordion-item').removeClass('show');
-      });
+    // Listen for the collapse hide event
+    $('.working-process-accordion-one .accordion-collapse').on('hide.bs.collapse', function () {
+      // Find the parent .accordion-item and remove the 'show' class
+      $(this).closest('.accordion-item').removeClass('show');
+    });
     //   // THEME MODE SWITCHER JS
     // var rd_light = $('.wpr-dark-light');
     // if(rd_light.length){
@@ -1075,61 +1123,62 @@
     //     localStorage.setItem('rd-theme', targetTheme);
     //   };
     // }
-    });
-    /* magnificPopup img view */
-      $('.gallery-image').magnificPopup({
-        type: 'image',
-        gallery: {
-          enabled: true
-        }
-      });
+  });
+  /* magnificPopup img view */
+  $('.gallery-image').magnificPopup({
+    type: 'image',
+    gallery: {
+      enabled: true
+    }
+  });
 
 
-    $(document).ready(function () {
-      $('#ce-toggle').change(function () {
-        const isChecked = $(this).is(':checked');
+  $(document).ready(function () {
+    $('#ce-toggle').change(function () {
+      const isChecked = $(this).is(':checked');
 
-        // Toggle active class based on checked state
-        if (isChecked) {
-          $('.plan-toggle-wrap').removeClass('active');
-          $('#monthly').show();
-          $('#yearly').hide();
-        } else {
-          $('.plan-toggle-wrap').addClass('active');
-          $('#monthly').hide();
-          $('#yearly').show();
-        }
-      });
-
-      // Optional: Set initial state on page load
-      $('#ce-toggle').trigger('change');
+      // Toggle active class based on checked state
+      if (isChecked) {
+        $('.plan-toggle-wrap').removeClass('active');
+        $('#monthly').show();
+        $('#yearly').hide();
+      } else {
+        $('.plan-toggle-wrap').addClass('active');
+        $('#monthly').hide();
+        $('#yearly').show();
+      }
     });
 
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('[data-bg-src]').forEach(function (el) {
-        const bg = el.getAttribute('data-bg-src');
-        if (bg) {
-          el.style.backgroundImage = `url(${bg})`;
-          el.style.backgroundSize = 'cover';        // Optional
-          el.style.backgroundPosition = 'center';   // Optional
-          el.style.backgroundRepeat = 'no-repeat';  // Optional
-        }
-      });
-    });
+    // Optional: Set initial state on page load
+    $('#ce-toggle').trigger('change');
+  });
 
-     var win=$(window);
-      var totop = $('.scroll-top-btn');    
-      win.on('scroll', function() {
-          if (win.scrollTop() > 150) {
-              totop.fadeIn();
-          } else {
-              totop.fadeOut();
-          }
-      });
-      totop.on('click', function() {
-          $("html,body").animate({
-              scrollTop: 0
-          }, 500)
-      });
-  
-  })(jQuery, window)  
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-bg-src]').forEach(function (el) {
+      const bg = el.getAttribute('data-bg-src');
+      if (bg) {
+        el.style.backgroundImage = `url(${bg})`;
+        el.style.backgroundSize = 'cover';        // Optional
+        el.style.backgroundPosition = 'center';   // Optional
+        el.style.backgroundRepeat = 'no-repeat';  // Optional
+      }
+    });
+  });
+
+  var win = $(window);
+  var totop = $('.scroll-top-btn');
+  win.on('scroll', function () {
+    if (win.scrollTop() > 150) {
+      totop.fadeIn();
+    } else {
+      totop.fadeOut();
+    }
+  });
+  totop.on('click', function () {
+    $("html,body").animate({
+      scrollTop: 0
+    }, 500)
+  });
+
+
+})(jQuery, window)  
