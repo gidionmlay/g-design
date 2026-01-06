@@ -311,6 +311,9 @@
     .wpr-working-process .working-process-left{
         gap: 40px;
     }
+    .side-bar{
+        display: flex;
+    }
 }
 
 @media(max-width:991px) and (min-width:768px) {}

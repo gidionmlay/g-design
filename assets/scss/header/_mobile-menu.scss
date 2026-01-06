@@ -1,25 +1,22 @@
 // mobile menu style 
 .side-bar {
-    position: fixed;
+    position: absolute;
     overflow: hidden;
-    top: 0;
-    right: -100%;
-    width: 465px;
-    padding: 40px 30px;
-    padding-top: 50px;
-    height: 100%;
+    top: 73px;
+    right: 0;
+    width: 100%;
+    padding: 0;
+    height: auto;
     display: block;
     background-color: white;
     backdrop-filter: blur(7px);
-    z-index: 1900;
-    transition: all 600ms ease;
-    display: flex;
+    z-index: 1;
+    transition: all .4s;
+    display: none;
     flex-direction: column;
-    overflow-y: auto;
-    overflow: visible;
-    @media #{$large-mobile} {
-        width: 300px;
-    }
+    overflow: hidden;
+    height: 0;
+    max-height: 320px;
     .inner-main-wrapper-desk{
         .thumbnail{
             display: flex;
@@ -53,10 +50,22 @@
             }
         }
     }
+    .button-area{
+        margin-top: 30px;
+        .wpr-btn{
+            max-width: 100%;
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+        }
+    }
+    .sidebar-inner{
+        padding: 40px 45px;
+    }
 }
 .side-bar.show {
     right: 0;
-    overflow-y: auto;
+    height: 320px;
 }
 .side-bar button {
     max-width: max-content;
@@ -80,26 +89,6 @@
         font-weight: 300;
     }
 }
-#anywhere-home {
-    cursor: url(../images/banner/shape/close.png), auto;
-    background: #0e1013;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 500ms ease-in-out;
-    pointer-events: none;
-    z-index: 50;
-}
-#anywhere-home.bgshow {
-    background: #0e1013;
-    opacity: 70%;
-    visibility: visible;
-    pointer-events: visible;
-    z-index: 999;
-    top: 0;
-}
 #menu-btn{
     cursor: pointer;
     padding: 10px;
@@ -113,6 +102,31 @@
     background: radial-gradient(62.56% 62.56% at 28.14% -10.42%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, linear-gradient(137.66deg, #40454A 21.13%, #292C2E 80.53%);
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1), inset 0px 1px 0px rgba(255, 255, 255, 0.6), inset 0px -3px 0px #1A1A1A, inset 0px -4px 0px 1px rgba(255, 255, 255, 0.1);
     border-radius: 12px;
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    span{
+        display: block;
+        background: var(--color-white);
+        width: 25px;
+        height: 2px;
+        transition: all .3s;
+    }
+    &.cross{
+        span{
+            &.one{
+                transform: rotate(45deg) translateY(2px) translateX(4px);
+            }
+            &.two{
+                transform: rotate(-45deg) translateY(-2px) translateX(4px);
+            }
+        }
+    }
 }
 // mobile menu active
 #side-bar{
@@ -130,8 +144,11 @@
 .mobile-menu-main{
     nav{
         ul{
-            padding: 0 20px;
-            display: block;
+            padding: 0 !important;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             li{
                 margin: 0;
                 padding: 0;
@@ -203,27 +220,14 @@
                 }
                 a{
                     display: block;
+                    max-width: max-content;
+                    font-family: var(--font-primary);
+                    color: var(--color-heading-1);
                 }
             }
         }
     }
     .social-wrapper-one{
         margin-top: 50px;
-    }
-}
-// header-two menu are-start
-.side-bar{
-    &.header-two,
-    &.header-three{
-        .inner-main-wrapper-desk{
-            @media screen and (max-width: 1024px) {
-                display: none;
-            }
-        }
-        .mobile-menu{
-            @media screen and (min-width: 1024px) {
-                display: none !important;
-            }
-        }
     }
 }
