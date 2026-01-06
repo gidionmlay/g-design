@@ -193,9 +193,6 @@
 }
 
 @media(max-width:991px) {
-    .main-nav-area {
-        display: none;
-    }
 
     .wpr-banner-area .banner-content-area .section-title {
         font-size: 60px;
@@ -204,18 +201,6 @@
     .wpr-banner-area .banner-content-area .section-title .right-area .arrow-track,
     .wpr-banner-area .banner-content-area .section-title .left-area .arrow-track {
         width: 80%;
-    }
-
-    .header-style-one .header-style-one-wrapper .left-area.square-dot .square-shape.top-right,
-    .header-style-one .header-style-one-wrapper .left-area.square-dot .square-shape.bottom-right,
-    .header-style-one .header-style-one-wrapper .button-area-start.square-dot .square-shape.top-left,
-    .header-style-one .header-style-one-wrapper .button-area-start.square-dot .square-shape.bottom-left {
-        display: none;
-    }
-
-    .header-style-one .header-style-one-wrapper .button-area-start,
-    .header-style-one .header-style-one-wrapper .left-area {
-        border-width: 0 0 0 0;
     }
 
     .wpr-contact-area .section-inner .left-content-area .get-in-touch ul li a {
@@ -311,8 +296,17 @@
     .wpr-working-process .working-process-left{
         gap: 40px;
     }
+    .header-style-one .header-style-one-wrapper .left-area{
+        padding: 21px 25px 20px;
+    }
+    .main-nav-area ul {
+        gap: 15px;
+    }
     .side-bar{
         display: flex;
+    }
+    .header-style-one .header-style-one-wrapper .button-area-start{
+        padding: 12px 25px;
     }
 }
 
@@ -466,6 +460,20 @@
         width: 45px;
         height: 45px;
         line-height: 45px;
+    }
+    .main-nav-area {
+        display: none;
+    }
+    .header-style-one .header-style-one-wrapper .left-area.square-dot .square-shape.top-right,
+    .header-style-one .header-style-one-wrapper .left-area.square-dot .square-shape.bottom-right,
+    .header-style-one .header-style-one-wrapper .button-area-start.square-dot .square-shape.top-left,
+    .header-style-one .header-style-one-wrapper .button-area-start.square-dot .square-shape.bottom-left {
+        display: none;
+    }
+
+    .header-style-one .header-style-one-wrapper .button-area-start,
+    .header-style-one .header-style-one-wrapper .left-area {
+        border-width: 0 0 0 0;
     }
 }
 
@@ -752,5 +760,13 @@
     }
     .working-process-wrapper .content-area{
         padding: 25px 0 0;
+    }
+    .wpr-about-area .section-inner .section-top-area{
+        padding: 60px 25px;
+    }
+    .wpr-about-area .section-inner .about-bottom-content .left-area ul li p.top-description{
+        br{
+            display: none;
+        }
     }
 }
