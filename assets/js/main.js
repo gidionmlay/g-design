@@ -1076,55 +1076,117 @@ sideMenu: function () {
         setInterval(showNextImage, 2000);
       }
     },
-    containerResize: function () {
-      document.addEventListener("DOMContentLoaded", function () {
-        gsap.registerPlugin(ScrollTrigger);
+containerResize: function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
 
-        const pinWrap = document.querySelector(".rts-video-pin");
-        const wrapper = document.querySelector(".rts-video-wrapper");
-        const slider = document.querySelector(".gsap-slider");
-        const slides = gsap.utils.toArray(".gsap-slider .slide");
+    const pinWrap = document.querySelector(".rts-video-pin");
+    const wrapper = document.querySelector(".rts-video-wrapper");
+    const slider = document.querySelector(".gsap-slider");
+    const slides = gsap.utils.toArray(".gsap-slider .slide");
 
-        if (!pinWrap || slides.length === 0) return;
+    const nextBtn = document.querySelector(".slider-next");
+    const prevBtn = document.querySelector(".slider-prev");
 
-        const slideCount = slides.length;
+    if (!pinWrap || slides.length === 0) return;
 
-        // Initial state (before pin)
-        gsap.set(wrapper, {
-          scale: 0.1,
-          opacity: 0,              
-          transformOrigin: "center center",
-          willChange: "transform, opacity",
-        });
+    const slideCount = slides.length;
+    let currentIndex = 0;
+    let scaleEndProgress = 0;
 
-        gsap.timeline({
-          scrollTrigger: {
-            trigger: pinWrap,
-            end: () => "+=" + window.innerHeight * slideCount,
-            scrub: 0.7,
-            pin: true,
-            pinSpacing: true,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-          },
-        })
-        .to(wrapper, {
-          opacity: 1,
-          duration: 0.2,
-          ease: "power1.out",
-        })
-        .to(wrapper, {
-          scale: 1,
-          duration: 1.4,
-          ease: "power2.out",
-        })
-        .to(slider, {
-          xPercent: -100 * (slideCount - 1),
-          duration: slideCount - 1,
-          ease: "none",
-        });
+    // ---------- INITIAL STATE ----------
+    gsap.set(wrapper, {
+      scale: 0.1,
+      opacity: 0,
+      transformOrigin: "center center",
+      willChange: "transform, opacity",
+    });
+
+    // ---------- TIMELINE ----------
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: pinWrap,
+        start: "top top",
+        end: () => "+=" + window.innerHeight * slideCount,
+        scrub: 1,
+        pin: true,
+        pinSpacing: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+      },
+    })
+      // fade in
+      .to(wrapper, { opacity: 1, duration: 0.25, ease: "power1.out" })
+      // scale up
+      .to(wrapper, {
+        scale: 1,
+        duration: 1.4,
+        ease: "power2.out",
+        onUpdate: () => {
+          const scale = gsap.getProperty(wrapper, "scale");
+          if (scale >= 0.999) {
+            slider.classList.add("scale-done");
+            scaleEndProgress = tl.progress();
+          } else {
+            slider.classList.remove("scale-done");
+          }
+        },
+      })
+      // slider horizontal move
+      .to(slider, {
+        xPercent: -100 * (slideCount - 1),
+        duration: 1,
+        ease: "none",
       });
-    },
+
+    const st = tl.scrollTrigger;
+
+    // ---------- BUTTON CONTROL ----------
+    function goToSlide(index) {
+      currentIndex = Math.max(0, Math.min(index, slideCount - 1));
+
+      // calculate progress only for slider section
+      const targetProgress =
+        scaleEndProgress +
+        (currentIndex / (slideCount - 1)) * (1 - scaleEndProgress);
+
+      // 🚀 Important: overwrite timeline scrub
+      gsap.to(tl, {
+        progress: targetProgress,
+        duration: 0.5,
+        ease: "power2.out",
+        overwrite: "auto",
+      });
+    }
+
+    nextBtn?.addEventListener("click", () => {
+      if (!slider.classList.contains("scale-done")) return;
+      goToSlide(currentIndex + 1);
+    });
+
+    prevBtn?.addEventListener("click", () => {
+      if (!slider.classList.contains("scale-done")) return;
+      goToSlide(currentIndex - 1);
+    });
+
+    // ---------- SYNC CURRENT INDEX ON SCROLL ----------
+    ScrollTrigger.create({
+      trigger: pinWrap,
+      start: "top top",
+      end: () => "+=" + window.innerHeight * slideCount,
+      onUpdate: (self) => {
+        if (!slider.classList.contains("scale-done")) return;
+
+        const progressAfterScale =
+          (self.progress - scaleEndProgress) / (1 - scaleEndProgress);
+
+        currentIndex = Math.round(progressAfterScale * (slideCount - 1));
+      },
+    });
+  });
+},
+
+
 
   }
   rdJs.m();
