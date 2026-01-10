@@ -123,18 +123,6 @@
           },
         });
       });
-      // $(document).ready(function () {
-      //   var bgSwiper = new Swiper(".project-image-slider", {
-      //     slidesPerView: 1,
-      //     loop: true,
-      //     spaceBetween: 0,
-      //     speed: 1500,
-      //     navigation: {
-      //       nextEl: ".swiper-btn-next",
-      //       prevEl: ".swiper-btn-prev",
-      //     },
-      //   });
-      // });
 
       $(document).ready(function () {
 
@@ -170,6 +158,24 @@
         imageSwiper.controller.control = contentSwiper;
         contentSwiper.controller.control = imageSwiper;
 
+      });
+      $(document).ready(function () {
+        var projectSwiper = new Swiper(".portfolio-slider", {
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+          centeredSlides: true,
+          spaceBetween: 0,
+          speed: 1800,
+          loop: true,
+          // autoplay: {
+          //   delay: 5000,
+          //   disableOnInteraction: false
+          // },
+          navigation: {
+            nextEl: ".swiper-btn-next",
+            prevEl: ".swiper-btn-prev",
+          },
+        });
       });
 
     },
@@ -1080,8 +1086,8 @@ containerResize: function () {
   document.addEventListener("DOMContentLoaded", function () {
     gsap.registerPlugin(ScrollTrigger);
 
-    const pinWrap = document.querySelector(".rts-video-pin");
-    const wrapper = document.querySelector(".rts-video-wrapper");
+    const pinWrap = document.querySelector(".wpr-video-pin");
+    const wrapper = document.querySelector(".wpr-video-wrapper");
     const slider = document.querySelector(".gsap-slider");
     const slides = gsap.utils.toArray(".gsap-slider .slide");
 
@@ -1108,7 +1114,7 @@ containerResize: function () {
         trigger: pinWrap,
         start: "top top",
         end: () => "+=" + window.innerHeight * slideCount,
-        scrub: 1,
+        scrub: 0.8,
         pin: true,
         pinSpacing: true,
         anticipatePin: 1,
