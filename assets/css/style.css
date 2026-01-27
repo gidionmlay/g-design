@@ -194,7 +194,7 @@ h6,
 .h6 {
   word-break: break-word;
   font-family: var(--font-primary);
-  line-height: 1.067;
+  line-height: 1.17;
   color: var(--color-heading-1);
   text-transform: uppercase;
   font-weight: var(--s-medium);
@@ -13189,6 +13189,7 @@ section .section-inner.border-1 {
   max-width: max-content;
   margin: auto;
   color: var(--color-heading-1);
+  font-size: 14px;
 }
 .wpr-brand-area .section-inner .right-marquee-area {
   border-left: 1px solid rgba(3, 7, 18, 0.1);
@@ -14476,6 +14477,7 @@ section .section-inner.border-1 {
   font-family: var(--font-primary);
   position: relative;
   z-index: 1;
+  margin-top: 3px;
   height: max-content;
 }
 .wpr-contact-area .section-inner .left-content-area .get-in-touch .sub-title::after {
@@ -15304,7 +15306,7 @@ section .section-inner.border-1 {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439px) {
   .wpr-banner-area .banner-content-area .section-title .mid-icon {
     min-width: 250px;
   }
@@ -15357,7 +15359,7 @@ section .section-inner.border-1 {
     font-size: 14px;
   }
 }
-@media (max-width: 1440px) and (min-width: 1200px) {
+@media (max-width: 1439px) and (min-width: 1200px) {
   .wpr-services-area .section-bottom-content .service-wrapper .content .mid h2 {
     font-size: 180px;
   }

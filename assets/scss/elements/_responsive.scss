@@ -1,6 +1,6 @@
 @media(max-width:1600px) {}
 
-@media(max-width:1440px) {
+@media(max-width:1439px) {
     .wpr-banner-area .banner-content-area .section-title .mid-icon {
         min-width: 250px;
     }
@@ -50,7 +50,7 @@
     }
 }
 
-@media(max-width:1440px) and (min-width:1200px) {
+@media(max-width:1439px) and (min-width:1200px) {
     .wpr-services-area .section-bottom-content .service-wrapper .content .mid h2 {
         font-size: 180px;
     }
@@ -245,7 +245,6 @@
         &:nth-child(2) {
             border-bottom: 1px solid var(--color-border);
         }
-
         &:nth-child(2) {
             border-right: none;
         }
@@ -376,23 +375,19 @@
     .wpr-contact-area .section-inner {
         flex-direction: column;
     }
-
     .wpr-contact-area .section-inner .left-content-area {
         max-width: 100%;
         margin: 0;
         padding: 30px;
     }
-
     .wpr-contact-area .section-inner .contact-form-area {
         max-width: 100%;
         border: none;
         padding: 0 30px 30px;
     }
-
     .wpr-footer-area .footer-logo-area a img {
         max-width: 400px;
     }
-
     .wpr-footer-area .footer-logo-area {
         padding: 140px 0 100px;
     }
@@ -413,7 +408,6 @@
     .why-choose-wrapper2 {
         padding: 40px 20px;
     }
-
     .wpr-footer-area .footer-top {
         padding: 50px 25px;
     }

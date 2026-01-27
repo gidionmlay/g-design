@@ -26,6 +26,7 @@
                     font-family: var(--font-primary);
                     position: relative;
                     z-index: 1;
+                    margin-top: 3px;
                     height: max-content;
                     &::after{
                         content: '';
