@@ -13626,7 +13626,7 @@ section .section-inner.border-1 {
   margin: 0;
   font-weight: 600;
   line-height: 1;
-  color: rgba(3, 7, 18, 0.5);
+  color: #030712;
   transition: var(--transition);
 }
 .wpr-services-area .section-bottom-content .service-wrapper .content .bottom .service-btn-area {
