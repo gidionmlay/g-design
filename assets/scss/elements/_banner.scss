@@ -205,7 +205,6 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        text-fill-color: transparent;
       }
     }
 
@@ -273,20 +272,22 @@
   &.breadcrumb {
     .banner-content-area {
       height: auto;
-      padding: 100px 0 60px;
-
+      padding: 100px 0;
       .section-title {
         text-align: center;
         letter-spacing: -0.06em;
         text-transform: uppercase;
-
         background: linear-gradient(137.66deg, #55595C 21.13%, #000000 80.53%), #030712;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        text-fill-color: transparent;
         justify-content: center;
-        margin-bottom: 0;
+        margin-bottom: 20px;
+      }
+      .desc{
+        max-width: max-content;
+        margin: auto;
+        text-align: center;
       }
     }
   }

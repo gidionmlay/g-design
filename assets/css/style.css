@@ -11437,6 +11437,10 @@ body.sal-disabled [data-sal|=flip] {
 }
 .main-nav-area ul li {
   margin: 0;
+  position: relative;
+}
+.main-nav-area ul li:hover a::after {
+  width: 100%;
 }
 .main-nav-area ul li a {
   color: var(--color-heading-1);
@@ -11450,9 +11454,6 @@ body.sal-disabled [data-sal|=flip] {
   z-index: 1;
   transition: var(--transition);
 }
-.main-nav-area ul li a:hover::after {
-  width: 100%;
-}
 .main-nav-area ul li a::after {
   content: "";
   position: absolute;
@@ -11464,13 +11465,41 @@ body.sal-disabled [data-sal|=flip] {
   left: 0;
   transition: var(--transition);
 }
-
-.header-style-one.case-studies .main-nav-area ul li > a.wpr-dropdown-main-element {
-  color: #fff !important;
+.main-nav-area ul li.has-dropdown {
+  cursor: pointer;
+  padding: 24px 0;
 }
-
-.header-style-one.case-studies.header--sticky.sticky {
-  background: linear-gradient(258deg, #373551 8.48%, #212026 94.83%);
+.main-nav-area ul li.has-dropdown:hover .sub-menu {
+  pointer-events: all;
+  transform: translateY(0px);
+  opacity: 1;
+  visibility: visible;
+}
+.main-nav-area ul li.has-dropdown .sub-menu {
+  position: absolute;
+  top: 100%;
+  background-color: var(--color-white);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 10px 20px 0px;
+  min-width: 150px;
+  left: -10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  padding: 12px 0px !important;
+  display: block;
+}
+.main-nav-area ul li.has-dropdown .sub-menu .item-link::before {
+  display: none;
+}
+.main-nav-area ul li.has-dropdown .sub-menu li > a {
+  padding: 7px 16px;
+  display: block;
+  text-align: start;
+}
+.main-nav-area ul li.has-dropdown .sub-menu li > a::after {
+  display: none;
 }
 
 .side-bar {
@@ -13062,7 +13091,6 @@ section .section-inner.border-1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
 }
 .wpr-banner-area .banner-content-area .bg-shape {
   position: absolute;
@@ -13114,7 +13142,7 @@ section .section-inner.border-1 {
 }
 .wpr-banner-area.breadcrumb .banner-content-area {
   height: auto;
-  padding: 100px 0 60px;
+  padding: 100px 0;
 }
 .wpr-banner-area.breadcrumb .banner-content-area .section-title {
   text-align: center;
@@ -13124,9 +13152,13 @@ section .section-inner.border-1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
   justify-content: center;
-  margin-bottom: 0;
+  margin-bottom: 20px;
+}
+.wpr-banner-area.breadcrumb .banner-content-area .desc {
+  max-width: max-content;
+  margin: auto;
+  text-align: center;
 }
 
 .bg {
@@ -13644,6 +13676,13 @@ section .section-inner.border-1 {
   background: var(--color-primary);
 }
 
+.inner .section-bottom-content {
+  flex-wrap: wrap;
+}
+.inner .wpr-services-area {
+  width: 25%;
+}
+
 .wpr-about-area .section-inner .section-top-area {
   padding: 100px 56px 80px;
 }
@@ -13689,6 +13728,143 @@ section .section-inner.border-1 {
   z-index: 1;
   bottom: 0;
   right: 0;
+}
+
+.approch-area-left .title-area-left-wrapper .section-title-area .section-title {
+  margin-bottom: 20px;
+}
+.approch-area-left p.disc {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #74787C;
+}
+
+.our-approch-area-style-one {
+  position: relative;
+  z-index: 10;
+}
+.our-approch-area-style-one .section-inner {
+  padding: 56px;
+  border: 1px solid rgba(3, 7, 18, 0.1);
+}
+
+.single-approach-area-start {
+  padding: 28px;
+  background-color: var(--color-white);
+  border-radius: 6px;
+  position: relative;
+  margin-bottom: 20px;
+  transition: 0.3s;
+  overflow: hidden;
+  z-index: 2;
+  width: 519px;
+  border: 1px solid rgba(3, 7, 18, 0.1);
+}
+.single-approach-area-start.two::after {
+  content: "02" !important;
+}
+.single-approach-area-start.two::before {
+  background-image: url(../images/banner/24.jpg);
+}
+.single-approach-area-start.three::after {
+  content: "03" !important;
+}
+.single-approach-area-start.three::before {
+  background-image: url(../images/banner/25.jpg);
+}
+.single-approach-area-start::before {
+  background-image: url(../images/banner/03.png);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  content: "";
+  width: 0%;
+  height: 100%;
+  z-index: -1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: all 0.6s;
+}
+.single-approach-area-start:hover {
+  background-color: none;
+}
+.single-approach-area-start:hover .title {
+  color: var(--color-white);
+}
+.single-approach-area-start:hover .title::after {
+  width: 100%;
+  left: 0;
+}
+.single-approach-area-start:hover .title::before {
+  font-size: 22px;
+  right: -35px;
+  opacity: 1;
+}
+.single-approach-area-start:hover p.disc {
+  color: #fff;
+}
+.single-approach-area-start:hover::before {
+  z-index: -1;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+.single-approach-area-start:hover::after {
+  color: rgba(0, 0, 0, 0);
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+  /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #bdbdbd;
+}
+.single-approach-area-start::after {
+  position: absolute;
+  content: "01";
+  font-size: 72px;
+  right: 20px;
+  top: 30px;
+  color: rgba(0, 0, 0, 0);
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+  /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #282828;
+  font-weight: 700;
+  transition: 0.3s;
+}
+.single-approach-area-start .title {
+  color: var(--color-heading-1);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 34px;
+  margin-bottom: 10px;
+  transition: all 0.3s;
+  position: relative;
+  max-width: max-content;
+}
+.single-approach-area-start .title::before {
+  content: "\f061";
+  font-family: "fontawesome";
+  position: absolute;
+  right: 0px;
+  font-weight: 300;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0;
+  transition: all 0.5s;
+}
+.single-approach-area-start .title::after {
+  position: absolute;
+  content: "";
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: #fff;
+  width: 0%;
+  transition: 0.5s;
+}
+.single-approach-area-start p.disc {
+  color: #74787C;
 }
 
 .odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner, .odometer.odometer-theme-default .odometer-digit .odometer-digit-inner {

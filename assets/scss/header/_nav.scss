@@ -10,6 +10,14 @@
         gap: 40px;
         li{
             margin: 0;
+            position: relative;
+            &:hover{
+                a{
+                    &::after{
+                        width: 100%;
+                    }
+                }
+            }
             a{
                 color: var(--color-heading-1);
                 text-align: center;
@@ -21,11 +29,6 @@
                 position: relative;
                 z-index: 1;
                 transition: var(--transition);
-                &:hover{
-                    &::after{
-                        width: 100%;
-                    }
-                }
                 &::after{
                     content: '';
                     position: absolute;
@@ -38,27 +41,47 @@
                     transition: var(--transition);
                 }
             }
-        }
-        
-    }
-}
-
-
-
-
-.header-style-one.case-studies{
-    .main-nav-area{
-        ul{
-            li{
-                &>a.wpr-dropdown-main-element{
-                    color: #fff !important;
+            &.has-dropdown{
+                cursor: pointer;
+                padding: 24px 0;
+                &:hover{
+                    .sub-menu{
+                        pointer-events: all;
+                        transform : translateY(0px);
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+                .sub-menu {
+                    position: absolute;
+                    top: 100%;
+                    background-color: var(--color-white);
+                    box-shadow: rgba(0, 0, 0, 0.05) 0px 10px 20px 0px;
+                    min-width: 150px;
+                    left: -10px;
+                    border-radius: 8px;
+                    transition: all 0.3s ease;
+                    opacity: 0;
+                    visibility: hidden;
+                    transform: translateY(10px);
+                    padding: 12px 0px !important;
+                    display: block;
+                    .item-link::before {
+                        display: none;
+                    }
+                    li {
+                        >a {
+                            padding: 7px 16px;
+                            display: block;
+                            text-align: start;
+                            &::after{
+                                display: none;
+                            }
+                        }
+                    }
                 }
             }
         }
+        
     }
-}
-
-
-.header-style-one.case-studies.header--sticky.sticky{
-    background: linear-gradient(258deg, #373551 8.48%, #212026 94.83%);
 }

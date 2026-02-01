@@ -53,7 +53,148 @@
         }
     }
 }
-
+.approch-area-left{
+    .title-area-left-wrapper{
+        .section-title-area{
+            .section-title{
+                margin-bottom: 20px;
+            }
+        }
+    }
+    p.disc{
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+        color: #74787C;
+    }
+}
+.our-approch-area-style-one{
+    position: relative;
+    z-index: 10;
+    .section-inner{
+        padding: 56px;
+        border: 1px solid rgba(3, 7, 18, 0.1);
+    }
+}
+.single-approach-area-start{
+    padding: 28px;
+    background-color: var(--color-white);
+    border-radius: 6px;
+    position: relative;
+    margin-bottom: 20px;
+    transition: .3s;
+    overflow: hidden;
+    z-index: 2;
+    width: 519px;
+    border: 1px solid rgba(3, 7, 18, 0.1);
+    &.two{
+        &::after{
+            content: '02' !important;
+        }
+        &::before{
+            background-image: url(../images/banner/24.jpg);
+        }
+    }
+    &.three{
+        &::after{
+            content: '03' !important;
+        }
+        &::before{
+            background-image: url(../images/banner/25.jpg);
+        }
+    }
+    &::before{
+        background-image: url(../images/banner/03.png);
+        background-color: transparent;
+        background-repeat: no-repeat;
+        content: '';
+        width: 0%;
+        height: 100%;
+        z-index: -1;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: all .6s;
+    }
+    &:hover{
+        background-color: none;
+        .title{
+            color: var(--color-white);
+            &::after{
+                width: 100%;
+                left: 0;
+            }
+            &::before{
+                font-size: 22px;
+                right: -35px;
+                opacity: 1;
+            }
+        }
+        p.disc{
+            color: #fff;
+        }
+        &::before{
+            z-index: -1;
+            width: 100%;
+            left: 0;
+            top: 0;
+        }
+        &::after{
+            color: rgba(0, 0, 0, 0);
+            -webkit-text-fill-color: rgba(255, 255, 255, 0); /* Will override color (regardless of order) */
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: #bdbdbd;
+        }
+    }
+    &::after{
+        position: absolute;
+        content: '01';
+        font-size: 72px;
+        right: 20px;
+        top: 30px;
+        color: rgba(0, 0, 0, 0);
+        -webkit-text-fill-color: rgba(255, 255, 255, 0); /* Will override color (regardless of order) */
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #282828;
+        font-weight: 700;
+        transition: .3s;
+    }
+    .title{
+        color: var(--color-heading-1);
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 34px;
+        margin-bottom: 10px;
+        transition: all .3s;
+        position: relative;
+        max-width: max-content;
+        &::before{
+            content: '\f061';
+            font-family: 'fontawesome';
+            position: absolute;
+            right: -0px;
+            font-weight: 300;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0;
+            transition: all .5s;
+        }
+        &::after{
+            position: absolute;
+            content: '';
+            right: 0;
+            bottom: 0;
+            height: 1px;
+            background: #fff;
+            width: 0%;
+            transition: .5s;
+        }
+    }
+    p.disc{
+        color: #74787C;
+    }
+}
 .odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner, .odometer.odometer-theme-default .odometer-digit .odometer-digit-inner{
     min-width: max-content;
     transition: var(--transition);
