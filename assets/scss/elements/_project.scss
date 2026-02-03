@@ -451,3 +451,160 @@
         }
     }
 }
+
+.wpr-project-area.inner{
+    .project-slider-inner{
+        padding: 0 40px 60px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+.project-wrapper2 {
+    width: 100%;
+    flex-shrink: 0;
+    z-index: 1;
+    display: flex;
+    gap: 30px;
+    position: sticky;
+    top: 60px;
+    transition: var(--transition);
+    &:hover{
+        .image-area{
+            .video-img{
+                transform: scale(107%);
+            }
+        }
+    }
+    .image-area{
+        position: relative;
+        z-index: 1;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.6), inset 0px -5px 0px #E4E4E4, inset 0px -6px 0px 1px #FAFAFA;
+        transition: all .6s;
+        .shape {
+            position: absolute;
+            z-index: 1;
+
+            &.top-left-shape {
+                top: 0;
+                left: 0;
+            }
+
+            &.top-right-shape {
+                top: 0;
+                right: 0;
+            }
+        }
+        .over-link{
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        .video-img{
+            transform: scale(100%);
+            transition: all .6s;
+        }
+    }
+    .slide-content {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        transition: var(--transition);
+        border-radius: 16px;
+        overflow: hidden;
+        .product-intro {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border-width: 0px 1px 1px 0px;
+            border-style: solid;
+            border-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(46px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .top {
+                padding: 40px 32px;
+
+                .title {
+                    color: var(--color-white);
+                    text-transform: none;
+                }
+
+                .desc {
+                    color: rgba(#ffffff, $alpha: .7);
+                }
+            }
+
+            .bottom {
+                ul {
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    border-top: 1px solid rgba(#ffffff, $alpha: .3);
+
+                    li {
+                        margin: 0;
+                        width: 100%;
+                        padding: 24px 32px;
+
+                        &:not(:last-child) {
+                            border-right: 1px solid rgba(#ffffff, $alpha: .3);
+                        }
+
+                        h5 {
+                            font-size: 32px;
+                            line-height: 1;
+                            font-family: var(--font-secondary);
+                            font-weight: 600;
+                            color: var(--color-white);
+                            margin-bottom: 5px;
+                        }
+
+                        p {
+                            color: rgba(#ffffff, $alpha: .7);
+                        }
+                    }
+                }
+            }
+        }
+
+        .button-area {
+            position: absolute;
+            top: 35%;
+            right: 15%;
+            z-index: 2;
+            max-width: max-content;
+            display: flex;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 3.5s;
+
+            .box {
+                width: 24px;
+                height: 24px;
+                background: var(--color-heading-1);
+            }
+
+            a {
+                display: flex;
+                align-items: center;
+                padding: 16px 24px;
+                gap: 8px;
+                background: var(--color-heading-1);
+                margin-top: 24px;
+                color: var(--color-white);
+                font-family: var(--font-primary);
+                font-weight: 500;
+            }
+        }
+    }
+}
