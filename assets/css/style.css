@@ -14177,6 +14177,7 @@ section .section-inner.border-1 {
   margin-bottom: 5px;
   font-size: 18px;
   line-height: 1;
+  text-transform: none;
 }
 
 .sidebar-categories {
@@ -14201,7 +14202,14 @@ section .section-inner.border-1 {
   align-items: center;
   padding: 7px 15px;
   border-radius: 99px;
+  color: #D4D4D8;
+  background: #3F3F46;
+  border: 1px solid #3F3F46;
 }
+.list-tags a:hover {
+  color: var(--color-primary);
+}
+
 .blog-single-wrap {
   display: flex;
   flex-direction: column;

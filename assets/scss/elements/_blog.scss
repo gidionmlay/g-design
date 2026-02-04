@@ -148,6 +148,7 @@
         margin-bottom: 5px;
         font-size: 18px;
         line-height: 1;
+        text-transform: none;
     }
 }
 
@@ -174,11 +175,11 @@
         align-items: center;
         padding: 7px 15px;
         border-radius: 99px;
-        // color: var(--neutral-300);
-        // background: var(--neutral-700);
-        // border: 1px solid var(--neutral-600);
+        color: #D4D4D8;
+        background: #3F3F46;
+        border: 1px solid #3F3F46;
         &:hover {
-            // color: var(--brand);
+            color: var(--color-primary);
         }
     }
 }
