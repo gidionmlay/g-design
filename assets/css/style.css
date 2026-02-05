@@ -14251,13 +14251,41 @@ section .section-inner.border-1 {
   gap: 15px;
   max-width: 420px;
 }
+.entry-footer .tags-links .text-body-1 {
+  min-width: max-content;
+}
+.entry-footer .tf-social {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.entry-footer .social-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 99px;
+  font-size: 24px;
+  color: var(--color-white);
+  background: linear-gradient(0deg, #272727, #272727), radial-gradient(62.56% 62.56% at 28.14% -10.42%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: 0px -3px 0px 0px #080808 inset, 0px 1px 0px 0px #FFFFFF4D inset, 0px 2.77px 2.21px 0px #0000001F, 0px 6.65px 5.32px 0px #00000021, 0px 12.52px 10.02px 0px #00000022, 0px 22.34px 17.87px 0px #00000024, 0px 41.78px 33.42px 0px #00000026, 0px 100px 80px 0px #00000026, 0px 3px 3px 0px #00000024, 0px 2.77px 2.21px 0px #0000001F;
+}
+.entry-footer .social-item:hover {
+  background: radial-gradient(62.56% 62.56% at 28.14% -10.42%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(0deg, #272727, #272727);
+  box-shadow: 0px -3px 0px 0px #080808 inset, 0px 1px 0px 0px #FFFFFF4D inset, 0px 2.77px 2.21px 0px #0000001F, 0px 6.65px 5.32px 0px #00000021, 0px 12.52px 10.02px 0px #00000022, 0px 22.34px 17.87px 0px #00000024, 0px 41.78px 33.42px 0px #00000026, 0px 100px 80px 0px #00000026, 0px 3px 3px 0px #00000024, 0px 2.77px 2.21px 0px #0000001F;
+}
 
 .blockquote-wrap {
   position: relative;
   overflow: hidden;
   border-radius: 24px;
   padding: 74px 39px 80px 56px;
+  background-color: #09090B;
   box-shadow: 0px 0px 20px 0px rgba(103, 103, 103, 0.25) inset;
+}
+.blockquote-wrap h5 {
+  text-transform: none;
 }
 .blockquote-wrap svg {
   position: absolute;
@@ -14356,6 +14384,97 @@ section .section-inner.border-1 {
 }
 .post-comment .form-cta textarea {
   height: 100px;
+}
+.post-comment fieldset {
+  border: none;
+  padding: 0;
+}
+.post-comment fieldset input, .post-comment fieldset textarea {
+  padding-right: 30px;
+  outline: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  width: 100%;
+  padding: 0 0 11px 0px;
+  border: 0;
+  border-bottom: 1px solid #d4d4d8;
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--primary);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.post-comment form {
+  position: relative;
+  z-index: 30;
+}
+.post-comment form textarea,
+.post-comment form input[type=text],
+.post-comment form input[type=password],
+.post-comment form input[type=datetime],
+.post-comment form input[type=datetime-local],
+.post-comment form input[type=date],
+.post-comment form input[type=month],
+.post-comment form input[type=time],
+.post-comment form input[type=week],
+.post-comment form input[type=number],
+.post-comment form input[type=email],
+.post-comment form input[type=url],
+.post-comment form input[type=search],
+.post-comment form input[type=tel],
+.post-comment form input[type=color] {
+  outline: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  width: 100%;
+  padding: 0 0 11px 0px;
+  border: 0;
+  border-bottom: 1px solid #D4D4D8;
+  background-color: transparent;
+  color: var(--color-primary);
+}
+.post-comment form textarea::placeholder,
+.post-comment form input[type=text]::placeholder,
+.post-comment form input[type=password]::placeholder,
+.post-comment form input[type=datetime]::placeholder,
+.post-comment form input[type=datetime-local]::placeholder,
+.post-comment form input[type=date]::placeholder,
+.post-comment form input[type=month]::placeholder,
+.post-comment form input[type=time]::placeholder,
+.post-comment form input[type=week]::placeholder,
+.post-comment form input[type=number]::placeholder,
+.post-comment form input[type=email]::placeholder,
+.post-comment form input[type=url]::placeholder,
+.post-comment form input[type=search]::placeholder,
+.post-comment form input[type=tel]::placeholder,
+.post-comment form input[type=color]::placeholder {
+  color: var(--color-body-1);
+}
+.post-comment form button,
+.post-comment form input[type=button],
+.post-comment form input[type=reset],
+.post-comment form input[type=submit] {
+  background-color: transparent;
+  overflow: hidden;
+  padding: 0;
+}
+.post-comment form textarea {
+  height: 150px;
+  border-radius: 32px;
+  resize: none;
+}
+.post-comment form .form-content {
+  display: grid;
+  gap: 20px;
+}
+.post-comment form .form-content label {
+  color: var(--color-heading-1);
+  font-weight: 600;
 }
 
 .hover-img .img-style {
@@ -14605,6 +14724,30 @@ section .section-inner.border-1 {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+.text-body-1 {
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 0;
+}
+
+.text-body-2 {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.text-body-3 {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.gap-12 {
+  gap: 12px !important;
+}
+
+.mb-12 {
+  margin-bottom: 12px !important;
+}
+
 .wpr-footer-area .footer-top {
   padding: 64px 56px;
 }
