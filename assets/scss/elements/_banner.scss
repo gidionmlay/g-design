@@ -343,3 +343,18 @@
     transform: scale(1);
   }
 }
+
+.wpr-banner-area.error-page{
+  .banner-content-area{
+    .section-title{
+      font-size: 72px;
+    } 
+    .desc{
+      margin-bottom: 30px;
+    }
+    .button-area{
+      max-width: max-content;
+      margin: auto;
+    }
+  }
+}

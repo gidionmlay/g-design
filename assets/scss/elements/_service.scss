@@ -175,3 +175,83 @@
         width: 25%;
     }
 }
+.services-details-banner{
+    .section-inner{
+        padding: 60px;
+        .image-area{
+            border-radius: 26px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        .service-overview{
+            max-width: 850px;
+            margin: auto;
+            .approach-area{
+                display: flex;
+                justify-content: space-between;
+                gap: 30px;
+                .left{
+                    max-width: 50%;
+                    ul{
+                        padding: 0;
+                        margin: 0;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                        li{
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+                            font-size: 18px;
+                            line-height: 1;
+                            padding: 0;
+                            margin: 0;
+                            font-weight: 500;
+                            svg{
+                                path{
+                                    fill: var(--color-primary);
+                                }
+                            }
+                        }
+                    }
+                }
+                .right{
+                    img{    
+                        border-radius: 26px;
+                        filter: grayscale(1);
+                    }
+                }
+            }
+            .feature-wrapper-area{
+                display: flex;
+                gap: 20px;
+                .feature-box{
+                    flex-basis: 50%;
+                    padding: 25px;
+                    border-radius: 26px;
+                    background-color: #F4F4F5;
+                    box-shadow: 0px 7.77px 16px 0px #0000000F,
+                    0px 3px 3px 0px #0000001A,
+                    0px -8px 0px 0px #0000000D inset,
+                    0px 4px 0px 0px #FFFFFF99 inset;
+
+                    .top{
+                        display: flex;
+                        align-items: center;
+                        gap: 15px;
+                        margin-bottom: 15px;
+                        .text{
+                            color: var(--color-heading-1);
+                            font-weight: 700;
+                            font-size: 24px;
+                            line-height: 1;
+                            font-family: var(--font-primary);
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+}
