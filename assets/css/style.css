@@ -14139,6 +14139,8 @@ section .section-inner.border-1 {
   flex-direction: column;
   gap: 24px;
   margin-top: 50px;
+  position: sticky;
+  top: 30px;
 }
 .blog-sidebar .sidebar-title {
   font-weight: 600;
@@ -14475,6 +14477,12 @@ section .section-inner.border-1 {
 .post-comment form .form-content label {
   color: var(--color-heading-1);
   font-weight: 600;
+}
+.post-comment form .form-action .wpr-btn {
+  max-width: 100%;
+  width: 100%;
+  padding: 16px 24px 16px;
+  justify-content: center;
 }
 
 .hover-img .img-style {
@@ -15511,6 +15519,75 @@ section .section-inner.border-1 {
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1), 60px 50px 80px rgba(0, 0, 0, 0.15), 20px 41.7776px 33.4221px rgba(0, 0, 0, 0.1503), 10px 22.3363px 17.869px rgba(0, 0, 0, 0.1417), 4px 12.5216px 10.0172px rgba(0, 0, 0, 0.135), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.1283), 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.1197), inset 0px 1px 0px rgba(255, 255, 255, 0.6), inset 0px -3px 0px #1A1A1A, inset 0px -4px 0px 1px rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   color: var(--color-white);
+}
+.wpr-contact-area.inner .section-inner {
+  background: transparent;
+}
+.wpr-contact-area.inner .section-inner .left-content-area .get-in-touch ul li a,
+.wpr-contact-area.inner .section-inner .left-content-area .get-in-touch .sub-title,
+.wpr-contact-area.inner .section-inner .left-content-area .location-area ul li h4,
+.wpr-contact-area.inner .section-inner .left-content-area .location-area .sub-title,
+.wpr-contact-area.inner .section-inner .contact-form-area form .single-input label {
+  color: var(--color-heading-1);
+}
+.wpr-contact-area.inner .section-inner .left-content-area .location-area ul li p {
+  color: var(--color-body-1);
+}
+.wpr-contact-area.inner .section-inner .contact-form-area {
+  border-left: 1px solid rgba(3, 7, 18, 0.1);
+}
+.wpr-contact-area.inner .section-inner .contact-form-area form .single-input label {
+  font-weight: 600;
+}
+.wpr-contact-area.inner .section-inner .contact-form-area form .single-input input {
+  border-bottom: 1px solid rgba(3, 7, 18, 0.1);
+}
+.wpr-contact-area.inner .section-inner .contact-form-area form .single-input input::placeholder {
+  color: var(--color-body-1) !important;
+  font-weight: 400 !important;
+}
+.wpr-contact-area.inner .section-inner .contact-form-area form .single-input textarea {
+  border-bottom: 1px solid rgba(3, 7, 18, 0.1);
+}
+.wpr-contact-area.inner .section-inner .contact-form-area form .single-input textarea::placeholder {
+  color: var(--color-body-1) !important;
+  font-weight: 400 !important;
+}
+
+.wpr-get-in-touch .section-inner {
+  padding: 100px 60px;
+}
+
+.box-contact-item {
+  text-align: center;
+  padding: 40px;
+  border-radius: 32px;
+  background-color: #F4F4F5;
+  box-shadow: 0px 7.77px 16px 0px #0000000F, 0px 3px 3px 0px #0000001A, 0px -8px 0px 0px #0000000D inset, 0px 4px 0px 0px #FFFFFF99 inset;
+}
+.box-contact-item .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  font-size: 40px;
+  color: var(--color-white);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background: linear-gradient(0deg, #272727, #272727), radial-gradient(62.56% 62.56% at 28.14% -10.42%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: 0px -3px 0px 0px #080808 inset, 0px 1px 0px 0px #FFFFFF4D inset, 0px 2.77px 2.21px 0px #0000001F, 0px 3px 3px 0px #00000024, 0px 12.52px 10.02px 0px #00000022, 0px 22.34px 17.87px 0px #00000024, 0px 41.78px 33.42px 0px #00000026, 0px 100px 80px 0px #00000026;
+}
+.box-contact-item .title {
+  margin-bottom: 8px;
+}
+@media lg {
+  .box-contact-item {
+    padding: 24px !important;
+    border-radius: 24px;
+  }
 }
 
 .wpr-faq-area .section-inner {
