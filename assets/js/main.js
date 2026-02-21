@@ -160,6 +160,22 @@
 
       });
       $(document).ready(function () {
+
+        var imageSwiper = new Swiper(".project-slider", {
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+          spaceBetween: 0,
+          speed: 1300,
+          loop: true,
+          autoplay: false,
+          navigation: {
+            nextEl: ".slider-next",
+            prevEl: ".slider-prev",
+          },
+        });
+
+      });
+      $(document).ready(function () {
         var projectSwiper = new Swiper(".portfolio-slider", {
           slidesPerView: 1,
           slidesPerGroup: 1,
@@ -1082,23 +1098,124 @@ sideMenu: function () {
         setInterval(showNextImage, 2000);
       }
     },
+// containerResize: function () {
+//   document.addEventListener("DOMContentLoaded", function () {
+//     gsap.registerPlugin(ScrollTrigger);
+
+//     const pinWrap = document.querySelector(".wpr-video-pin");
+//     const wrapper = document.querySelector(".wpr-video-wrapper");
+//     const slider = document.querySelector(".gsap-slider");
+//     const slides = gsap.utils.toArray(".gsap-slider .slide");
+
+//     const nextBtn = document.querySelector(".slider-next");
+//     const prevBtn = document.querySelector(".slider-prev");
+
+//     if (!pinWrap || slides.length === 0) return;
+
+//     const slideCount = slides.length;
+//     let currentIndex = 0;
+//     let scaleEndProgress = 0;
+
+//     // ---------- INITIAL STATE ----------
+//     gsap.set(wrapper, {
+//       scale: 0.1,
+//       opacity: 0,
+//       transformOrigin: "center center",
+//       willChange: "transform, opacity",
+//     });
+
+//     // ---------- TIMELINE ----------
+//     const tl = gsap.timeline({
+//       scrollTrigger: {
+//         trigger: pinWrap,
+//         start: "top top",
+//         end: () => "+=" + window.innerHeight * slideCount,
+//         scrub: 0.8,
+//         pin: true,
+//         pinSpacing: true,
+//         anticipatePin: 1,
+//         invalidateOnRefresh: true,
+//       },
+//     })
+//       // fade in
+//       .to(wrapper, { opacity: 1, duration: 0.25, ease: "power1.out" })
+//       // scale up
+//       .to(wrapper, {
+//         scale: 1,
+//         duration: 1.4,
+//         ease: "power2.out",
+//         onUpdate: () => {
+//           const scale = gsap.getProperty(wrapper, "scale");
+//           if (scale >= 0.999) {
+//             slider.classList.add("scale-done");
+//             scaleEndProgress = tl.progress();
+//           } else {
+//             slider.classList.remove("scale-done");
+//           }
+//         },
+//       })
+//       // slider horizontal move
+//       .to(slider, {
+//         xPercent: -100 * (slideCount - 1),
+//         duration: 1,
+//         ease: "none",
+//       });
+
+//     const st = tl.scrollTrigger;
+
+//     // ---------- BUTTON CONTROL ----------
+//     function goToSlide(index) {
+//       currentIndex = Math.max(0, Math.min(index, slideCount - 1));
+
+//       // calculate progress only for slider section
+//       const targetProgress =
+//         scaleEndProgress +
+//         (currentIndex / (slideCount - 1)) * (1 - scaleEndProgress);
+
+//       // 🚀 Important: overwrite timeline scrub
+//       gsap.to(tl, {
+//         progress: targetProgress,
+//         duration: 0.5,
+//         ease: "power2.out",
+//         overwrite: "auto",
+//       });
+//     }
+
+//     nextBtn?.addEventListener("click", () => {
+//       if (!slider.classList.contains("scale-done")) return;
+//       goToSlide(currentIndex + 1);
+//     });
+
+//     prevBtn?.addEventListener("click", () => {
+//       if (!slider.classList.contains("scale-done")) return;
+//       goToSlide(currentIndex - 1);
+//     });
+
+//     // ---------- SYNC CURRENT INDEX ON SCROLL ----------
+//     ScrollTrigger.create({
+//       trigger: pinWrap,
+//       start: "top top",
+//       end: () => "+=" + window.innerHeight * slideCount,
+//       onUpdate: (self) => {
+//         if (!slider.classList.contains("scale-done")) return;
+
+//         const progressAfterScale =
+//           (self.progress - scaleEndProgress) / (1 - scaleEndProgress);
+
+//         currentIndex = Math.round(progressAfterScale * (slideCount - 1));
+//       },
+//     });
+//   });
+// },
 containerResize: function () {
   document.addEventListener("DOMContentLoaded", function () {
     gsap.registerPlugin(ScrollTrigger);
 
     const pinWrap = document.querySelector(".wpr-video-pin");
     const wrapper = document.querySelector(".wpr-video-wrapper");
-    const slider = document.querySelector(".gsap-slider");
-    const slides = gsap.utils.toArray(".gsap-slider .slide");
+    const slideContent = wrapper?.querySelector(".slide-content");
 
-    const nextBtn = document.querySelector(".slider-next");
-    const prevBtn = document.querySelector(".slider-prev");
-
-    if (!pinWrap || slides.length === 0) return;
-
-    const slideCount = slides.length;
-    let currentIndex = 0;
-    let scaleEndProgress = 0;
+    if (!pinWrap || !wrapper || !slideContent) return;
 
     // ---------- INITIAL STATE ----------
     gsap.set(wrapper, {
@@ -1108,12 +1225,17 @@ containerResize: function () {
       willChange: "transform, opacity",
     });
 
+    gsap.set(slideContent, {
+      opacity: 0,
+      willChange: "opacity",
+    });
+
     // ---------- TIMELINE ----------
-    const tl = gsap.timeline({
+    gsap.timeline({
       scrollTrigger: {
         trigger: pinWrap,
         start: "top top",
-        end: () => "+=" + window.innerHeight * slideCount,
+        end: () => "+=" + window.innerHeight,
         scrub: 0.8,
         pin: true,
         pinSpacing: true,
@@ -1121,77 +1243,26 @@ containerResize: function () {
         invalidateOnRefresh: true,
       },
     })
-      // fade in
-      .to(wrapper, { opacity: 1, duration: 0.25, ease: "power1.out" })
-      // scale up
-      .to(wrapper, {
-        scale: 1,
-        duration: 1.4,
-        ease: "power2.out",
-        onUpdate: () => {
-          const scale = gsap.getProperty(wrapper, "scale");
-          if (scale >= 0.999) {
-            slider.classList.add("scale-done");
-            scaleEndProgress = tl.progress();
-          } else {
-            slider.classList.remove("scale-done");
-          }
-        },
-      })
-      // slider horizontal move
-      .to(slider, {
-        xPercent: -100 * (slideCount - 1),
-        duration: 1,
-        ease: "none",
-      });
-
-    const st = tl.scrollTrigger;
-
-    // ---------- BUTTON CONTROL ----------
-    function goToSlide(index) {
-      currentIndex = Math.max(0, Math.min(index, slideCount - 1));
-
-      // calculate progress only for slider section
-      const targetProgress =
-        scaleEndProgress +
-        (currentIndex / (slideCount - 1)) * (1 - scaleEndProgress);
-
-      // 🚀 Important: overwrite timeline scrub
-      gsap.to(tl, {
-        progress: targetProgress,
-        duration: 0.5,
-        ease: "power2.out",
-        overwrite: "auto",
-      });
-    }
-
-    nextBtn?.addEventListener("click", () => {
-      if (!slider.classList.contains("scale-done")) return;
-      goToSlide(currentIndex + 1);
-    });
-
-    prevBtn?.addEventListener("click", () => {
-      if (!slider.classList.contains("scale-done")) return;
-      goToSlide(currentIndex - 1);
-    });
-
-    // ---------- SYNC CURRENT INDEX ON SCROLL ----------
-    ScrollTrigger.create({
-      trigger: pinWrap,
-      start: "top top",
-      end: () => "+=" + window.innerHeight * slideCount,
-      onUpdate: (self) => {
-        if (!slider.classList.contains("scale-done")) return;
-
-        const progressAfterScale =
-          (self.progress - scaleEndProgress) / (1 - scaleEndProgress);
-
-        currentIndex = Math.round(progressAfterScale * (slideCount - 1));
-      },
+    // fade wrapper
+    .to(wrapper, {
+      opacity: 1,
+      duration: 0.25,
+      ease: "power1.out",
+    })
+    // scale wrapper
+    .to(wrapper, {
+      scale: 1,
+      duration: 1.4,
+      ease: "power2.out",
+    })
+    // show slide content ONLY after full scale
+    .to(slideContent, {
+      opacity: 1,
+      duration: 0.4,
+      ease: "power1.out",
     });
   });
 },
-
 
 
   }
