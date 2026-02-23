@@ -26,7 +26,7 @@
                     font-family: var(--font-primary);
                     position: relative;
                     z-index: 1;
-                    margin-top: 3px;
+                    margin-top: 8px;
                     height: max-content;
                     &::after{
                         content: '';
@@ -74,6 +74,7 @@
                     position: relative;
                     z-index: 1;
                     height: max-content;
+                    margin-top: 10px;
                     &::after{
                         content: '';
                         position: absolute;
@@ -97,10 +98,12 @@
                             color: #F9FAFB;
                             margin-bottom: 15px;
                             text-transform: none;
+                            font-weight: 600;
                             font-family: var(--font-secondary);
                         }
                         p{
                             color: rgba( #F9FAFB, $alpha: .6);
+                            font-size: 14px;
                         }
                     }
                 }

@@ -28,17 +28,7 @@
     .wpr-testimonials-area .section-inner .top-left-shape{
         max-width: 300px;
     }
-    .award-header .left .content{
-        max-width: 350px;
-    }
-    .award-item{
-        padding: 40px 30px;
-    }
-    .award-header .left .content .title{
-        br{
-            display: none;
-        }
-    }
+    
     .why-choose-wrapper .wrapper-header .title{
         font-size: 42px;
     }
@@ -161,6 +151,20 @@
     .project-wrapper .slide-content .product-intro{
         max-width: 470px;
     }
+    .award-header .left .content{
+        max-width: 350px;
+    }
+    .award-item{
+        padding: 40px 30px;
+    }
+    .award-header .left .content .title{
+        br{
+            display: none;
+        }
+    }
+    .wpr-footer-area .copyright-area{
+        padding: 24px;
+    }
 }
 
 @media(max-width:1200px) and (min-width:991px) {
@@ -204,6 +208,9 @@
     }
     .project-wrapper .slide-content .product-intro .bottom ul li h5{
         font-size: 24px;
+    }
+    .award-item.active .left .content .desc{
+        height: 80px;
     }
 }
 
@@ -331,6 +338,12 @@
     }
     .project-slider-inner .slider-btn{
         display: none;
+    }
+    .wpr-footer-area .copyright-area p{
+        width: max-content;
+    }
+    .wpr-footer-area .copyright-area .scroll-top-btn{
+        max-width: max-content;
     }
 }
 
@@ -511,6 +524,12 @@
     }
     .project-wrapper .image-area{
         height: 500px;
+    }
+    .why-choose-wrapper{
+        max-width: 100% !important;
+    }
+    .why-choose-wrapper.ml-auto{
+        margin-left: 0;
     }
 }
 

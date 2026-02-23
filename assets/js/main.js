@@ -90,6 +90,7 @@
       rdJs.scrollingText2();
       rdJs.awardAccordion();
       rdJs.containerResize();
+      rdJs.featureProjectHover();
     },
 
     swiperActivation: function () {
@@ -133,7 +134,7 @@
           speed: 1800,
           loop: true,
           autoplay: {
-            delay: 5000,
+            delay: 1000,
             disableOnInteraction: false
           },
           navigation: {
@@ -214,6 +215,28 @@
     wowActive: function () {
       new WOW().init();
     },
+    featureProjectHover: function () {
+    const boxes = document.querySelectorAll('.feature-project');
+    if (!boxes.length) return;
+
+    boxes.forEach(box => {
+        const hoverElement = box.querySelector('.hover_mouse');
+        if (!hoverElement) return;
+
+        box.addEventListener('mousemove', function (event) {
+            const boxRect = box.getBoundingClientRect();
+            const mouseX = event.clientX - boxRect.left;
+            const mouseY = event.clientY - boxRect.top;
+
+            hoverElement.style.transform = `translate3d(${mouseX - 50}px, ${mouseY - 50}px, 0)`;
+            hoverElement.classList.add('active');
+        });
+
+        box.addEventListener('mouseleave', function () {
+            hoverElement.classList.remove('active');
+        });
+    });
+},
     customSelectActive: function () {
       document.querySelectorAll('.custom-select').forEach(select => {
         const trigger = select.querySelector('.custom-select-trigger');

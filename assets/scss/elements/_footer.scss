@@ -71,6 +71,7 @@
         justify-content: space-between;
         padding: 24px 56px;
         .left-social-area{
+            width: 33%;
             ul{
                 padding: 0;
                 margin: 0;
@@ -112,14 +113,18 @@
             font-size: 14px;
             line-height: 1;
             margin-bottom: 0;
+            width: 33%;
+            text-align: center;
         }
         .scroll-top-btn{
-            max-width: max-content;
+            max-width: 33%;
+            width: 100%;
             border: none;
             font-size: 14px;
             font-weight: 600;
             color: var(--color-heading-1);
             display: flex;
+            justify-content: end;
             gap: 7px;
         }
     }
