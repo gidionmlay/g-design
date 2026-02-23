@@ -13974,6 +13974,18 @@ section .section-inner.border-1 {
 .wpr-working-process .working-process-left .text-area .desc {
   margin-bottom: 20px;
 }
+.wpr-working-process .working-process-left .text-area .wpr-btn {
+  padding: 24px 24px 28px 78px;
+  background: radial-gradient(62.56% 62.56% at 28.14% -10.42%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(137.66deg, #40454A 21.13%, #292C2E 80.53%);
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1), 60px 50px 80px rgba(0, 0, 0, 0.15), 20px 41.7776px 33.4221px rgba(0, 0, 0, 0.1503), 10px 22.3363px 17.869px rgba(0, 0, 0, 0.1417), 4px 12.5216px 10.0172px rgba(0, 0, 0, 0.135), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.1283), 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.1197), inset 0px 1px 0px rgba(255, 255, 255, 0.6), inset 0px -5px 0px #1A1A1A, inset 0px -6px 0px 1px rgba(255, 255, 255, 0.1);
+}
+.wpr-working-process .working-process-left .text-area .wpr-btn .icon {
+  gap: 17px;
+}
+.wpr-working-process .working-process-left .text-area .wpr-btn .inner {
+  top: 47%;
+  transform: translate(-50%, -47%);
+}
 
 .working-process-wrapper {
   position: relative;
@@ -14005,6 +14017,10 @@ section .section-inner.border-1 {
   display: flex;
   gap: 30px;
   padding: 25px 20px 0;
+}
+.working-process-wrapper .content-area .number {
+  font-size: 18px;
+  line-height: 1;
 }
 .working-process-wrapper .content-area .title {
   font-weight: 600;

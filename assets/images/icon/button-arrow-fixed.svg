@@ -1,0 +1,23 @@
+<svg width="19" height="24" viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_88_427" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="19" height="24">
+<circle cx="2" cy="2" r="2" fill="#02324F"/>
+<circle cx="2" cy="2" r="2" transform="matrix(-1 0 0 1 14 15)" fill="#02324F"/>
+<circle cx="7" cy="7" r="2" fill="#02324F"/>
+<circle cx="2" cy="2" r="2" transform="matrix(-1 0 0 1 9 20)" fill="#02324F"/>
+<circle cx="12" cy="12" r="2" fill="#02324F"/>
+<circle cx="7" cy="2" r="2" fill="#02324F"/>
+<circle cx="2" cy="2" r="2" transform="matrix(-1 0 0 1 9 15)" fill="#02324F"/>
+<circle cx="12" cy="7" r="2" fill="#02324F"/>
+<circle cx="2" cy="2" r="2" transform="matrix(-1 0 0 1 4 20)" fill="#02324F"/>
+<circle cx="17" cy="12" r="2" fill="#02324F"/>
+</mask>
+<g mask="url(#mask0_88_427)">
+<rect x="-7" y="-4" width="31" height="32" fill="url(#paint0_linear_88_427)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_88_427" x1="15.5" y1="9.5" x2="3" y2="9.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#292B2E" stop-opacity="0.3"/>
+<stop offset="1" stop-color="#292B2E"/>
+</linearGradient>
+</defs>
+</svg>

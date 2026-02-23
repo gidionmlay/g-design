@@ -1214,8 +1214,9 @@ containerResize: function () {
     const pinWrap = document.querySelector(".wpr-video-pin");
     const wrapper = document.querySelector(".wpr-video-wrapper");
     const slideContent = wrapper?.querySelector(".slide-content");
+    const swiperNav = wrapper?.querySelector(".swiper-navigation");
 
-    if (!pinWrap || !wrapper || !slideContent) return;
+    if (!pinWrap || !wrapper || !slideContent || !swiperNav) return;
 
     // ---------- INITIAL STATE ----------
     gsap.set(wrapper, {
@@ -1225,7 +1226,7 @@ containerResize: function () {
       willChange: "transform, opacity",
     });
 
-    gsap.set(slideContent, {
+    gsap.set([slideContent, swiperNav], {
       opacity: 0,
       willChange: "opacity",
     });
@@ -1243,24 +1244,24 @@ containerResize: function () {
         invalidateOnRefresh: true,
       },
     })
-    // fade wrapper
-    .to(wrapper, {
-      opacity: 1,
-      duration: 0.25,
-      ease: "power1.out",
-    })
-    // scale wrapper
-    .to(wrapper, {
-      scale: 1,
-      duration: 1.4,
-      ease: "power2.out",
-    })
-    // show slide content ONLY after full scale
-    .to(slideContent, {
-      opacity: 1,
-      duration: 0.4,
-      ease: "power1.out",
-    });
+      // fade wrapper
+      .to(wrapper, {
+        opacity: 1,
+        duration: 0.25,
+        ease: "power1.out",
+      })
+      // scale wrapper
+      .to(wrapper, {
+        scale: 1,
+        duration: 1.4,
+        ease: "power2.out",
+      })
+      // show content + navigation after full scale
+      .to([slideContent, swiperNav], {
+        opacity: 1,
+        duration: 0.4,
+        ease: "power1.out",
+      });
   });
 },
 
