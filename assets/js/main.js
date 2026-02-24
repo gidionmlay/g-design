@@ -1236,10 +1236,18 @@ containerResize: function () {
 
     const pinWrap = document.querySelector(".wpr-video-pin");
     const wrapper = document.querySelector(".wpr-video-wrapper");
-    const slideContent = wrapper?.querySelector(".slide-content");
+    const slideContents = wrapper?.querySelectorAll(".slide-content");
+    const featureProjects = wrapper?.querySelectorAll(".feature-project");
     const swiperNav = wrapper?.querySelector(".swiper-navigation");
 
-    if (!pinWrap || !wrapper || !slideContent || !swiperNav) return;
+    if (
+      !pinWrap ||
+      !wrapper ||
+      !slideContents.length ||
+      !featureProjects.length ||
+      !swiperNav
+    )
+      return;
 
     // ---------- INITIAL STATE ----------
     gsap.set(wrapper, {
@@ -1249,9 +1257,15 @@ containerResize: function () {
       willChange: "transform, opacity",
     });
 
-    gsap.set([slideContent, swiperNav], {
+    // slide content + nav → hidden
+    gsap.set([...slideContents, swiperNav], {
       opacity: 0,
       willChange: "opacity",
+    });
+
+    // feature project → interaction disabled
+    gsap.set(featureProjects, {
+      pointerEvents: "none",
     });
 
     // ---------- TIMELINE ----------
@@ -1279,12 +1293,23 @@ containerResize: function () {
         duration: 1.4,
         ease: "power2.out",
       })
-      // show content + navigation after full scale
-      .to([slideContent, swiperNav], {
-        opacity: 1,
-        duration: 0.4,
-        ease: "power1.out",
-      });
+      // show content + enable interactions
+      .to(
+        [...slideContents, swiperNav],
+        {
+          opacity: 1,
+          duration: 0.4,
+          ease: "power1.out",
+        },
+        ">"
+      )
+      .to(
+        featureProjects,
+        {
+          pointerEvents: "auto",
+        },
+        ">"
+      );
   });
 },
 

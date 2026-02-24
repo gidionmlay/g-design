@@ -38,6 +38,17 @@
     .why-choose-wrapper .wrapper-list li{
         font-size: 14px;
     }
+    .approch-area-left .section-title-area .section-title{
+        font-size: 54px;
+    }
+    .single-approach-area-start{
+        width: 100%;
+    }
+    .single-approach-area-start::after{
+        font-size: 54px;
+        line-height: 1;
+        top: 15px;
+    }
 }
 
 @media(max-width:1439px) and (min-width:1200px) {
@@ -86,7 +97,7 @@
     }
 
     .main-nav-area ul {
-        gap: 35px;
+        gap: 20px;
     }
 
     .wpr-banner-area .banner-content-area .section-title {
@@ -211,6 +222,17 @@
     }
     .award-item.active .left .content .desc{
         height: 80px;
+    }
+    .approch-area-left .section-title-area .section-title{
+        font-size: 42px;
+    }
+    .single-approach-area-start p.disc{
+        br{
+            display: none;
+        }
+    }
+    .single-approach-area-start .title{
+        font-size: 20px;
     }
 }
 
@@ -344,6 +366,22 @@
     }
     .wpr-footer-area .copyright-area .scroll-top-btn{
         max-width: max-content;
+    }
+    .main-nav-area {
+        display: none;
+    }
+    .header-style-one .header-style-one-wrapper .left-area.square-dot .square-shape.top-right,
+    .header-style-one .header-style-one-wrapper .left-area.square-dot .square-shape.bottom-right,
+    .header-style-one .header-style-one-wrapper .button-area-start.square-dot .square-shape.top-left,
+    .header-style-one .header-style-one-wrapper .button-area-start.square-dot .square-shape.bottom-left {
+        display: none;
+    }
+    .header-style-one .header-style-one-wrapper .button-area-start,
+    .header-style-one .header-style-one-wrapper .left-area {
+        border-width: 0 0 0 0;
+    }
+    .approch-area-left{
+        margin-bottom: 50px;
     }
 }
 
@@ -493,20 +531,7 @@
         height: 45px;
         line-height: 45px;
     }
-    .main-nav-area {
-        display: none;
-    }
-    .header-style-one .header-style-one-wrapper .left-area.square-dot .square-shape.top-right,
-    .header-style-one .header-style-one-wrapper .left-area.square-dot .square-shape.bottom-right,
-    .header-style-one .header-style-one-wrapper .button-area-start.square-dot .square-shape.top-left,
-    .header-style-one .header-style-one-wrapper .button-area-start.square-dot .square-shape.bottom-left {
-        display: none;
-    }
 
-    .header-style-one .header-style-one-wrapper .button-area-start,
-    .header-style-one .header-style-one-wrapper .left-area {
-        border-width: 0 0 0 0;
-    }
     .wpr-banner-area.breadcrumb .banner-content-area .banner-shape-area img.one{
         width: 160px;
     }
@@ -530,6 +555,12 @@
     }
     .why-choose-wrapper.ml-auto{
         margin-left: 0;
+    }
+    .our-approch-area-style-one .section-inner{
+        padding: 40px 30px;
+    }
+    .approch-area-left .section-title-area .section-title{
+        font-size: 42px;
     }
 }
 
@@ -710,6 +741,19 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
     }
+    .approch-area-left p.disc{
+        br{
+            display: none;
+        }
+    }
+    .approch-area-left .section-title-area .section-title{
+        font-size: 34px;
+    }
+    .single-approach-area-start p.disc{
+        br{
+            display: none;
+        }
+    }
 }
 
 @media(max-width:576px) and (min-width:450px) {}
@@ -852,5 +896,8 @@
     .project-wrapper .slide-content .shape.top-left-shape,
     .project-wrapper .slide-content .shape.top-right-shape{
         width: 100px;
+    }
+    .approch-area-left .section-title-area .section-title{
+        font-size: 26px;
     }
 }

@@ -618,12 +618,6 @@
     top: 0;
     transition: transform 0.5s ease-out;
     transform: translate3d(0, 0, 0);
-    .box {
-        width: 24px;
-        height: 24px;
-        background: var(--color-heading-1);
-        opacity: 0;
-    }
 
     a {
         display: flex;
@@ -631,11 +625,22 @@
         padding: 16px 24px;
         gap: 8px;
         background: var(--color-heading-1);
-        margin-left: 24px;
         color: var(--color-white);
         font-family: var(--font-primary);
         font-weight: 500;
+        position: relative;
+        z-index: 1;
         transform: scale(0);
+        &::after {
+            content: '';
+            position: absolute;
+            top: -24px;
+            left: -24px;
+            width: 24px;
+            height: 24px;
+            background: var(--color-heading-1);
+            z-index: 1;
+        }
     }
     &.active{
         .box{
