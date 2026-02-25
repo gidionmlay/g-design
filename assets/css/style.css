@@ -16022,10 +16022,9 @@ section .section-inner.border-1 {
 .wpr-project-area .section-inner .floating-content {
   position: sticky;
   z-index: -1;
-  left: 50%;
-  transform: translateX(-49%);
-  max-width: 855px;
-  width: 50%;
+  left: 0;
+  max-width: 100%;
+  width: 100%;
   top: 32.5%;
   margin-bottom: 20px;
 }
@@ -16034,12 +16033,29 @@ section .section-inner.border-1 {
     top: 28%;
   }
 }
+@media (max-width: 1500px) {
+  .wpr-project-area .section-inner .floating-content {
+    top: 32%;
+  }
+}
+@media (max-width: 991px) {
+  .wpr-project-area .section-inner .floating-content {
+    top: 35%;
+  }
+}
 .wpr-project-area .section-inner .floating-content .section-title-area .section-title {
   margin-bottom: 40px;
 }
+.wpr-project-area .section-inner .floating-content .section-title-area .section-title span {
+  display: inline-block;
+  padding-top: 10px;
+}
+.wpr-project-area .section-inner .floating-content .section-title-area .section-title span span {
+  padding-top: 0;
+}
 .wpr-project-area .section-inner .floating-content .section-title-area .section-title span img {
-  margin-left: 4px;
-  margin-top: 4px;
+  margin-left: 10px;
+  margin-top: -15px;
 }
 .wpr-project-area .section-inner .floating-content .section-title-area .desc {
   max-width: 463px;
@@ -16610,6 +16626,10 @@ section .section-inner.border-1 {
     line-height: 1;
     top: 15px;
   }
+
+  .wpr-working-process .working-process-left .section-title-area .section-title {
+    font-size: 60px;
+  }
 }
 @media (max-width: 1439px) and (min-width: 1200px) {
   .wpr-services-area .section-bottom-content .service-wrapper .content .mid h2 {
@@ -16983,6 +17003,14 @@ section .section-inner.border-1 {
 
   .approch-area-left {
     margin-bottom: 50px;
+  }
+
+  .wpr-project-area .section-inner .floating-content .section-title-area .section-title span img {
+    width: 100px;
+  }
+
+  .wpr-project-area .slide .slide-content .product-intro {
+    display: none;
   }
 }
 @media (max-width: 768px) {
@@ -17566,6 +17594,20 @@ section .section-inner.border-1 {
 
   .approch-area-left .section-title-area .section-title {
     font-size: 26px;
+  }
+
+  .single-approach-area-start {
+    padding: 28px 20px;
+  }
+
+  .single-approach-area-start .title {
+    font-size: 20px;
+  }
+
+  .single-approach-area-start::after {
+    font-size: 36px;
+    top: 10px;
+    right: 10px;
   }
 }
 /*# sourceMappingURL=../maps/style.css.map */
