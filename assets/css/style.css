@@ -16765,6 +16765,10 @@ section .section-inner.border-1 {
   .wpr-footer-area .copyright-area {
     padding: 24px;
   }
+
+  .wpr-working-process .working-process-left .section-title-area .section-title {
+    font-size: 48px;
+  }
 }
 @media (max-width: 1200px) and (min-width: 991px) {
   .why-choose-wrapper2 {
@@ -17425,6 +17429,10 @@ section .section-inner.border-1 {
   .single-approach-area-start p.disc br {
     display: none;
   }
+
+  .wpr-working-process .working-process-left .section-title-area .section-title {
+    font-size: 42px;
+  }
 }
 @media (max-width: 450px) {
   .wpr-banner-area .banner-content-area .text-area .desc br {
@@ -17608,6 +17616,10 @@ section .section-inner.border-1 {
     font-size: 36px;
     top: 10px;
     right: 10px;
+  }
+
+  .wpr-working-process .working-process-left .section-title-area .section-title {
+    font-size: 32px;
   }
 }
 /*# sourceMappingURL=../maps/style.css.map */
