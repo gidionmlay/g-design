@@ -2,9 +2,9 @@
  *
  * -----------------------------------------------------------------------------
  *
- * Template : Fluxi HTML TEMPLATE
- * Author : reacthemes
- * Author URI : https://reactheme.com/ 
+ * Template : Agenio HTML TEMPLATE
+ * Author : WordPressRiver
+ * Author URI : https://wordpressriver.com/ 
  *
  * -----------------------------------------------------------------------------
  *

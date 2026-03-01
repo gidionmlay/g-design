@@ -35,7 +35,7 @@
             align-items: center;
             gap: 12px;
             margin-bottom: 25px;
-            h6{
+            .h6{
                 font-family: var(--font-secondary);
                 text-transform: none;
                 font-weight: 600;
@@ -145,7 +145,7 @@
         .pricing-header{
             background: rgba(#FFFFFF, $alpha: .1);
             .plan-type{
-                h6{
+                .h6{
                     color: #F9FAFB;
                 }
                 p{

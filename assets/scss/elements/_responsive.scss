@@ -52,10 +52,18 @@
     .wpr-working-process .working-process-left .section-title-area .section-title{
         font-size: 60px;
     }
+    .work-details-banner .text-area .right-content{
+        max-width: 650px;
+    }
+    .work-details-banner .image-area-2 .image{
+        &:not(:last-child){
+            flex-basis: 49%;
+        }
+    }
 }
 
 @media(max-width:1439px) and (min-width:1200px) {
-    .wpr-services-area .section-bottom-content .service-wrapper .content .mid h2 {
+    .wpr-services-area .section-bottom-content .service-wrapper .content .mid .h2 {
         font-size: 180px;
     }
 
@@ -78,6 +86,12 @@
     }
     .wpr-project-area .section-inner .floating-content .section-title-area .section-title{
         font-size: 50px;
+    }
+    .project-wrapper2 .slide-content .product-intro .top{
+        padding: 25px;
+    }
+    .project-wrapper2 .slide-content .product-intro .bottom ul li{
+        padding: 20px;
     }
 }
 
@@ -159,8 +173,9 @@
     .wpr-testimonials-area .section-inner .testimonials-content-slider{
         max-width: 480px;
     }
-    .wpr-banner-area.breadcrumb .banner-content-area .banner-shape-area img.one{
-        width: 180px;
+    .wpr-banner-area.breadcrumb .banner-content-area .banner-shape-area img.one,
+    .wpr-banner-area.breadcrumb .banner-content-area .banner-shape-area img.two{
+        width: 165px;
     }
     .project-wrapper .slide-content .product-intro{
         max-width: 470px;
@@ -181,6 +196,16 @@
     }
     .wpr-working-process .working-process-left .section-title-area .section-title{
         font-size: 48px;
+    }
+    .project-wrapper2{
+        flex-direction: column;
+        position: unset;
+    }
+    .work-details-banner .text-area{
+        padding: 40px 30px;
+    }
+    .work-details-banner .text-area .right-content{
+        max-width: 540px;
     }
 }
 
@@ -223,7 +248,7 @@
     .project-wrapper .slide-content .product-intro .bottom ul li{
         padding: 15px 10px;
     }
-    .project-wrapper .slide-content .product-intro .bottom ul li h5{
+    .project-wrapper .slide-content .product-intro .bottom ul li .h5{
         font-size: 24px;
     }
     .award-item.active .left .content .desc{
@@ -395,6 +420,26 @@
     .wpr-project-area .slide .slide-content .product-intro{
         display: none;
     }
+    .working-process-wrapper{
+        top: 50px;
+    }
+    .services-details-banner .section-inner{
+        padding: 60px 40px;
+    }
+    .work-details-banner .image-area-2 .image:not(:last-child){
+        flex-basis: 48.7%;
+    }
+    .work-details-banner .text-area{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .work-details-banner .text-area .left-content,
+    .work-details-banner .text-area .right-content{
+        max-width: 100%;
+    }
+    .wpr-get-in-touch .section-inner{
+        padding: 60px 30px;
+    }
 }
 
 @media(max-width:991px) and (min-width:768px) {}
@@ -425,7 +470,7 @@
         max-width: 100%;
     }
 
-    .wpr-services-area .section-bottom-content .service-wrapper .content .mid h2 {
+    .wpr-services-area .section-bottom-content .service-wrapper .content .mid .h2 {
         font-size: 150px;
     }
 
@@ -544,8 +589,9 @@
         line-height: 45px;
     }
 
-    .wpr-banner-area.breadcrumb .banner-content-area .banner-shape-area img.one{
-        width: 160px;
+    .wpr-banner-area.breadcrumb .banner-content-area .banner-shape-area img.one,
+    .wpr-banner-area.breadcrumb .banner-content-area .banner-shape-area img.two{
+        width: 150px;
     }
     .project-wrapper .slide-content .product-intro .top{
         height: 200px;
@@ -553,7 +599,7 @@
     .project-wrapper .slide-content .product-intro .bottom ul li{
         padding: 15px 10px;
     }
-    .project-wrapper .slide-content .product-intro .bottom ul li h5{
+    .project-wrapper .slide-content .product-intro .bottom ul li .h5{
         font-size: 24px;
     }
     .project-wrapper .slide-content .shape.top-right-shape{
@@ -574,9 +620,40 @@
     .approch-area-left .section-title-area .section-title{
         font-size: 42px;
     }
+    .wpr-banner-area.breadcrumb .banner-content-area .desc{
+        max-width: 80%;
+        br{
+            display: none;
+        }
+    }
+    .working-process-wrapper{
+        top: 30px;
+    }
+    .wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner{
+        padding: 60px 20px;
+    }
+    .services-details-banner .section-inner .service-overview .feature-wrapper-area{
+        flex-direction: column;
+    }
+    .wpr-project-area.inner .project-slider-inner{
+        padding: 0 30px 60px;
+    }
+    .project-wrapper2 .slide-content .product-intro .bottom ul li{
+        padding: 20px 18px;
+    }
+    .work-details-banner .image-area-2 .image{
+        flex-basis: 100% !important;
+        img{
+            width: 100%;
+        }
+    }
 }
 
-@media(max-width:768px) and (min-width:576px) {}
+@media(max-width:768px) and (min-width:576px) {
+    .box-contact-item{
+        padding: 40px 20px;
+    }
+}
 
 @media(max-width:576px) {
     .header-style-one .header-top {
@@ -740,7 +817,8 @@
     .wpr-banner-area.breadcrumb .banner-content-area .section-title{
         font-size: 32px;
     }
-    .wpr-banner-area.breadcrumb .banner-content-area .banner-shape-area img.one{
+    .wpr-banner-area.breadcrumb .banner-content-area .banner-shape-area img.one,
+    .wpr-banner-area.breadcrumb .banner-content-area .banner-shape-area img.two{
         width: 120px;
     }
     .project-wrapper .slide-content .product-intro .bottom ul {
@@ -768,6 +846,51 @@
     }
     .wpr-working-process .working-process-left .section-title-area .section-title{
         font-size: 42px;
+    }
+    .wpr-awards-area .section-inner .award-accordion-area{
+        margin-bottom: 0;
+    }
+    .wpr-faq-area .section-inner .section-content-area{
+        padding: 100px 0 40px;
+    }
+    .services-details-banner .section-inner{
+        padding: 60px 20px;
+    }
+    .services-details-banner .section-inner .service-overview .approach-area{
+        flex-direction: column;
+    }
+    .services-details-banner .section-inner .service-overview .approach-area .left{
+        max-width: 100%;
+    }
+    .services-details-banner .section-inner .service-overview .approach-area .right img{
+        width: 100%;
+    }
+    .project-wrapper2 .slide-content .product-intro .bottom ul li:last-child{
+        display: none;
+    }
+    .wpr-project-area.inner .project-slider-inner{
+        padding: 0 20px 60px;
+    }
+    .project-wrapper2 .slide-content .product-intro .top{
+        padding: 40px 20px;
+    }
+    .work-details-banner .text-area{
+        padding: 40px 20px;
+    }
+    .work-details-banner .text-area .right-content .h6{
+        font-size: 20px;
+    }
+    .article-blog.style-horizontal{
+        flex-direction: column;
+    }
+    .article-blog.style-horizontal .blog-image{
+        max-width: 100%;
+    }
+    .wpr-blog-area .section-inner{
+        padding: 60px 20px;
+    }
+    .blockquote-wrap{
+        padding: 50px 25px 60px 25px;
     }
 }
 
@@ -931,5 +1054,35 @@
     }
     .wpr-working-process .working-process-left .section-title-area .section-title{
         font-size: 32px;
+    }
+    .wpr-banner-area.breadcrumb .banner-content-area .desc{
+        max-width: 90%;
+    }
+    .our-approch-area-style-one .section-inner{
+        padding: 40px 24px;
+    }
+    .services-details-banner .section-inner .service-overview .feature-wrapper-area .feature-box .top .icon svg{
+        width: 25px;
+    }
+    .services-details-banner .section-inner .service-overview .feature-wrapper-area .feature-box .top .text{
+        font-size: 20px;
+    }
+    .services-details-banner .section-inner .service-overview .h5{
+        font-size: 18px;
+    }
+    .project-wrapper2 .slide-content .product-intro .bottom ul li h4{
+        font-size: 24px;
+    }
+    .project-wrapper2 .slide-content .product-intro .bottom ul li p{
+        font-size: 14px;
+    }
+    .project-wrapper2 .slide-content .product-intro .bottom ul li{
+        padding: 20px 14px;
+    }
+    .box-contact-item{
+        padding: 40px 20px;
+    }
+    .wpr-map iframe{
+        height: 400px;
     }
 }

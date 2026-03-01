@@ -199,28 +199,28 @@
         <div class="container">
             <div class="section-inner border-1 square-dot">
                 <div class="row g-5 mb--60">
-                    <div class="col-md-4 md-mb-24">
+                    <div class="col-lg-4 col-md-6 col-sm-6 md-mb-24">
                         <div class="box-contact-item text-center effectFade fadeUp">
                             <i class="icon icon-envelope-solid"></i>
-                            <h6 class="title fw-semibold">E-mail address</h6>
+                            <h2 class="h6 title fw-semibold">E-mail address</h2>
                             <a class="text" href="mail:hello@youraiagency.com">
                                 hello@youraiagency.com
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-4 md-mb-24">
+                    <div class="col-lg-4 col-md-6 col-sm-6 md-mb-24">
                         <div class="box-contact-item text-center effectFade fadeUp" data-delay="0.1">
                             <i class="icon icon-headset-solid"></i>
-                            <h6 class="title fw-semibold">Phone number</h6>
-                            <a href="tel: +1 (647) 555 0172" class="text">
+                            <h2 class="h6 title fw-semibold">Phone number</h2>
+                            <a href="tel:+1(647)5550172" class="text">
                                 +1 (647) 555 0172
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="box-contact-item text-center effectFade fadeUp" data-delay="0.2">
                             <i class="icon icon-map-marker-solid"></i>
-                            <h6 class="title fw-semibold">Our Location</h6>
+                            <h2 class="h6 title fw-semibold">Our Location</h2>
                             <p class="text">
                                 USA, New York – 1060 Str.
                             </p>
@@ -241,9 +241,9 @@
     </section>
     <!-- wpr contact area end -->
     <!-- wpr contact area start -->
-    <section class="wpr-contact-area inner mb--16">
+    <section id="contact" class="wpr-contact-area mb--16">
         <div class="container">
-            <div class="section-inner border-1">
+            <div class="section-inner">
                 <div class="left-content-area">
                     <div class="get-in-touch">
                         <p class="sub-title">CONTACT</p>
@@ -256,18 +256,18 @@
                         <p class="sub-title">OFFFICES</p>
                         <ul>
                             <li>
-                                <h4>Montréal</h4>
+                                <h2 class="h4">Montréal</h2>
                                 <p>4200 Saint Laurent Blvd, Suite 305 <br> Montreal, QC H2W 2R2 <br> Canada</p>
                             </li>
                             <li>
-                                <h4>Texas</h4>
+                                <h2 class="h4">Texas</h2>
                                 <p>1920 McKinney Avenue, 7th Floor <br> Dallas, TX 75201 <br> United States</p>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="contact-form-area">
-                    <form action="#">
+                    <form id="contact-form" action="mailer.php" method="POST">
                         <div class="single-input">
                             <label for="name">/YOUR NAME</label>
                             <input type="text" id="name" name="name" placeholder="Enter your full name">
@@ -289,6 +289,7 @@
                         <div class="form-btn-area">
                             <button type="submit" class="wpr-btn">Submit Message</button>
                         </div>
+                        <div id="form-messages"></div>
                     </form>
                 </div>
             </div>
@@ -298,7 +299,7 @@
 
 
     <!-- wpr footer area start -->
-    <section class="wpr-footer-area">
+    <div class="wpr-footer-area">
         <div class="container">
             <div class="section-inner border-1">
                 <div class="footer-top">
@@ -313,7 +314,7 @@
                     </ul>
                 </div>
                 <div class="footer-logo-area square-dot">
-                    <a class="quote" href="index.html"><img src="assets/images/logo/footer-logo.svg" alt=""></a>
+                    <a href="index.html"><img src="assets/images/logo/footer-logo.svg" alt=""></a>
                     <div class="shape one"><img src="assets/images/logo/shape-01.svg" alt=""></div>
                     <div class="shape two"><img src="assets/images/logo/shape-02.svg" alt=""></div>
                     <span class="square-shape top-left"></span>
@@ -347,7 +348,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     <!-- wpr footer area end -->
 
     <!-- offcanvase search -->

@@ -94,7 +94,7 @@
                     li{
                         padding: 0;
                         margin: 0;
-                        h4{
+                        .h4{
                             color: #F9FAFB;
                             margin-bottom: 15px;
                             text-transform: none;
@@ -201,7 +201,7 @@
             background: transparent;
             .left-content-area .get-in-touch ul li a,
             .left-content-area .get-in-touch .sub-title,
-            .left-content-area .location-area ul li h4,
+            .left-content-area .location-area ul li .h4,
             .left-content-area .location-area .sub-title,
             .contact-form-area form .single-input label{
                 color: var(--color-heading-1);

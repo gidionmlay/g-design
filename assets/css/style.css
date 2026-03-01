@@ -293,7 +293,7 @@ h6 a,
 
   h5,
 .h5 {
-    font-size: 18px;
+    font-size: 24px;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -13403,7 +13403,7 @@ section .section-inner.border-1 {
   gap: 12px;
   margin-bottom: 25px;
 }
-.pricing-wrapper .pricing-header .plan-type h6 {
+.pricing-wrapper .pricing-header .plan-type .h6 {
   font-family: var(--font-secondary);
   text-transform: none;
   font-weight: 600;
@@ -13510,7 +13510,7 @@ section .section-inner.border-1 {
 .pricing-wrapper.dark .pricing-header {
   background: rgba(255, 255, 255, 0.1);
 }
-.pricing-wrapper.dark .pricing-header .plan-type h6 {
+.pricing-wrapper.dark .pricing-header .plan-type .h6 {
   color: #F9FAFB;
 }
 .pricing-wrapper.dark .pricing-header .plan-type p {
@@ -14106,7 +14106,7 @@ section .section-inner.border-1 {
 .wpr-testimonials-area .section-inner .testimonials-content-slider .testimonials-content .author-area {
   padding: 34px 30px;
 }
-.wpr-testimonials-area .section-inner .testimonials-content-slider .testimonials-content .author-area h6 {
+.wpr-testimonials-area .section-inner .testimonials-content-slider .testimonials-content .author-area .h6 {
   font-size: 18px;
   color: var(--color-white);
   font-family: var(--font-secondary);
@@ -15536,7 +15536,7 @@ section .section-inner.border-1 {
   padding: 0;
   margin: 0;
 }
-.wpr-contact-area .section-inner .left-content-area .location-area ul li h4 {
+.wpr-contact-area .section-inner .left-content-area .location-area ul li .h4 {
   color: #F9FAFB;
   margin-bottom: 15px;
   text-transform: none;
@@ -15636,7 +15636,7 @@ section .section-inner.border-1 {
 }
 .wpr-contact-area.inner .section-inner .left-content-area .get-in-touch ul li a,
 .wpr-contact-area.inner .section-inner .left-content-area .get-in-touch .sub-title,
-.wpr-contact-area.inner .section-inner .left-content-area .location-area ul li h4,
+.wpr-contact-area.inner .section-inner .left-content-area .location-area ul li .h4,
 .wpr-contact-area.inner .section-inner .left-content-area .location-area .sub-title,
 .wpr-contact-area.inner .section-inner .contact-form-area form .single-input label {
   color: var(--color-heading-1);
@@ -16179,7 +16179,7 @@ section .section-inner.border-1 {
 .wpr-project-area .slide .slide-content .product-intro .bottom ul li:not(:last-child) {
   border-right: 1px solid rgba(255, 255, 255, 0.3);
 }
-.wpr-project-area .slide .slide-content .product-intro .bottom ul li h5 {
+.wpr-project-area .slide .slide-content .product-intro .bottom ul li .h5 {
   font-size: 32px;
   line-height: 1;
   font-family: var(--font-secondary);
@@ -16495,7 +16495,7 @@ section .section-inner.border-1 {
 .project-wrapper2 .slide-content .product-intro .bottom ul li:not(:last-child) {
   border-right: 1px solid rgba(255, 255, 255, 0.3);
 }
-.project-wrapper2 .slide-content .product-intro .bottom ul li h5 {
+.project-wrapper2 .slide-content .product-intro .bottom ul li h4 {
   font-size: 32px;
   line-height: 1;
   font-family: var(--font-secondary);
@@ -16630,9 +16630,17 @@ section .section-inner.border-1 {
   .wpr-working-process .working-process-left .section-title-area .section-title {
     font-size: 60px;
   }
+
+  .work-details-banner .text-area .right-content {
+    max-width: 650px;
+  }
+
+  .work-details-banner .image-area-2 .image:not(:last-child) {
+    flex-basis: 49%;
+  }
 }
 @media (max-width: 1439px) and (min-width: 1200px) {
-  .wpr-services-area .section-bottom-content .service-wrapper .content .mid h2 {
+  .wpr-services-area .section-bottom-content .service-wrapper .content .mid .h2 {
     font-size: 180px;
   }
 
@@ -16660,6 +16668,14 @@ section .section-inner.border-1 {
 
   .wpr-project-area .section-inner .floating-content .section-title-area .section-title {
     font-size: 50px;
+  }
+
+  .project-wrapper2 .slide-content .product-intro .top {
+    padding: 25px;
+  }
+
+  .project-wrapper2 .slide-content .product-intro .bottom ul li {
+    padding: 20px;
   }
 }
 @media (max-width: 1200px) {
@@ -16742,8 +16758,9 @@ section .section-inner.border-1 {
     max-width: 480px;
   }
 
-  .wpr-banner-area.breadcrumb .banner-content-area .banner-shape-area img.one {
-    width: 180px;
+  .wpr-banner-area.breadcrumb .banner-content-area .banner-shape-area img.one,
+.wpr-banner-area.breadcrumb .banner-content-area .banner-shape-area img.two {
+    width: 165px;
   }
 
   .project-wrapper .slide-content .product-intro {
@@ -16768,6 +16785,19 @@ section .section-inner.border-1 {
 
   .wpr-working-process .working-process-left .section-title-area .section-title {
     font-size: 48px;
+  }
+
+  .project-wrapper2 {
+    flex-direction: column;
+    position: unset;
+  }
+
+  .work-details-banner .text-area {
+    padding: 40px 30px;
+  }
+
+  .work-details-banner .text-area .right-content {
+    max-width: 540px;
   }
 }
 @media (max-width: 1200px) and (min-width: 991px) {
@@ -16816,7 +16846,7 @@ section .section-inner.border-1 {
     padding: 15px 10px;
   }
 
-  .project-wrapper .slide-content .product-intro .bottom ul li h5 {
+  .project-wrapper .slide-content .product-intro .bottom ul li .h5 {
     font-size: 24px;
   }
 
@@ -17016,6 +17046,32 @@ section .section-inner.border-1 {
   .wpr-project-area .slide .slide-content .product-intro {
     display: none;
   }
+
+  .working-process-wrapper {
+    top: 50px;
+  }
+
+  .services-details-banner .section-inner {
+    padding: 60px 40px;
+  }
+
+  .work-details-banner .image-area-2 .image:not(:last-child) {
+    flex-basis: 48.7%;
+  }
+
+  .work-details-banner .text-area {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .work-details-banner .text-area .left-content,
+.work-details-banner .text-area .right-content {
+    max-width: 100%;
+  }
+
+  .wpr-get-in-touch .section-inner {
+    padding: 60px 30px;
+  }
 }
 @media (max-width: 768px) {
   .wpr-banner-area .banner-content-area .section-title .mid-icon {
@@ -17043,7 +17099,7 @@ section .section-inner.border-1 {
     max-width: 100%;
   }
 
-  .wpr-services-area .section-bottom-content .service-wrapper .content .mid h2 {
+  .wpr-services-area .section-bottom-content .service-wrapper .content .mid .h2 {
     font-size: 150px;
   }
 
@@ -17185,8 +17241,9 @@ section .section-inner.border-1 {
     line-height: 45px;
   }
 
-  .wpr-banner-area.breadcrumb .banner-content-area .banner-shape-area img.one {
-    width: 160px;
+  .wpr-banner-area.breadcrumb .banner-content-area .banner-shape-area img.one,
+.wpr-banner-area.breadcrumb .banner-content-area .banner-shape-area img.two {
+    width: 150px;
   }
 
   .project-wrapper .slide-content .product-intro .top {
@@ -17197,7 +17254,7 @@ section .section-inner.border-1 {
     padding: 15px 10px;
   }
 
-  .project-wrapper .slide-content .product-intro .bottom ul li h5 {
+  .project-wrapper .slide-content .product-intro .bottom ul li .h5 {
     font-size: 24px;
   }
 
@@ -17223,6 +17280,45 @@ section .section-inner.border-1 {
 
   .approch-area-left .section-title-area .section-title {
     font-size: 42px;
+  }
+
+  .wpr-banner-area.breadcrumb .banner-content-area .desc {
+    max-width: 80%;
+  }
+  .wpr-banner-area.breadcrumb .banner-content-area .desc br {
+    display: none;
+  }
+
+  .working-process-wrapper {
+    top: 30px;
+  }
+
+  .wpr-pricing-plans-area .section-inner .section-mid-area .pricing-inner {
+    padding: 60px 20px;
+  }
+
+  .services-details-banner .section-inner .service-overview .feature-wrapper-area {
+    flex-direction: column;
+  }
+
+  .wpr-project-area.inner .project-slider-inner {
+    padding: 0 30px 60px;
+  }
+
+  .project-wrapper2 .slide-content .product-intro .bottom ul li {
+    padding: 20px 18px;
+  }
+
+  .work-details-banner .image-area-2 .image {
+    flex-basis: 100% !important;
+  }
+  .work-details-banner .image-area-2 .image img {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) and (min-width: 576px) {
+  .box-contact-item {
+    padding: 40px 20px;
   }
 }
 @media (max-width: 576px) {
@@ -17402,7 +17498,8 @@ section .section-inner.border-1 {
     font-size: 32px;
   }
 
-  .wpr-banner-area.breadcrumb .banner-content-area .banner-shape-area img.one {
+  .wpr-banner-area.breadcrumb .banner-content-area .banner-shape-area img.one,
+.wpr-banner-area.breadcrumb .banner-content-area .banner-shape-area img.two {
     width: 120px;
   }
 
@@ -17432,6 +17529,66 @@ section .section-inner.border-1 {
 
   .wpr-working-process .working-process-left .section-title-area .section-title {
     font-size: 42px;
+  }
+
+  .wpr-awards-area .section-inner .award-accordion-area {
+    margin-bottom: 0;
+  }
+
+  .wpr-faq-area .section-inner .section-content-area {
+    padding: 100px 0 40px;
+  }
+
+  .services-details-banner .section-inner {
+    padding: 60px 20px;
+  }
+
+  .services-details-banner .section-inner .service-overview .approach-area {
+    flex-direction: column;
+  }
+
+  .services-details-banner .section-inner .service-overview .approach-area .left {
+    max-width: 100%;
+  }
+
+  .services-details-banner .section-inner .service-overview .approach-area .right img {
+    width: 100%;
+  }
+
+  .project-wrapper2 .slide-content .product-intro .bottom ul li:last-child {
+    display: none;
+  }
+
+  .wpr-project-area.inner .project-slider-inner {
+    padding: 0 20px 60px;
+  }
+
+  .project-wrapper2 .slide-content .product-intro .top {
+    padding: 40px 20px;
+  }
+
+  .work-details-banner .text-area {
+    padding: 40px 20px;
+  }
+
+  .work-details-banner .text-area .right-content .h6 {
+    font-size: 20px;
+  }
+
+  .article-blog.style-horizontal {
+    flex-direction: column;
+  }
+
+  .article-blog.style-horizontal .blog-image {
+    max-width: 100%;
+  }
+
+  .wpr-blog-area .section-inner {
+    padding: 60px 20px;
+  }
+
+  .blockquote-wrap {
+    padding: 50px 25px 60px 25px;
   }
 }
 @media (max-width: 450px) {
@@ -17624,6 +17781,46 @@ section .section-inner.border-1 {
 
   .wpr-working-process .working-process-left .section-title-area .section-title {
     font-size: 32px;
+  }
+
+  .wpr-banner-area.breadcrumb .banner-content-area .desc {
+    max-width: 90%;
+  }
+
+  .our-approch-area-style-one .section-inner {
+    padding: 40px 24px;
+  }
+
+  .services-details-banner .section-inner .service-overview .feature-wrapper-area .feature-box .top .icon svg {
+    width: 25px;
+  }
+
+  .services-details-banner .section-inner .service-overview .feature-wrapper-area .feature-box .top .text {
+    font-size: 20px;
+  }
+
+  .services-details-banner .section-inner .service-overview .h5 {
+    font-size: 18px;
+  }
+
+  .project-wrapper2 .slide-content .product-intro .bottom ul li h4 {
+    font-size: 24px;
+  }
+
+  .project-wrapper2 .slide-content .product-intro .bottom ul li p {
+    font-size: 14px;
+  }
+
+  .project-wrapper2 .slide-content .product-intro .bottom ul li {
+    padding: 20px 14px;
+  }
+
+  .box-contact-item {
+    padding: 40px 20px;
+  }
+
+  .wpr-map iframe {
+    height: 400px;
   }
 }
 /*# sourceMappingURL=../maps/style.css.map */
