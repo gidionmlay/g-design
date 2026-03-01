@@ -1831,7 +1831,7 @@
                     </div>
                 </div>
                 <div class="contact-form-area">
-                    <form action="#">
+                    <form id="contact-form" action="mailer.php" method="POST" enctype="multipart/form-data">
                         <div class="single-input">
                             <label for="name">/YOUR NAME</label>
                             <input type="text" id="name" name="name" placeholder="Enter your full name">
@@ -1853,6 +1853,7 @@
                         <div class="form-btn-area">
                             <button type="submit" class="wpr-btn">Submit Message</button>
                         </div>
+                        <div id="form-messages"></div>
                     </form>
                 </div>
             </div>

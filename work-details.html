@@ -240,8 +240,6 @@
     </div>
     <!-- wpr work details area end -->
 
-
-
     <!-- wpr cta area start -->
     <section class="wpr-cta-area">
         <div class="container">
@@ -298,7 +296,7 @@
                     </div>
                 </div>
                 <div class="contact-form-area">
-                    <form action="#">
+                    <form id="contact-form" action="mailer.php" method="POST" enctype="multipart/form-data">
                         <div class="single-input">
                             <label for="name">/YOUR NAME</label>
                             <input type="text" id="name" name="name" placeholder="Enter your full name">
@@ -320,13 +318,13 @@
                         <div class="form-btn-area">
                             <button type="submit" class="wpr-btn">Submit Message</button>
                         </div>
+                        <div id="form-messages"></div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
     <!-- wpr contact area end -->
-
 
     <!-- wpr footer area start -->
     <div class="wpr-footer-area">
