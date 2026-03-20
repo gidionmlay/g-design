@@ -65,29 +65,7 @@
 }
 .side-bar.show {
     right: 0;
-    height: 320px;
-}
-.side-bar button {
-    max-width: max-content;
-    margin-right: auto;
-    margin-left: -53px;
-    margin-top: 0;
-    position: absolute;
-    border: none;
-    i{
-        color: #ffffff;
-        height: 50px;
-        width: 50px;
-        border-radius: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 14px;
-        margin-top: -53px;
-        font-size: 27px; 
-        background: var(--color-primary);   
-        font-weight: 300;
-    }
+    height: auto;
 }
 #menu-btn{
     cursor: pointer;
@@ -142,6 +120,8 @@
 }
 // mobile menu scss
 .mobile-menu-main{
+    height: 180px;
+    overflow: scroll;
     nav{
         ul{
             padding: 0 !important;
@@ -218,11 +198,20 @@
                         }
                     }
                 }
-                a{
+                .main-element{
                     display: block;
                     max-width: max-content;
                     font-family: var(--font-primary);
                     color: var(--color-heading-1);
+                    padding: 0;
+                    font-size: 20px;
+                }
+                ul{
+                    gap: 10px;
+                    padding-top: 20px !important;
+                    li{
+                        line-height: 1;
+                    }
                 }
             }
         }

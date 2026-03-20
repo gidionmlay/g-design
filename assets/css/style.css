@@ -194,7 +194,7 @@ h6,
 .h6 {
   word-break: break-word;
   font-family: var(--font-primary);
-  line-height: 1.17;
+  line-height: 1.2;
   color: var(--color-heading-1);
   text-transform: uppercase;
   font-weight: var(--s-medium);
@@ -11501,6 +11501,9 @@ body.sal-disabled [data-sal|=flip] {
 .main-nav-area ul li.has-dropdown .sub-menu li > a::after {
   display: none;
 }
+.main-nav-area ul li.active .main-element::after {
+  width: 100%;
+}
 
 .side-bar {
   position: absolute;
@@ -11567,30 +11570,7 @@ body.sal-disabled [data-sal|=flip] {
 
 .side-bar.show {
   right: 0;
-  height: 320px;
-}
-
-.side-bar button {
-  max-width: max-content;
-  margin-right: auto;
-  margin-left: -53px;
-  margin-top: 0;
-  position: absolute;
-  border: none;
-}
-.side-bar button i {
-  color: #ffffff;
-  height: 50px;
-  width: 50px;
-  border-radius: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 14px;
-  margin-top: -53px;
-  font-size: 27px;
-  background: var(--color-primary);
-  font-weight: 300;
+  height: auto;
 }
 
 #menu-btn {
@@ -11647,6 +11627,10 @@ body.sal-disabled [data-sal|=flip] {
   }
 }
 
+.mobile-menu-main {
+  height: 180px;
+  overflow: scroll;
+}
 .mobile-menu-main nav ul {
   padding: 0 !important;
   margin: 0;
@@ -11718,11 +11702,20 @@ body.sal-disabled [data-sal|=flip] {
   height: 100%;
   transition: all 0.3s;
 }
-.mobile-menu-main nav ul li a {
+.mobile-menu-main nav ul li .main-element {
   display: block;
   max-width: max-content;
   font-family: var(--font-primary);
   color: var(--color-heading-1);
+  padding: 0;
+  font-size: 20px;
+}
+.mobile-menu-main nav ul li ul {
+  gap: 10px;
+  padding-top: 20px !important;
+}
+.mobile-menu-main nav ul li ul li {
+  line-height: 1;
 }
 .mobile-menu-main .social-wrapper-one {
   margin-top: 50px;
@@ -13439,6 +13432,7 @@ section .section-inner.border-1 {
   font-weight: 600;
   margin-bottom: 65px;
   font-size: 32px;
+  letter-spacing: -0.01em;
 }
 .pricing-wrapper .pricing-header .title span {
   color: var(--color-body-1);
@@ -13490,7 +13484,7 @@ section .section-inner.border-1 {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 16px;
 }
 .pricing-wrapper .pricing-body ul li {
   width: 48%;
@@ -13703,8 +13697,12 @@ section .section-inner.border-1 {
   margin-bottom: 40px;
 }
 .services-details-banner .section-inner .service-overview {
-  max-width: 850px;
+  max-width: 100%;
   margin: auto;
+}
+.services-details-banner .section-inner .service-overview .h5 {
+  font-family: var(--color-secondary);
+  font-weight: 600;
 }
 .services-details-banner .section-inner .service-overview .approach-area {
   display: flex;
@@ -13760,7 +13758,6 @@ section .section-inner.border-1 {
   font-weight: 700;
   font-size: 24px;
   line-height: 1;
-  font-family: var(--font-primary);
 }
 
 .wpr-about-area .section-inner .section-top-area {
@@ -13916,24 +13913,14 @@ section .section-inner.border-1 {
 .single-approach-area-start .title {
   color: var(--color-heading-1);
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 24px;
   line-height: 34px;
   margin-bottom: 10px;
   transition: all 0.3s;
   position: relative;
   max-width: max-content;
-}
-.single-approach-area-start .title::before {
-  content: "\f061";
-  font-family: "fontawesome";
-  position: absolute;
-  right: 0px;
-  font-weight: 300;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0;
-  transition: all 0.5s;
+  font-family: var(--font-secondary);
 }
 .single-approach-area-start .title::after {
   position: absolute;
@@ -14024,6 +14011,7 @@ section .section-inner.border-1 {
 .working-process-wrapper .content-area .number {
   font-size: 18px;
   line-height: 1;
+  margin-top: 4px;
 }
 .working-process-wrapper .content-area .title {
   font-weight: 600;
@@ -14380,23 +14368,26 @@ section .section-inner.border-1 {
 
 .blockquote-wrap {
   position: relative;
+  z-index: 1;
   overflow: hidden;
   border-radius: 24px;
   padding: 74px 39px 80px 56px;
   background-color: #09090B;
   box-shadow: 0px 0px 20px 0px rgba(103, 103, 103, 0.25) inset;
 }
-.blockquote-wrap h5 {
+.blockquote-wrap .h5 {
   text-transform: none;
+  margin-bottom: 0;
 }
 .blockquote-wrap svg {
   position: absolute;
   bottom: 0px;
   right: 56px;
+  z-index: -1;
 }
 @media (min-width: 767px) {
   .blockquote-wrap {
-    padding: 40px 30px 50px;
+    padding: 40px 30px;
   }
 }
 
@@ -14423,6 +14414,9 @@ section .section-inner.border-1 {
 
 .comment-wrap .heading {
   margin-bottom: 25px;
+  font-size: 28px;
+  font-family: var(--font-secondary);
+  font-weight: 600;
 }
 .comment-wrap .author {
   position: relative;
@@ -14476,6 +14470,9 @@ section .section-inner.border-1 {
 
 .post-comment .heading {
   margin-bottom: 35px;
+  font-size: 28px;
+  font-family: var(--font-secondary);
+  font-weight: 600;
 }
 .post-comment .text {
   margin-bottom: 25px;
@@ -15271,6 +15268,7 @@ section .section-inner.border-1 {
   font-weight: 600;
   margin-bottom: 0;
   line-height: 1.3;
+  letter-spacing: 0;
 }
 .award-header .left .content .desc {
   font-size: 14px;
@@ -15312,8 +15310,6 @@ section .section-inner.border-1 {
 .toggle {
   width: 32px;
   height: 32px;
-  border-radius: 6px;
-  background: #1a1a1a;
   color: #9dff00;
   display: flex;
   align-items: center;
@@ -15321,6 +15317,8 @@ section .section-inner.border-1 {
   font-size: 18px;
   transition: 0.3s;
   position: relative;
+  background: linear-gradient(137.66deg, #40454A 21.13%, #292C2E 80.53%);
+  border-radius: 4px;
 }
 
 .wpr-cta-area .section-inner {
@@ -15836,6 +15834,7 @@ section .section-inner.border-1 {
   margin-bottom: 40px;
   position: relative;
   z-index: 1;
+  height: 104px;
 }
 .why-choose-wrapper .wrapper-header img.shape {
   position: absolute;
@@ -15845,6 +15844,7 @@ section .section-inner.border-1 {
 }
 .why-choose-wrapper .wrapper-header .title {
   margin-bottom: 0;
+  font-size: 32px;
 }
 .why-choose-wrapper .wrapper-header .title span {
   color: var(--color-body-1);
@@ -16389,7 +16389,10 @@ section .section-inner.border-1 {
   max-width: 310px;
 }
 .work-details-banner .text-area .right-content {
-  max-width: 861px;
+  max-width: 900px;
+}
+.work-details-banner .text-area .right-content .h6 {
+  line-height: 1.3;
 }
 .work-details-banner .image-area-2 {
   display: flex;

@@ -85,8 +85,8 @@
                 </div>
                 <nav class="main-nav-area">
                     <ul class="list-unstyled wpr-desktop-menu">
-                        <li class="menu-item">
-                            <a class="main-element wpr-dropdown-main-element" href="index.html">Home</a>
+                        <li class="menu-item active">
+                            <a class="main-element wpr-dropdown-main-element" href="index.html">HOME</a>
                         </li>
                         <li class="menu-item"><a class="main-element" href="about.html">ABOUT US</a></li>
                         <li class="menu-item has-dropdown">
@@ -149,15 +149,64 @@
                         <!-- mobile menu area start -->
                         <div class="mobile-menu-main">
                             <nav class="nav-main mainmenu-nav">
-                                <nav class="mainmenu metismenu" id="mobile-menu-active">
-                                    <ul class="list-unstyled wpr-desktop-menu">
-                                        <li class="menu-item"><a class="main-element wpr-dropdown-main-element" href="about.html">ABOUT
-                                                US</a></li>
-                                        <li class="menu-item"><a class="main-element wpr-dropdown-main-element" href="service.html">SERVICES</a></li>
-                                        <li class="menu-item"><a class="main-element wpr-dropdown-main-element" href="work.html">PROJECTS</a></li>
-                                        <li class="menu-item"><a class="main-element wpr-dropdown-main-element" href="contact.html">Contact</a></li>
-                                    </ul>
-                                </nav>
+                                <ul class="list-unstyled wpr-desktop-menu" id="mobile-menu">
+
+                                    <!-- HOME -->
+                                    <li class="menu-item">
+                                        <a class="main-element" href="index.html">HOME</a>
+                                    </li>
+
+                                    <!-- ABOUT -->
+                                    <li class="menu-item">
+                                        <a class="main-element" href="about.html">ABOUT US</a>
+                                    </li>
+
+                                    <!-- SERVICES -->
+                                    <li class="menu-item">
+                                        <button class="main-element collapsed w-100 text-start bg-transparent border-0" data-bs-toggle="collapse" data-bs-target="#serviceMenu" aria-expanded="false" aria-controls="serviceMenu">
+                                            SERVICES
+                                        </button>
+
+                                        <ul id="serviceMenu" class="collapse list-unstyled ps-3" data-bs-parent="#mobile-menu">
+
+                                            <li><a href="service.html" class="sub-menu">Services</a></li>
+                                            <li><a href="service-details.html" class="sub-menu">Service Details</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- PROJECTS -->
+                                    <li class="menu-item">
+                                        <button class="main-element collapsed w-100 text-start bg-transparent border-0" data-bs-toggle="collapse" data-bs-target="#workMenu" aria-expanded="false" aria-controls="workMenu">
+                                            WORKS
+                                        </button>
+
+                                        <ul id="workMenu" class="collapse list-unstyled ps-3" data-bs-parent="#mobile-menu">
+
+                                            <li><a href="work.html" class="sub-menu">WORKS</a></li>
+                                            <li><a href="work-details.html" class="sub-menu">WORK SINGLE</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- PROJECTS -->
+                                    <li class="menu-item">
+                                        <button class="main-element collapsed w-100 text-start bg-transparent border-0" data-bs-toggle="collapse" data-bs-target="#blogMenu" aria-expanded="false" aria-controls="blogMenu">
+                                            BLOG
+                                        </button>
+
+                                        <ul id="blogMenu" class="collapse list-unstyled ps-3" data-bs-parent="#mobile-menu">
+                                            <li><a href="blog-standard.html" class="sub-menu">BLOG STANDARD</a></li>
+                                            <li><a href="blog-two-columns.html" class="sub-menu">BLOG GRID 2</a></li>
+                                            <li><a href="blog-three-columns.html" class="sub-menu">BLOG GRID 3</a></li>
+                                            <li><a href="blog-single.html" class="sub-menu">BLOG SINGLE</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- CONTACT -->
+                                    <li class="menu-item">
+                                        <a class="main-element" href="contact.html">CONTACT</a>
+                                    </li>
+
+                                </ul>
                             </nav>
                         </div>
                         <!-- mobile menu area end -->
@@ -464,8 +513,8 @@
                         <div class="content">
                             <div class="top">
                                 <p class="tag">UI/UX DESIGN</p>
-                                <p class="desc">We create digital experiences that are visually striking, intuitive, and
-                                    conversion-focused.</p>
+                                <p class="desc">We transform complex ideas into seamless interfaces that deliver
+                                    measurable results.</p>
                             </div>
                             <div class="mid">
                                 <h2>03</h2>
@@ -492,8 +541,8 @@
                         <div class="content">
                             <div class="top">
                                 <p class="tag">CREATIVE DIRECTION</p>
-                                <p class="desc">We create digital experiences that are visually striking, intuitive, and
-                                    conversion-focused.</p>
+                                <p class="desc">We help brands stay consistent and inspired with art direction that
+                                    aligns every detail with your vision.</p>
                             </div>
                             <div class="mid">
                                 <h2>04</h2>
@@ -536,8 +585,13 @@
                 <div class="floating-content">
                     <div class="section-title-area center-style">
                         <p class="sub-title bg-white">OUR VISION</p>
-                        <h2 class="section-title second-font font-semi-bold text-normal">Every project we take on <br> <span>starts <span><img src="assets/images/portfolio/sm.webp" width="147" alt=""></span> with a</span> <br> deep understanding goals</h2>
-                        <p class="desc">We’re a multidisciplinary design agency that blends creativity, strategy, and technology to build meaningful brands and digital experiences. The results don’t just look great, they work great.</p>
+                        <h2 class="section-title second-font font-semi-bold text-normal">Every project we take on <br>
+                            <span>starts <span><img src="assets/images/portfolio/sm.webp" width="147" alt=""></span>
+                            with a</span> <br> deep understanding of goals
+                        </h2>
+                        <p class="desc">We’re a multidisciplinary design agency that blends creativity, strategy, and
+                            technology to build meaningful brands and digital experiences. The results don’t just look
+                            great, they work great.</p>
                     </div>
                 </div>
                 <div class="wpr-video-pin">
@@ -552,8 +606,11 @@
                                         <div class="slide-content">
                                             <div class="product-intro">
                                                 <div class="top">
-                                                    <h2 class="h3 title"><a href="work-details.html">Nova Mobile App</a></h2>
-                                                    <p class="desc">We streamlined user flows, refreshed the visual language, and introduced accessibility-focused design components to improve usability.</p>
+                                                    <h2 class="h3 title"><a href="work-details.html">Nova Mobile App</a>
+                                                    </h2>
+                                                    <p class="desc">We streamlined user flows, refreshed the visual
+                                                        language, and introduced accessibility-focused design components
+                                                        to improve usability.</p>
                                                 </div>
                                                 <div class="bottom">
                                                     <ul>
@@ -594,8 +651,10 @@
                                         <div class="slide-content">
                                             <div class="product-intro">
                                                 <div class="top">
-                                                    <h3 class="title"><a href="work-details.html">Axis Legal Website</a></h3>
-                                                    <p class="desc">We created a refined visual identity and a sleek new website that communicates trust, clarity, and confidence.</p>
+                                                    <h3 class="title"><a href="work-details.html">Axis Legal Website</a>
+                                                    </h3>
+                                                    <p class="desc">We created a refined visual identity and a sleek new
+                                                        website that communicates trust, clarity, and confidence.</p>
                                                 </div>
                                                 <div class="bottom">
                                                     <ul>
@@ -636,8 +695,11 @@
                                         <div class="slide-content">
                                             <div class="product-intro">
                                                 <div class="top">
-                                                    <h3 class="title"><a href="work-details.html">Lunaris Co . Branding</a></h3>
-                                                    <p class="desc">We crafted a modern visual identity for Lunaris Coffee Co., blending organic textures with clean typography to reflect their artisanal roots.</p>
+                                                    <h3 class="title"><a href="work-details.html">Lunaris Co .
+                                                            Branding</a></h3>
+                                                    <p class="desc">We crafted a modern visual identity for Lunaris
+                                                        Coffee Co., blending organic textures with clean typography to
+                                                        reflect their artisanal roots.</p>
                                                 </div>
                                                 <div class="bottom">
                                                     <ul>
@@ -1538,7 +1600,8 @@
                                     <h3 class="h6">Starter Plan</h3>
                                     <p>Available from Dec</p>
                                 </div>
-                                <h4 class="title h5">Small businesses, startups <br> <span>or single-brand projects.</span>
+                                <h4 class="title h5">Small businesses, startups <br> <span>or single-brand
+                                        projects.</span>
                                 </h4>
                                 <div class="bottom-pricing">
                                     <h4 class="price">$2,500 <span>/ project</span></h4>
@@ -1688,7 +1751,9 @@
                             <div id="collapseSix" class="accordion-collapse collapse" role="region" aria-labelledby="headingSix" data-bs-parent="#accordionExample2">
                                 <div class="accordion-body">
                                     <p class="desc">
-                                        Absolutely — you don’t need to book a full package. Whether it’s a brand refresh, a website redesign, or UI/UX for a single product, we tailor our approach to match your exact needs and budget.
+                                        Absolutely — you don’t need to book a full package. Whether it’s a brand
+                                        refresh, a website redesign, or UI/UX for a single product, we tailor our
+                                        approach to match your exact needs and budget.
                                     </p>
                                 </div>
                             </div>
@@ -1703,7 +1768,9 @@
                             <div id="collapseSeven" class="accordion-collapse collapse" role="region" aria-labelledby="headingSeven" data-bs-parent="#accordionExample2">
                                 <div class="accordion-body">
                                     <p class="desc">
-                                        Project timelines depend on the scope — most branding projects take 3–4 weeks, while full website or product design projects typically range from 6–8 weeks. We’ll confirm an exact timeline during the discovery phase.
+                                        Project timelines depend on the scope — most branding projects take 3–4 weeks,
+                                        while full website or product design projects typically range from 6–8 weeks.
+                                        We’ll confirm an exact timeline during the discovery phase.
                                     </p>
                                 </div>
                             </div>
@@ -1718,7 +1785,9 @@
                             <div id="collapseEight" class="accordion-collapse collapse show" role="region" aria-labelledby="headingEight" data-bs-parent="#accordionExample2">
                                 <div class="accordion-body">
                                     <p class="desc">
-                                        Yes. We collaborate with clients around the world through remote workshops, video calls, and real-time communication tools — ensuring a smooth process regardless of location.
+                                        Yes. We collaborate with clients around the world through remote workshops,
+                                        video calls, and real-time communication tools — ensuring a smooth process
+                                        regardless of location.
                                     </p>
                                 </div>
                             </div>
@@ -1733,7 +1802,9 @@
                             <div id="collapseNine" class="accordion-collapse collapse" role="region" aria-labelledby="headingNine" data-bs-parent="#accordionExample2">
                                 <div class="accordion-body">
                                     <p class="desc">
-                                        Yes. While our core focus is design, we partner with trusted developers to bring your project to life with high-quality, responsive code — ensuring seamless design-to-development handoff.
+                                        Yes. While our core focus is design, we partner with trusted developers to bring
+                                        your project to life with high-quality, responsive code — ensuring seamless
+                                        design-to-development handoff.
                                     </p>
                                 </div>
                             </div>
@@ -1748,7 +1819,9 @@
                             <div id="collapseTen" class="accordion-collapse collapse" role="region" aria-labelledby="headingTen" data-bs-parent="#accordionExample2">
                                 <div class="accordion-body">
                                     <p class="desc">
-                                        Simply reach out through our contact form or email. We’ll schedule a short discovery call to learn about your goals, then provide a proposal tailored to your needs.
+                                        Simply reach out through our contact form or email. We’ll schedule a short
+                                        discovery call to learn about your goals, then provide a proposal tailored to
+                                        your needs.
                                     </p>
                                 </div>
                             </div>
@@ -1895,7 +1968,8 @@
                         </ul>
                     </div>
                     <p class="copyright">
-                        © <script>
+                        ©
+                        <script>
                             document.write(
                                 new Date().getFullYear()
                             )

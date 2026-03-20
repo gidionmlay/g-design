@@ -72,6 +72,7 @@
             font-weight: 600;
             margin-bottom: 65px;
             font-size: 32px;
+            letter-spacing: -0.01em;
             span{
                 color: var(--color-body-1);
             }
@@ -125,7 +126,7 @@
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 16px;
             li{
                 width: 48%;
                 padding: 0;

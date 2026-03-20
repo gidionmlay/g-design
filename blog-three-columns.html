@@ -86,7 +86,7 @@
                 <nav class="main-nav-area">
                     <ul class="list-unstyled wpr-desktop-menu">
                         <li class="menu-item">
-                            <a class="main-element wpr-dropdown-main-element" href="index.html">Home</a>
+                            <a class="main-element wpr-dropdown-main-element" href="index.html">HOME</a>
                         </li>
                         <li class="menu-item"><a class="main-element" href="about.html">ABOUT US</a></li>
                         <li class="menu-item has-dropdown">
@@ -101,7 +101,7 @@
                             </ul>
                         </li>
                         <li class="menu-item has-dropdown">
-                            <a class="main-element wpr-dropdown-main-element" href="work.html">WORKS</a>
+                            <a class="main-element wpr-dropdown-main-element" href="#">WORKS</a>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
                                     <a href="work.html" class="item-link link1">WORKS</a>
@@ -111,8 +111,8 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="menu-item has-dropdown">
-                            <a class="main-element wpr-dropdown-main-element" href="work.html">BLOG</a>
+                        <li class="menu-item has-dropdown active">
+                            <a class="main-element wpr-dropdown-main-element" href="#">BLOG</a>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
                                     <a href="blog-standard.html" class="item-link link1">BLOG STANDARD</a>
@@ -149,15 +149,64 @@
                         <!-- mobile menu area start -->
                         <div class="mobile-menu-main">
                             <nav class="nav-main mainmenu-nav">
-                                <nav class="mainmenu metismenu" id="mobile-menu-active">
-                                    <ul class="list-unstyled wpr-desktop-menu">
-                                        <li class="menu-item"><a class="main-element wpr-dropdown-main-element" href="about.html">ABOUT
-                                                US</a></li>
-                                        <li class="menu-item"><a class="main-element wpr-dropdown-main-element" href="service.html">SERVICES</a></li>
-                                        <li class="menu-item"><a class="main-element wpr-dropdown-main-element" href="work.html">PROJECTS</a></li>
-                                        <li class="menu-item"><a class="main-element wpr-dropdown-main-element" href="contact.html">Contact</a></li>
-                                    </ul>
-                                </nav>
+                                <ul class="list-unstyled wpr-desktop-menu" id="mobile-menu">
+
+                                    <!-- HOME -->
+                                    <li class="menu-item">
+                                        <a class="main-element" href="index.html">HOME</a>
+                                    </li>
+
+                                    <!-- ABOUT -->
+                                    <li class="menu-item">
+                                        <a class="main-element" href="about.html">ABOUT US</a>
+                                    </li>
+
+                                    <!-- SERVICES -->
+                                    <li class="menu-item">
+                                        <button class="main-element collapsed w-100 text-start bg-transparent border-0" data-bs-toggle="collapse" data-bs-target="#serviceMenu" aria-expanded="false" aria-controls="serviceMenu">
+                                            SERVICES
+                                        </button>
+
+                                        <ul id="serviceMenu" class="collapse list-unstyled ps-3" data-bs-parent="#mobile-menu">
+
+                                            <li><a href="service.html" class="sub-menu">Services</a></li>
+                                            <li><a href="service-details.html" class="sub-menu">Service Details</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- PROJECTS -->
+                                    <li class="menu-item">
+                                        <button class="main-element collapsed w-100 text-start bg-transparent border-0" data-bs-toggle="collapse" data-bs-target="#workMenu" aria-expanded="false" aria-controls="workMenu">
+                                            WORKS
+                                        </button>
+
+                                        <ul id="workMenu" class="collapse list-unstyled ps-3" data-bs-parent="#mobile-menu">
+
+                                            <li><a href="work.html" class="sub-menu">WORKS</a></li>
+                                            <li><a href="work-details.html" class="sub-menu">WORK SINGLE</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- PROJECTS -->
+                                    <li class="menu-item">
+                                        <button class="main-element collapsed w-100 text-start bg-transparent border-0" data-bs-toggle="collapse" data-bs-target="#blogMenu" aria-expanded="false" aria-controls="blogMenu">
+                                            BLOG
+                                        </button>
+
+                                        <ul id="blogMenu" class="collapse list-unstyled ps-3" data-bs-parent="#mobile-menu">
+                                            <li><a href="blog-standard.html" class="sub-menu">BLOG STANDARD</a></li>
+                                            <li><a href="blog-two-columns.html" class="sub-menu">BLOG GRID 2</a></li>
+                                            <li><a href="blog-three-columns.html" class="sub-menu">BLOG GRID 3</a></li>
+                                            <li><a href="blog-single.html" class="sub-menu">BLOG SINGLE</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- CONTACT -->
+                                    <li class="menu-item">
+                                        <a class="main-element" href="contact.html">CONTACT</a>
+                                    </li>
+
+                                </ul>
                             </nav>
                         </div>
                         <!-- mobile menu area end -->
@@ -178,7 +227,7 @@
         <div class="container">
             <div class="banner-content-area">
                 <h1 class="section-title text-normal wow scaleIn" data-wow-delay=".7s">
-                    Our Blog
+                    Blog Three Column
                 </h1>
                 <p class="desc">Insights, ideas, and stories shaped by experience. <br> Clear content with purpose and
                     impact.</p>

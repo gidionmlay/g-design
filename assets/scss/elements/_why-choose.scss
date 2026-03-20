@@ -43,6 +43,7 @@
         margin-bottom: 40px;
         position: relative;
         z-index: 1;
+        height: 104px;
         img.shape{
             position: absolute;
             z-index: -1;
@@ -51,6 +52,7 @@
         }
         .title{
             margin-bottom: 0;
+            font-size: 32px;
             span{
                 color: var(--color-body-1);
             }
