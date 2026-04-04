@@ -216,27 +216,27 @@
       new WOW().init();
     },
     featureProjectHover: function () {
-    const boxes = document.querySelectorAll('.feature-project');
-    if (!boxes.length) return;
+      const boxes = document.querySelectorAll('.feature-project');
+      if (!boxes.length) return;
 
-    boxes.forEach(box => {
+      boxes.forEach(box => {
         const hoverElement = box.querySelector('.hover_mouse');
         if (!hoverElement) return;
 
         box.addEventListener('mousemove', function (event) {
-            const boxRect = box.getBoundingClientRect();
-            const mouseX = event.clientX - boxRect.left;
-            const mouseY = event.clientY - boxRect.top;
+          const boxRect = box.getBoundingClientRect();
+          const mouseX = event.clientX - boxRect.left;
+          const mouseY = event.clientY - boxRect.top;
 
-            hoverElement.style.transform = `translate3d(${mouseX - 50}px, ${mouseY - 50}px, 0)`;
-            hoverElement.classList.add('active');
+          hoverElement.style.transform = `translate3d(${mouseX - 50}px, ${mouseY - 50}px, 0)`;
+          hoverElement.classList.add('active');
         });
 
         box.addEventListener('mouseleave', function () {
-            hoverElement.classList.remove('active');
+          hoverElement.classList.remove('active');
         });
-    });
-},
+      });
+    },
     customSelectActive: function () {
       document.querySelectorAll('.custom-select').forEach(select => {
         const trigger = select.querySelector('.custom-select-trigger');
@@ -347,7 +347,7 @@
           animateBars();
         });
       } else {
-        
+
       }
     },
     // search popup
@@ -1019,20 +1019,20 @@
     },
 
     // side menu desktop
-// side menu desktop
-sideMenu: function () {
-  $(document).on('click', '#menu-btn', function () {
-    $("#side-bar").toggleClass("show");
-    $("#anywhere-home").toggleClass("bgshow");
-    $(this).toggleClass("cross"); // 👈 menu-btn এ cross class
-  });
+    // side menu desktop
+    sideMenu: function () {
+      $(document).on('click', '#menu-btn', function () {
+        $("#side-bar").toggleClass("show");
+        $("#anywhere-home").toggleClass("bgshow");
+        $(this).toggleClass("cross"); // 👈 menu-btn এ cross class
+      });
 
-  $(document).on('click', '.close-icon-menu, #anywhere-home, .onepage .mainmenu li a', function () {
-    $("#side-bar").removeClass("show");
-    $("#anywhere-home").removeClass("bgshow");
-    $("#menu-btn").removeClass("cross"); // 👈 cross remove
-  });
-},
+      $(document).on('click', '.close-icon-menu, #anywhere-home, .onepage .mainmenu li a', function () {
+        $("#side-bar").removeClass("show");
+        $("#anywhere-home").removeClass("bgshow");
+        $("#menu-btn").removeClass("cross"); // 👈 cross remove
+      });
+    },
 
 
     smoothScroll: function (e) {
@@ -1053,13 +1053,20 @@ sideMenu: function () {
     awardAccordion: function () {
       const projectBlocks = document.querySelectorAll('.award-item');
 
-      // Click event to change active block
       projectBlocks.forEach(block => {
         block.addEventListener('click', function () {
-          // Remove active from all
-          projectBlocks.forEach(b => b.classList.remove('active'));
-          // Add active to clicked one
-          this.classList.add('active');
+
+          // if already active then remove it
+          if (this.classList.contains('active')) {
+            this.classList.remove('active');
+          } else {
+            // remove active from all
+            projectBlocks.forEach(b => b.classList.remove('active'));
+
+            // add active to clicked
+            this.classList.add('active');
+          }
+
         });
       });
     },
@@ -1121,197 +1128,197 @@ sideMenu: function () {
         setInterval(showNextImage, 2000);
       }
     },
-// containerResize: function () {
-//   document.addEventListener("DOMContentLoaded", function () {
-//     gsap.registerPlugin(ScrollTrigger);
+    // containerResize: function () {
+    //   document.addEventListener("DOMContentLoaded", function () {
+    //     gsap.registerPlugin(ScrollTrigger);
 
-//     const pinWrap = document.querySelector(".wpr-video-pin");
-//     const wrapper = document.querySelector(".wpr-video-wrapper");
-//     const slider = document.querySelector(".gsap-slider");
-//     const slides = gsap.utils.toArray(".gsap-slider .slide");
+    //     const pinWrap = document.querySelector(".wpr-video-pin");
+    //     const wrapper = document.querySelector(".wpr-video-wrapper");
+    //     const slider = document.querySelector(".gsap-slider");
+    //     const slides = gsap.utils.toArray(".gsap-slider .slide");
 
-//     const nextBtn = document.querySelector(".slider-next");
-//     const prevBtn = document.querySelector(".slider-prev");
+    //     const nextBtn = document.querySelector(".slider-next");
+    //     const prevBtn = document.querySelector(".slider-prev");
 
-//     if (!pinWrap || slides.length === 0) return;
+    //     if (!pinWrap || slides.length === 0) return;
 
-//     const slideCount = slides.length;
-//     let currentIndex = 0;
-//     let scaleEndProgress = 0;
+    //     const slideCount = slides.length;
+    //     let currentIndex = 0;
+    //     let scaleEndProgress = 0;
 
-//     // ---------- INITIAL STATE ----------
-//     gsap.set(wrapper, {
-//       scale: 0.1,
-//       opacity: 0,
-//       transformOrigin: "center center",
-//       willChange: "transform, opacity",
-//     });
+    //     // ---------- INITIAL STATE ----------
+    //     gsap.set(wrapper, {
+    //       scale: 0.1,
+    //       opacity: 0,
+    //       transformOrigin: "center center",
+    //       willChange: "transform, opacity",
+    //     });
 
-//     // ---------- TIMELINE ----------
-//     const tl = gsap.timeline({
-//       scrollTrigger: {
-//         trigger: pinWrap,
-//         start: "top top",
-//         end: () => "+=" + window.innerHeight * slideCount,
-//         scrub: 0.8,
-//         pin: true,
-//         pinSpacing: true,
-//         anticipatePin: 1,
-//         invalidateOnRefresh: true,
-//       },
-//     })
-//       // fade in
-//       .to(wrapper, { opacity: 1, duration: 0.25, ease: "power1.out" })
-//       // scale up
-//       .to(wrapper, {
-//         scale: 1,
-//         duration: 1.4,
-//         ease: "power2.out",
-//         onUpdate: () => {
-//           const scale = gsap.getProperty(wrapper, "scale");
-//           if (scale >= 0.999) {
-//             slider.classList.add("scale-done");
-//             scaleEndProgress = tl.progress();
-//           } else {
-//             slider.classList.remove("scale-done");
-//           }
-//         },
-//       })
-//       // slider horizontal move
-//       .to(slider, {
-//         xPercent: -100 * (slideCount - 1),
-//         duration: 1,
-//         ease: "none",
-//       });
+    //     // ---------- TIMELINE ----------
+    //     const tl = gsap.timeline({
+    //       scrollTrigger: {
+    //         trigger: pinWrap,
+    //         start: "top top",
+    //         end: () => "+=" + window.innerHeight * slideCount,
+    //         scrub: 0.8,
+    //         pin: true,
+    //         pinSpacing: true,
+    //         anticipatePin: 1,
+    //         invalidateOnRefresh: true,
+    //       },
+    //     })
+    //       // fade in
+    //       .to(wrapper, { opacity: 1, duration: 0.25, ease: "power1.out" })
+    //       // scale up
+    //       .to(wrapper, {
+    //         scale: 1,
+    //         duration: 1.4,
+    //         ease: "power2.out",
+    //         onUpdate: () => {
+    //           const scale = gsap.getProperty(wrapper, "scale");
+    //           if (scale >= 0.999) {
+    //             slider.classList.add("scale-done");
+    //             scaleEndProgress = tl.progress();
+    //           } else {
+    //             slider.classList.remove("scale-done");
+    //           }
+    //         },
+    //       })
+    //       // slider horizontal move
+    //       .to(slider, {
+    //         xPercent: -100 * (slideCount - 1),
+    //         duration: 1,
+    //         ease: "none",
+    //       });
 
-//     const st = tl.scrollTrigger;
+    //     const st = tl.scrollTrigger;
 
-//     // ---------- BUTTON CONTROL ----------
-//     function goToSlide(index) {
-//       currentIndex = Math.max(0, Math.min(index, slideCount - 1));
+    //     // ---------- BUTTON CONTROL ----------
+    //     function goToSlide(index) {
+    //       currentIndex = Math.max(0, Math.min(index, slideCount - 1));
 
-//       // calculate progress only for slider section
-//       const targetProgress =
-//         scaleEndProgress +
-//         (currentIndex / (slideCount - 1)) * (1 - scaleEndProgress);
+    //       // calculate progress only for slider section
+    //       const targetProgress =
+    //         scaleEndProgress +
+    //         (currentIndex / (slideCount - 1)) * (1 - scaleEndProgress);
 
-//       // 🚀 Important: overwrite timeline scrub
-//       gsap.to(tl, {
-//         progress: targetProgress,
-//         duration: 0.5,
-//         ease: "power2.out",
-//         overwrite: "auto",
-//       });
-//     }
+    //       // 🚀 Important: overwrite timeline scrub
+    //       gsap.to(tl, {
+    //         progress: targetProgress,
+    //         duration: 0.5,
+    //         ease: "power2.out",
+    //         overwrite: "auto",
+    //       });
+    //     }
 
-//     nextBtn?.addEventListener("click", () => {
-//       if (!slider.classList.contains("scale-done")) return;
-//       goToSlide(currentIndex + 1);
-//     });
+    //     nextBtn?.addEventListener("click", () => {
+    //       if (!slider.classList.contains("scale-done")) return;
+    //       goToSlide(currentIndex + 1);
+    //     });
 
-//     prevBtn?.addEventListener("click", () => {
-//       if (!slider.classList.contains("scale-done")) return;
-//       goToSlide(currentIndex - 1);
-//     });
+    //     prevBtn?.addEventListener("click", () => {
+    //       if (!slider.classList.contains("scale-done")) return;
+    //       goToSlide(currentIndex - 1);
+    //     });
 
-//     // ---------- SYNC CURRENT INDEX ON SCROLL ----------
-//     ScrollTrigger.create({
-//       trigger: pinWrap,
-//       start: "top top",
-//       end: () => "+=" + window.innerHeight * slideCount,
-//       onUpdate: (self) => {
-//         if (!slider.classList.contains("scale-done")) return;
+    //     // ---------- SYNC CURRENT INDEX ON SCROLL ----------
+    //     ScrollTrigger.create({
+    //       trigger: pinWrap,
+    //       start: "top top",
+    //       end: () => "+=" + window.innerHeight * slideCount,
+    //       onUpdate: (self) => {
+    //         if (!slider.classList.contains("scale-done")) return;
 
-//         const progressAfterScale =
-//           (self.progress - scaleEndProgress) / (1 - scaleEndProgress);
+    //         const progressAfterScale =
+    //           (self.progress - scaleEndProgress) / (1 - scaleEndProgress);
 
-//         currentIndex = Math.round(progressAfterScale * (slideCount - 1));
-//       },
-//     });
-//   });
-// },
-containerResize: function () {
-  document.addEventListener("DOMContentLoaded", function () {
-    gsap.registerPlugin(ScrollTrigger);
+    //         currentIndex = Math.round(progressAfterScale * (slideCount - 1));
+    //       },
+    //     });
+    //   });
+    // },
+    containerResize: function () {
+      document.addEventListener("DOMContentLoaded", function () {
+        gsap.registerPlugin(ScrollTrigger);
 
-    const pinWrap = document.querySelector(".wpr-video-pin");
-    const wrapper = document.querySelector(".wpr-video-wrapper");
-    const slideContents = wrapper?.querySelectorAll(".slide-content");
-    const featureProjects = wrapper?.querySelectorAll(".feature-project");
-    const swiperNav = wrapper?.querySelector(".swiper-navigation");
+        const pinWrap = document.querySelector(".wpr-video-pin");
+        const wrapper = document.querySelector(".wpr-video-wrapper");
+        const slideContents = wrapper?.querySelectorAll(".slide-content");
+        const featureProjects = wrapper?.querySelectorAll(".feature-project");
+        const swiperNav = wrapper?.querySelector(".swiper-navigation");
 
-    if (
-      !pinWrap ||
-      !wrapper ||
-      !slideContents.length ||
-      !featureProjects.length ||
-      !swiperNav
-    )
-      return;
+        if (
+          !pinWrap ||
+          !wrapper ||
+          !slideContents.length ||
+          !featureProjects.length ||
+          !swiperNav
+        )
+          return;
 
-    // ---------- INITIAL STATE ----------
-    gsap.set(wrapper, {
-      scale: 0.1,
-      opacity: 0,
-      transformOrigin: "center center",
-      willChange: "transform, opacity",
-    });
+        // ---------- INITIAL STATE ----------
+        gsap.set(wrapper, {
+          scale: 0.1,
+          opacity: 0,
+          transformOrigin: "center center",
+          willChange: "transform, opacity",
+        });
 
-    // slide content + nav → hidden
-    gsap.set([...slideContents, swiperNav], {
-      opacity: 0,
-      willChange: "opacity",
-    });
+        // slide content + nav → hidden
+        gsap.set([...slideContents, swiperNav], {
+          opacity: 0,
+          willChange: "opacity",
+        });
 
-    // feature project → interaction disabled
-    gsap.set(featureProjects, {
-      pointerEvents: "none",
-    });
+        // feature project → interaction disabled
+        gsap.set(featureProjects, {
+          pointerEvents: "none",
+        });
 
-    // ---------- TIMELINE ----------
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: pinWrap,
-        start: "top top",
-        end: () => "+=" + window.innerHeight,
-        scrub: 0.8,
-        pin: true,
-        pinSpacing: true,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      },
-    })
-      // fade wrapper
-      .to(wrapper, {
-        opacity: 1,
-        duration: 0.25,
-        ease: "power1.out",
-      })
-      // scale wrapper
-      .to(wrapper, {
-        scale: 1,
-        duration: 1.4,
-        ease: "power2.out",
-      })
-      // show content + enable interactions
-      .to(
-        [...slideContents, swiperNav],
-        {
-          opacity: 1,
-          duration: 0.4,
-          ease: "power1.out",
-        },
-        ">"
-      )
-      .to(
-        featureProjects,
-        {
-          pointerEvents: "auto",
-        },
-        ">"
-      );
-  });
-},
+        // ---------- TIMELINE ----------
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: pinWrap,
+            start: "top top",
+            end: () => "+=" + window.innerHeight,
+            scrub: 0.8,
+            pin: true,
+            pinSpacing: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        })
+          // fade wrapper
+          .to(wrapper, {
+            opacity: 1,
+            duration: 0.25,
+            ease: "power1.out",
+          })
+          // scale wrapper
+          .to(wrapper, {
+            scale: 1,
+            duration: 1.4,
+            ease: "power2.out",
+          })
+          // show content + enable interactions
+          .to(
+            [...slideContents, swiperNav],
+            {
+              opacity: 1,
+              duration: 0.4,
+              ease: "power1.out",
+            },
+            ">"
+          )
+          .to(
+            featureProjects,
+            {
+              pointerEvents: "auto",
+            },
+            ">"
+          );
+      });
+    },
 
 
   }
@@ -1404,7 +1411,7 @@ containerResize: function () {
     }, 500)
   });
 
-  
+
 
 
 })(jQuery, window)  
