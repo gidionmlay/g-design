@@ -44,6 +44,8 @@
         position: relative;
         z-index: 1;
         height: 104px;
+        display: flex;
+        align-items: center;
         img.shape{
             position: absolute;
             z-index: -1;

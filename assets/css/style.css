@@ -16259,6 +16259,8 @@ section .section-inner.border-1 {
   position: relative;
   z-index: 1;
   height: 104px;
+  display: flex;
+  align-items: center;
 }
 .why-choose-wrapper .wrapper-header img.shape {
   position: absolute;
