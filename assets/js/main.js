@@ -91,6 +91,7 @@
       rdJs.awardAccordion();
       rdJs.containerResize();
       rdJs.featureProjectHover();
+      rdJs.delayStatsProgress();
     },
 
     swiperActivation: function () {
@@ -236,6 +237,46 @@
           hoverElement.classList.remove('active');
         });
       });
+    },
+    delayStatsProgress: function () {
+      const progressBars = document.querySelectorAll('.wpr-delay-stats-area .delay-stats-fill[data-progress]');
+      if (!progressBars.length) return;
+
+      const clampValue = (value) => Math.min(100, Math.max(0, value));
+
+      const fillProgressBars = () => {
+        progressBars.forEach((bar) => {
+          const raw = Number(bar.getAttribute('data-progress'));
+          const value = clampValue(Number.isNaN(raw) ? 0 : raw);
+          const pctLabel = bar.querySelector('.pct');
+          bar.style.width = value + '%';
+          if (value > 0) {
+            bar.style.minWidth = '92px';
+          }
+          bar.setAttribute('aria-valuenow', String(value));
+          if (pctLabel) pctLabel.textContent = value + '%';
+        });
+      };
+
+      // Animate only when the section is visible.
+      if ('IntersectionObserver' in window) {
+        const section = document.querySelector('.wpr-delay-stats-area');
+        if (!section) {
+          fillProgressBars();
+          return;
+        }
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              fillProgressBars();
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+        observer.observe(section);
+      } else {
+        fillProgressBars();
+      }
     },
     customSelectActive: function () {
       document.querySelectorAll('.custom-select').forEach(select => {
