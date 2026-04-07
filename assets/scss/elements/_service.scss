@@ -637,7 +637,7 @@
             }
 
             @media #{$sm-layout} {
-                grid-template-columns: 1fr;
+                display: block;
             }
         }
 
@@ -658,6 +658,8 @@
                 font-weight: var(--p-medium);
                 color: var(--color-heading-1);
                 line-height: 1.4;
+                padding: 0;
+                margin: 0;
 
                 .included-check {
                     display: inline-flex;
@@ -698,6 +700,7 @@
                 border-left: none;
                 border-top: 1px solid var(--color-border);
                 padding-top: 30px;
+                margin-top: 40px;
             }
 
             .desc {
