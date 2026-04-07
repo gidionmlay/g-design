@@ -144,21 +144,6 @@
             pointer-events: none;
             transition: var(--transition);
 
-            .shape {
-                position: absolute;
-                z-index: 1;
-
-                &.top-left-shape {
-                    top: 0;
-                    left: 0;
-                }
-
-                &.top-right-shape {
-                    top: 0;
-                    right: 0;
-                }
-            }
-
             .product-intro {
                 position: absolute;
                 z-index: 1;
@@ -245,6 +230,26 @@
                     color: var(--color-white);
                     font-family: var(--font-primary);
                     font-weight: 500;
+                }
+            }
+        }
+
+        .image-area {
+            position: relative;
+            z-index: 1;
+
+            .shape {
+                position: absolute;
+                z-index: 1;
+
+                &.top-left-shape {
+                    top: 0;
+                    left: 0;
+                }
+
+                &.top-right-shape {
+                    top: 0;
+                    right: 0;
                 }
             }
         }
@@ -850,20 +855,7 @@
                     pointer-events: none;
                     transition: var(--transition);
 
-                    .shape {
-                        position: absolute;
-                        z-index: 1;
 
-                        &.top-left-shape {
-                            top: 0;
-                            left: 0;
-                        }
-
-                        &.top-right-shape {
-                            top: 0;
-                            right: 0;
-                        }
-                    }
 
                     .product-intro {
                         position: absolute;
@@ -952,6 +944,23 @@
                             font-family: var(--font-primary);
                             font-weight: 500;
                         }
+                    }
+                }
+            }
+
+            .image-area {
+                .shape {
+                    position: absolute;
+                    z-index: 1;
+
+                    &.top-left-shape {
+                        top: 0;
+                        left: 0;
+                    }
+
+                    &.top-right-shape {
+                        top: 0;
+                        right: 0;
                     }
                 }
             }

@@ -165,7 +165,7 @@
           slidesPerGroup: 1,
           spaceBetween: 0,
           speed: 1300,
-          loop: true,
+          loop: false,
           autoplay: false,
           navigation: {
             nextEl: ".slider-next",
@@ -1090,6 +1090,8 @@
     },
     containerResize: function () {
       document.addEventListener("DOMContentLoaded", function () {
+        if (window.innerWidth <= 768) return;
+
         gsap.registerPlugin(ScrollTrigger);
 
         const pinWrap = document.querySelector(".wpr-video-pin");
@@ -1115,13 +1117,11 @@
           willChange: "transform, opacity",
         });
 
-        // slide content + nav → hidden
         gsap.set([...slideContents, swiperNav], {
           opacity: 0,
           willChange: "opacity",
         });
 
-        // feature project → interaction disabled
         gsap.set(featureProjects, {
           pointerEvents: "none",
         });
@@ -1139,19 +1139,16 @@
             invalidateOnRefresh: true,
           },
         })
-          // fade wrapper
           .to(wrapper, {
             opacity: 1,
             duration: 0.25,
             ease: "power1.out",
           })
-          // scale wrapper
           .to(wrapper, {
             scale: 1,
             duration: 1.4,
             ease: "power2.out",
           })
-          // show content + enable interactions
           .to(
             [...slideContents, swiperNav],
             {
@@ -1185,7 +1182,7 @@
       // Find the parent .accordion-item and remove the 'show' class
       $(this).closest('.accordion-item').removeClass('show');
     });
-    
+
   });
 
 

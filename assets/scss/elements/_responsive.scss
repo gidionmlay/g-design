@@ -418,7 +418,7 @@
         width: 100px;
     }
     .wpr-project-area .slide .slide-content .product-intro{
-        display: none;
+        max-width: 500px;
     }
     .working-process-wrapper{
         top: 50px;
@@ -440,9 +440,13 @@
     .wpr-get-in-touch .section-inner{
         padding: 60px 30px;
     }
+    .wpr-project-area .slide .slide-content .product-intro .bottom ul li{
+        padding: 24px 18px;
+    }
 }
 
-@media(max-width:991px) and (min-width:768px) {}
+@media(max-width:991px) and (min-width:768px) {
+}
 
 @media(max-width:768px) {
     .wpr-banner-area .banner-content-area .section-title .mid-icon {
@@ -652,6 +656,48 @@
     }
     .wpr-service-extended-area .service-included .included-list{
         margin-bottom: 18px;
+    }
+    .wpr-project-area .section-inner .space{
+        height: 100px;
+    }
+    .wpr-project-area .section-inner .floating-content{
+        position: relative;
+        top: unset;
+        left: unset;
+        margin-bottom: 50px;
+    }
+    .wpr-project-area .wpr-video-pin{
+        height: auto !important;
+    }
+    .wpr-next-project-area .slide .slide-content,
+    .wpr-project-area .slide .slide-content{
+        position: relative !important;
+    }
+    .wpr-next-project-area .slide .slide-content .product-intro,
+    .wpr-project-area .slide .slide-content .product-intro{
+        position: relative !important;
+        height: 100%;
+        max-width: 100% !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .wpr-project-area .wpr-video-wrapper .swiper-navigation{
+        bottom: unset;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .wpr-project-area .wpr-video-wrapper .swiper-navigation .swiper-btn{
+        height: 85px;
+        width: 85px;
+        line-height: 85px;
+    }
+    .wpr-next-project-area .slide .image-area .shape.top-left-shape,
+    .wpr-next-project-area .slide .image-area .shape.top-right-shape,
+    .wpr-project-area .slide .image-area .shape.top-left-shape,
+    .wpr-project-area .slide .image-area .shape.top-right-shape{
+        width: 100px;
     }
 }
 
@@ -909,6 +955,26 @@
     .why-choose-wrapper .wrapper-list li{
         align-items: start;
         line-height: 1.4;
+    }
+    .wpr-next-project-area .slide .slide-content .product-intro .bottom ul,
+    .wpr-project-area .slide .slide-content .product-intro .bottom ul{
+        flex-wrap: wrap;
+        padding: 40px 32px !important;
+        gap: 20px;
+    }
+    .wpr-next-project-area .section-inner .section-mid-area .slide .slide-content .product-intro .bottom ul li,
+    .wpr-project-area .slide .slide-content .product-intro .bottom ul li{
+        border: none;
+        padding: 0;
+    }
+    .wpr-next-project-area .section-inner .section-mid-area .slide .slide-content .product-intro .bottom ul li:not(:last-child),
+    .wpr-project-area .slide .slide-content .product-intro .bottom ul li:not(:last-child){
+        border: none;
+    }
+    .wpr-project-area .wpr-video-wrapper .swiper-navigation{
+        bottom: 0;
+        top: unset;
+        transform: none;
     }
 }
 
