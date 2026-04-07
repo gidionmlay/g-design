@@ -1187,13 +1187,6 @@
     });
     
   });
-  /* magnificPopup img view */
-  $('.gallery-image').magnificPopup({
-    type: 'image',
-    gallery: {
-      enabled: true
-    }
-  });
 
 
   $(document).ready(function () {
