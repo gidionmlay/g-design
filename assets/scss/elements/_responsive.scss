@@ -797,6 +797,7 @@
     }
     .wpr-testimonials-area .section-inner .testimonials-content-slider .testimonials-content .top{
         height: 250px;
+        padding: 40px 20px;
     }
     .wpr-team-area .section-bottom-inner{
         padding: 0 20px;
@@ -894,6 +895,17 @@
     }
     .blockquote-wrap{
         padding: 50px 25px 60px 25px;
+    }
+    .side-bar .sidebar-inner{
+        padding: 40px 20px;
+    }
+    .why-choose-wrapper .wrapper-list{
+        align-items: self-start;
+        gap: 20px;
+    }
+    .why-choose-wrapper .wrapper-list li{
+        align-items: start;
+        line-height: 1.4;
     }
 }
 

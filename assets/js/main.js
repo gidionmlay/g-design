@@ -63,9 +63,6 @@
     methods: function (e) {
       rdJs.swiperActivation();
       rdJs.wowActive();
-      rdJs.jarallax();
-      rdJs.customSelectActive();
-      rdJs.videoActivation();
       rdJs.odoMeter();
       rdJs.searchOption();
       rdJs.stickyHeader();
@@ -197,22 +194,6 @@
       });
 
     },
-    jarallax: function (e) {
-      $(document).ready(function () {
-        // Function to detect if the device is mobile
-        function isMobileDevice() {
-          return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        }
-
-        // Initialize jarallax only if it's not a mobile device
-        if (!isMobileDevice()) {
-          $('.jarallax').jarallax();
-        } else {
-          console.log('Jarallax skipped on mobile devices');
-        }
-      });
-
-    },
     wowActive: function () {
       new WOW().init();
     },
@@ -277,68 +258,6 @@
       } else {
         fillProgressBars();
       }
-    },
-    customSelectActive: function () {
-      document.querySelectorAll('.custom-select').forEach(select => {
-        const trigger = select.querySelector('.custom-select-trigger');
-        const options = select.querySelector('.custom-options');
-        const hiddenInput = select.querySelector('input[type="hidden"]');
-
-        // Toggle dropdown
-        trigger.addEventListener('click', (e) => {
-          e.stopPropagation(); // prevent triggering document click
-          const isActive = select.classList.contains('active');
-
-          // Close all other selects
-          document.querySelectorAll('.custom-select').forEach(s => {
-            s.classList.remove('active');
-            s.querySelector('.custom-options').style.height = '0';
-          });
-
-          if (!isActive) {
-            select.classList.add('active'); // ✅ add active class
-            options.style.height = '250px';
-          } else {
-            select.classList.remove('active'); // remove active class
-            options.style.height = '0';
-          }
-        });
-
-        // Select option
-        options.querySelectorAll('.option').forEach(option => {
-          option.addEventListener('click', () => {
-            trigger.textContent = option.textContent;
-            hiddenInput.value = option.dataset.value;
-
-            options.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
-            option.classList.add('selected');
-
-            options.style.height = '0';
-            select.classList.remove('active'); // ✅ remove active after selection
-          });
-        });
-
-        // Close dropdown if clicked outside
-        document.addEventListener('click', e => {
-          if (!select.contains(e.target)) {
-            options.style.height = '0';
-            select.classList.remove('active'); // ✅ remove active class
-          }
-        });
-      });
-    },
-
-    videoActivation: function (e) {
-      $(document).ready(function () {
-        $('.popup-youtube, .popup-video').magnificPopup({
-          disableOn: 700,
-          type: 'iframe',
-          mainClass: 'mfp-fade',
-          removalDelay: 160,
-          preloader: false,
-          fixedContentPos: false
-        });
-      });
     },
     preloader: function () {
       if ($(".preloader").length) {
@@ -1169,115 +1088,6 @@
         setInterval(showNextImage, 2000);
       }
     },
-    // containerResize: function () {
-    //   document.addEventListener("DOMContentLoaded", function () {
-    //     gsap.registerPlugin(ScrollTrigger);
-
-    //     const pinWrap = document.querySelector(".wpr-video-pin");
-    //     const wrapper = document.querySelector(".wpr-video-wrapper");
-    //     const slider = document.querySelector(".gsap-slider");
-    //     const slides = gsap.utils.toArray(".gsap-slider .slide");
-
-    //     const nextBtn = document.querySelector(".slider-next");
-    //     const prevBtn = document.querySelector(".slider-prev");
-
-    //     if (!pinWrap || slides.length === 0) return;
-
-    //     const slideCount = slides.length;
-    //     let currentIndex = 0;
-    //     let scaleEndProgress = 0;
-
-    //     // ---------- INITIAL STATE ----------
-    //     gsap.set(wrapper, {
-    //       scale: 0.1,
-    //       opacity: 0,
-    //       transformOrigin: "center center",
-    //       willChange: "transform, opacity",
-    //     });
-
-    //     // ---------- TIMELINE ----------
-    //     const tl = gsap.timeline({
-    //       scrollTrigger: {
-    //         trigger: pinWrap,
-    //         start: "top top",
-    //         end: () => "+=" + window.innerHeight * slideCount,
-    //         scrub: 0.8,
-    //         pin: true,
-    //         pinSpacing: true,
-    //         anticipatePin: 1,
-    //         invalidateOnRefresh: true,
-    //       },
-    //     })
-    //       // fade in
-    //       .to(wrapper, { opacity: 1, duration: 0.25, ease: "power1.out" })
-    //       // scale up
-    //       .to(wrapper, {
-    //         scale: 1,
-    //         duration: 1.4,
-    //         ease: "power2.out",
-    //         onUpdate: () => {
-    //           const scale = gsap.getProperty(wrapper, "scale");
-    //           if (scale >= 0.999) {
-    //             slider.classList.add("scale-done");
-    //             scaleEndProgress = tl.progress();
-    //           } else {
-    //             slider.classList.remove("scale-done");
-    //           }
-    //         },
-    //       })
-    //       // slider horizontal move
-    //       .to(slider, {
-    //         xPercent: -100 * (slideCount - 1),
-    //         duration: 1,
-    //         ease: "none",
-    //       });
-
-    //     const st = tl.scrollTrigger;
-
-    //     // ---------- BUTTON CONTROL ----------
-    //     function goToSlide(index) {
-    //       currentIndex = Math.max(0, Math.min(index, slideCount - 1));
-
-    //       // calculate progress only for slider section
-    //       const targetProgress =
-    //         scaleEndProgress +
-    //         (currentIndex / (slideCount - 1)) * (1 - scaleEndProgress);
-
-    //       // 🚀 Important: overwrite timeline scrub
-    //       gsap.to(tl, {
-    //         progress: targetProgress,
-    //         duration: 0.5,
-    //         ease: "power2.out",
-    //         overwrite: "auto",
-    //       });
-    //     }
-
-    //     nextBtn?.addEventListener("click", () => {
-    //       if (!slider.classList.contains("scale-done")) return;
-    //       goToSlide(currentIndex + 1);
-    //     });
-
-    //     prevBtn?.addEventListener("click", () => {
-    //       if (!slider.classList.contains("scale-done")) return;
-    //       goToSlide(currentIndex - 1);
-    //     });
-
-    //     // ---------- SYNC CURRENT INDEX ON SCROLL ----------
-    //     ScrollTrigger.create({
-    //       trigger: pinWrap,
-    //       start: "top top",
-    //       end: () => "+=" + window.innerHeight * slideCount,
-    //       onUpdate: (self) => {
-    //         if (!slider.classList.contains("scale-done")) return;
-
-    //         const progressAfterScale =
-    //           (self.progress - scaleEndProgress) / (1 - scaleEndProgress);
-
-    //         currentIndex = Math.round(progressAfterScale * (slideCount - 1));
-    //       },
-    //     });
-    //   });
-    // },
     containerResize: function () {
       document.addEventListener("DOMContentLoaded", function () {
         gsap.registerPlugin(ScrollTrigger);
@@ -1360,8 +1170,6 @@
           );
       });
     },
-
-
   }
   rdJs.m();
 
@@ -1377,24 +1185,7 @@
       // Find the parent .accordion-item and remove the 'show' class
       $(this).closest('.accordion-item').removeClass('show');
     });
-    //   // THEME MODE SWITCHER JS
-    // var rd_light = $('.wpr-dark-light');
-    // if(rd_light.length){
-    // var toggle = document.getElementById("wpr-data-toggle");
-    // var storedTheme = localStorage.getItem('rd-theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    // if (storedTheme)
-    //     document.documentElement.setAttribute('data-theme', storedTheme)
-    //     toggle.onclick = function() {
-    //     var currentTheme = document.documentElement.getAttribute("data-theme");
-    //     var targetTheme = "light";
-
-    //     if (currentTheme === "light") {
-    //         targetTheme = "dark";
-    //     }
-    //     document.documentElement.setAttribute('data-theme', targetTheme)
-    //     localStorage.setItem('rd-theme', targetTheme);
-    //   };
-    // }
+    
   });
   /* magnificPopup img view */
   $('.gallery-image').magnificPopup({

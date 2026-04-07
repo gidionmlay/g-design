@@ -54,6 +54,11 @@
             background-clip: text;
             text-fill-color: transparent;
         }
+        .logo{
+            img{
+                width: 105px;
+            }
+        }
         .bg-shape{
             position: absolute;
             z-index: -1;

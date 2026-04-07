@@ -16,7 +16,6 @@
     flex-direction: column;
     overflow: hidden;
     height: 0;
-    max-height: 320px;
     .inner-main-wrapper-desk{
         .thumbnail{
             display: flex;
@@ -60,7 +59,7 @@
         }
     }
     .sidebar-inner{
-        padding: 40px 45px;
+        padding: 40px 25px;
     }
 }
 .side-bar.show {
@@ -120,7 +119,6 @@
 }
 // mobile menu scss
 .mobile-menu-main{
-    height: 180px;
     overflow: scroll;
     nav{
         ul{
@@ -211,6 +209,10 @@
                     padding-top: 20px !important;
                     li{
                         line-height: 1;
+                        a{
+                            font-size: 18px;
+                            color: var(--color-heading-1);
+                        }
                     }
                 }
             }

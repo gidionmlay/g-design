@@ -44,8 +44,7 @@
 
 ==============================================  */
 /* Default  */
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
 :root {
   --color-primary: #98FF03;
   --color-secondary: #1F1F25;
@@ -11522,7 +11521,6 @@ body.sal-disabled [data-sal|=flip] {
   flex-direction: column;
   overflow: hidden;
   height: 0;
-  max-height: 320px;
 }
 .side-bar .inner-main-wrapper-desk .thumbnail {
   display: flex;
@@ -11565,7 +11563,7 @@ body.sal-disabled [data-sal|=flip] {
   justify-content: center;
 }
 .side-bar .sidebar-inner {
-  padding: 40px 45px;
+  padding: 40px 25px;
 }
 
 .side-bar.show {
@@ -11628,7 +11626,6 @@ body.sal-disabled [data-sal|=flip] {
 }
 
 .mobile-menu-main {
-  height: 180px;
   overflow: scroll;
 }
 .mobile-menu-main nav ul {
@@ -11716,6 +11713,10 @@ body.sal-disabled [data-sal|=flip] {
 }
 .mobile-menu-main nav ul li ul li {
   line-height: 1;
+}
+.mobile-menu-main nav ul li ul li a {
+  font-size: 18px;
+  color: var(--color-heading-1);
 }
 .mobile-menu-main .social-wrapper-one {
   margin-top: 50px;
@@ -15818,6 +15819,9 @@ section .section-inner.border-1 {
   background-clip: text;
   text-fill-color: transparent;
 }
+.wpr-cta-area .section-inner .logo img {
+  width: 105px;
+}
 .wpr-cta-area .section-inner .bg-shape {
   position: absolute;
   z-index: -1;
@@ -18129,6 +18133,7 @@ section .section-inner.border-1 {
 
   .wpr-testimonials-area .section-inner .testimonials-content-slider .testimonials-content .top {
     height: 250px;
+    padding: 40px 20px;
   }
 
   .wpr-team-area .section-bottom-inner {
@@ -18251,6 +18256,20 @@ section .section-inner.border-1 {
 
   .blockquote-wrap {
     padding: 50px 25px 60px 25px;
+  }
+
+  .side-bar .sidebar-inner {
+    padding: 40px 20px;
+  }
+
+  .why-choose-wrapper .wrapper-list {
+    align-items: self-start;
+    gap: 20px;
+  }
+
+  .why-choose-wrapper .wrapper-list li {
+    align-items: start;
+    line-height: 1.4;
   }
 }
 @media (max-width: 450px) {
