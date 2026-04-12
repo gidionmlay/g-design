@@ -78,6 +78,7 @@
       rdJs.sideMenu();
       rdJs.metismenu();
       rdJs.preloader();
+      rdJs.goTop();
       rdJs.tab_content_animation();
       rdJs.smoothScroll();
       rdJs.slice_slider();
@@ -310,6 +311,39 @@
 
       }
     },
+    goTop: function () {
+    if ($("#goTop").length) {
+        var $goTop = $("#goTop");
+        var $borderProgress = $(".border-progress");
+        var $footer = $(".tf-footer");
+
+        $(window).on("scroll", function () {
+            var scrollTop = $(window).scrollTop();
+            var docHeight = $(document).height() - $(window).height();
+            var scrollPercent = (scrollTop / docHeight) * 100;
+            var progressAngle = (scrollPercent / 100) * 360;
+
+            $borderProgress.css("--progress-angle", progressAngle + "deg");
+
+            var windowBottom = scrollTop + $(window).height();
+            var hasFooter = $footer.length > 0;
+            var footerPosition = hasFooter ? $footer.offset() : null;
+            var footerOffset = footerPosition ? footerPosition.top : Infinity;
+
+            if (scrollTop > 100 && windowBottom < footerOffset) {
+                $goTop.addClass("show");
+            } else {
+                $goTop.removeClass("show");
+            }
+        });
+
+        $goTop.on("click", function () {
+            $("html, body").animate({ scrollTop: 0 }, 100);
+        });
+    } else {
+
+    }
+},
     // search popup
     searchOption: function () {
       $(document).on('click', '#search', function () {

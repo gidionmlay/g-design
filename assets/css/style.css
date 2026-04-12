@@ -11705,17 +11705,17 @@ body.sal-disabled [data-sal|=flip] {
   font-family: var(--font-primary);
   color: var(--color-heading-1);
   padding: 0;
-  font-size: 20px;
+  font-size: 16px;
 }
 .mobile-menu-main nav ul li ul {
   gap: 10px;
-  padding-top: 20px !important;
+  padding-top: 15px !important;
 }
 .mobile-menu-main nav ul li ul li {
   line-height: 1;
 }
 .mobile-menu-main nav ul li ul li a {
-  font-size: 18px;
+  font-size: 14px;
   color: var(--color-heading-1);
 }
 .mobile-menu-main .social-wrapper-one {
@@ -12771,6 +12771,64 @@ section .section-inner.border-1 {
     font-size: 40px;
   }
 }
+/*-- Button Go Top --*/
+#goTop {
+  position: fixed;
+  padding: 0;
+  bottom: 40px;
+  right: 20px;
+  width: 38px;
+  height: 38px;
+  background: var(--color-black);
+  color: var(--color-white);
+  font-size: 20px;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  border: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  border-radius: 99px;
+  box-shadow: 0px 4px 20px 0px #ffffff1a;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+#goTop .border-progress {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  border-radius: 99px;
+  border: 2px solid var(--color-primary);
+  mask-image: conic-gradient(var(--color-primary) var(--progress-angle, 0deg), transparent 0);
+  -webkit-mask-image: conic-gradient(var(--color-primary) var(--progress-angle, 0deg), transparent 0);
+  content: "";
+  z-index: 1;
+  transition: var(--transition);
+}
+#goTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+#goTop .icon {
+  font-size: 16px;
+  color: var(--color-white);
+  aspect-ratio: 1;
+}
+#goTop .ic-wrap {
+  transition: var(--transition);
+  animation: iconBounce 2s linear 0s infinite;
+  display: flex;
+}
+#goTop:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
 .wpr-btn {
   max-width: max-content;
   padding: 16px 24px 16px;
@@ -14399,6 +14457,9 @@ section .section-inner.border-1 {
 }
 .wpr-working-process .working-process-left .text-area .wpr-btn .icon {
   gap: 17px;
+}
+.wpr-working-process .working-process-left .text-area .wpr-btn .icon .fixed-arrow {
+  margin-bottom: 2px;
 }
 .wpr-working-process .working-process-left .text-area .wpr-btn .inner {
   top: 47%;
@@ -17745,6 +17806,10 @@ section .section-inner.border-1 {
   .wpr-project-area .slide .slide-content .product-intro .bottom ul li {
     padding: 24px 18px;
   }
+
+  .wpr-brand-area .section-inner .right-marquee-area .brand-inner {
+    min-width: max-content;
+  }
 }
 @media (max-width: 768px) {
   .wpr-banner-area .banner-content-area .section-title .mid-icon {
@@ -18006,6 +18071,7 @@ section .section-inner.border-1 {
     top: unset;
     left: unset;
     margin-bottom: 50px;
+    padding: 0 20px;
   }
 
   .wpr-project-area .wpr-video-pin {
@@ -18044,6 +18110,11 @@ section .section-inner.border-1 {
 .wpr-project-area .slide .image-area .shape.top-left-shape,
 .wpr-project-area .slide .image-area .shape.top-right-shape {
     width: 100px;
+  }
+
+  .wpr-project-area .section-inner .floating-content .section-title-area .section-title span img {
+    margin-left: 5px;
+    margin-top: -5px;
   }
 }
 @media (max-width: 768px) and (min-width: 576px) {
@@ -18341,6 +18412,7 @@ section .section-inner.border-1 {
     flex-wrap: wrap;
     padding: 40px 32px !important;
     gap: 20px;
+    height: 316px;
   }
 
   .wpr-next-project-area .section-inner .section-mid-area .slide .slide-content .product-intro .bottom ul li,
@@ -18590,6 +18662,28 @@ section .section-inner.border-1 {
 
   .wpr-map iframe {
     height: 400px;
+  }
+
+  .wpr-project-area .slide .slide-content .product-intro .bottom ul li p {
+    color: var(--color-white);
+  }
+
+  .wpr-project-area .slide .slide-content .product-intro .top {
+    padding: 40px 32px 35px;
+  }
+
+  .wpr-project-area .slide .slide-content .product-intro .top .title {
+    margin-bottom: 13px;
+  }
+
+  .wpr-project-area .wpr-video-wrapper .swiper-navigation .swiper-btn {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+  }
+
+  .wpr-next-project-area .slide .slide-content .product-intro, .wpr-project-area .slide .slide-content .product-intro {
+    height: 545px;
   }
 }
 /*# sourceMappingURL=../maps/style.css.map */
