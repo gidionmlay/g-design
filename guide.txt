@@ -1,0 +1,174 @@
+Before implementing the PHP + MySQL backend, stop and perform a project architecture restructuring phase.
+
+The current project is a static G DESIGN creative-agency frontend with approximately 21 HTML pages in the root and an assets directory.
+
+We have officially decided to use:
+
+Frontend:
+HTML5
+CSS3
+SCSS
+Vanilla JavaScript
+jQuery where already used
+
+Backend:
+Custom PHP
+PDO
+REST-style JSON API
+
+Database:
+MySQL
+
+Do NOT implement the backend yet.
+
+FIRST, reorganize the project into a clean production-oriented structure.
+
+Recommended architecture:
+
+g-design/
+│
+├── public/
+│   ├── index.html
+│   ├── about/
+│   ├── services/
+│   ├── work/
+│   ├── blog/
+│   ├── quote/
+│   ├── contact/
+│   └── assets/
+│
+├── backend/
+│   ├── api/
+│   ├── config/
+│   ├── core/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   └── middleware/
+│
+├── database/
+├── storage/
+│   ├── uploads/
+│   ├── logs/
+│   └── cache/
+│
+├── docs/
+├── .env.example
+├── .gitignore
+├── README.md
+└── composer.json
+
+IMPORTANT:
+
+Before moving anything, inspect the entire project.
+
+Create a dependency map of:
+
+- HTML pages
+- CSS references
+- SCSS references
+- JavaScript references
+- image references
+- font references
+- internal page links
+- form actions
+- JavaScript fetch/AJAX URLs
+- plugin dependencies
+
+Do NOT blindly move files.
+
+Do NOT delete files before confirming they are duplicates or unused.
+
+Do NOT modify the visual design.
+
+Do NOT redesign the frontend.
+
+Do NOT implement PHP backend functionality yet.
+
+Do NOT create MySQL tables yet.
+
+Do NOT create authentication yet.
+
+Do NOT create the admin dashboard yet.
+
+The objective of this phase is ONLY:
+
+1. Clean project architecture.
+2. Move public website files into public/.
+3. Group HTML pages logically.
+4. Keep assets organized.
+5. Create backend/database/storage/docs directories.
+6. Repair every affected relative path.
+7. Preserve all existing functionality.
+8. Preserve all existing visual design.
+9. Ensure every page still loads correctly.
+
+For the public pages, use route-oriented folders where appropriate:
+
+/
+ /about/
+ /services/
+ /services/branding/
+ /services/graphic-design/
+ /services/printing/
+ /services/content-creation/
+ /services/creative-strategy/
+ /services/art-direction/
+ /work/
+ /blog/
+ /quote/
+ /contact/
+
+Use index.html inside route folders where appropriate.
+
+Before deciding the exact locations, inspect the existing filenames and relationships.
+
+IMPORTANT:
+Do not force every page into a route folder if that would unnecessarily complicate the existing application.
+
+After restructuring:
+
+- Test every HTML page.
+- Check browser console.
+- Check broken CSS.
+- Check broken JavaScript.
+- Check broken images.
+- Check fonts.
+- Check navigation.
+- Check quote wizard.
+- Check service selection.
+- Check all internal links.
+
+Also identify duplicate or clearly unused template files.
+
+Do not delete questionable files automatically.
+
+Create:
+
+docs/PROJECT-STRUCTURE.md
+
+Document:
+
+1. Old structure
+2. New structure
+3. Page mapping
+4. Asset structure
+5. Backend structure reserved for future use
+6. Storage structure
+7. Files intentionally retained
+8. Files identified as duplicates
+9. Files that require future review
+
+At the end provide:
+
+- Complete new tree
+- Files moved
+- Files modified
+- Files deleted, if any
+- Broken references found
+- Broken references fixed
+- Pages tested
+- Test results
+- Remaining issues
+
+Do not start M0 backend implementation until this restructuring phase passes all tests.

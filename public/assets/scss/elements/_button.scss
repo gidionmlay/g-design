@@ -1,0 +1,143 @@
+
+// button area start
+.wpr-btn{
+    max-width: max-content;
+    padding: 16px 24px 16px;
+    line-height: 1;
+    transition: var(--transition);
+    font-weight: 600;
+    background-color: var(--color-primary);
+    overflow: hidden;
+    position: relative;
+    border: none;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background: radial-gradient(62.56% 62.56% at 28.14% -10.42%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, linear-gradient(137.66deg, #40454A 21.13%, #292C2E 80.53%);
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1), inset 0px 1px 0px rgba(255, 255, 255, 0.6), inset 0px -3px 0px #1A1A1A, inset 0px -4px 0px 1px rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    &.btn-white{
+        transition: var(--transition);
+        background: radial-gradient(62.56% 62.56% at 28.14% -10.42%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.04), inset 0px 1px 0px rgba(255, 255, 255, 0.6), inset 0px -5px 0px #E4E4E4, inset 0px -6px 0px 1px #FAFAFA;
+        border-radius: 12px;
+        transition: var(--transition);
+        &:hover{
+            box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.18), inset 0px 1px 0px rgba(255, 255, 255, 0.6), inset 0px -6px 0px #E4E4E4, inset 0px 0px 0px 1px #FAFAFA;
+        }
+    }
+    &.with-icon{
+        padding: 24px 24px 26px 78px;
+        .inner{
+            position: absolute;
+            width: 95%;
+            height: 52px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .icon{
+            background: linear-gradient(178.82deg, #FF8A3D 1.01%, #FF6B1A 105.12%);
+            box-shadow: 4px 8px 2px rgba(0, 0, 0, 0.08), inset 0px -2px 0.5px #C84E00, inset 0px 1px 0px #FFFFFF;
+            border-radius: 8px;
+            width: 52px;
+            height: 52px;
+            line-height: 52px;
+            display: block;
+            text-align: center;
+            position: absolute;
+            z-index: 1;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            gap: 16px;
+            transition: var(--transition);
+            overflow: hidden;
+            span{
+                img{
+                    min-width: 19px;
+                    opacity: 1;
+                    animation: none;
+                }
+                
+            }
+            .fixed-arrow{
+                margin-bottom: 2px;
+            }
+        }
+        &:hover{
+            .icon{
+                width: 100%;
+                span{
+                    img{
+                        opacity: 0.15;
+                        animation: fadeMove 1.2s infinite;
+                    }
+                    &:nth-child(6) img { animation-delay: 0.5s; }
+                &:nth-child(5) img { animation-delay: 0.4s; }
+                &:nth-child(4) img { animation-delay: 0.3s; }
+                &:nth-child(3) img { animation-delay: 0.2s; }
+                &:nth-child(2) img { animation-delay: 0.1s; }
+                &:nth-child(1) img { animation-delay: 0s; }
+                }
+            }
+        }
+    }
+    &:hover{
+
+    }
+    &:focus{
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.under-line-btn{
+    color: var(--color-primary);
+    text-align: center;
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: -0.32px;
+    position: relative;
+    transition: all .4s;
+    &::after{
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: -5px;
+        height: 1px;
+        background: #BCBFDB;
+        width: 100%;
+    }
+    &::before{
+        position: absolute;
+        content: '';
+        right: 0;
+        bottom: -5px;
+        height: 1px;
+        background: var(--color-primary);
+        width: 0;
+        z-index: 1;
+        transition: all .4s;
+    }
+    &:hover{
+        &::before{
+            left: 0;
+            width: 100%;
+        }
+    }
+}
+
+.btn-check:focus+.btn-primary,.btn-primary:focus {
+    background-color: var(--color-primary);
+    border-color: unset;
+    -webkit-box-shadow: none;
+    box-shadow: none
+}

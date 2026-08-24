@@ -1,0 +1,23 @@
+# Environment / secrets
+.env
+
+# Dependency manager
+vendor/
+node_modules/
+
+# Runtime data
+storage/uploads/*
+!storage/uploads/.gitkeep
+storage/logs/*
+!storage/logs/.gitkeep
+storage/cache/*
+!storage/cache/.gitkeep
+
+# OS junk
+Thumbs.db
+.DS_Store
+
+# Editor
+*.swp
+.idea/
+.vscode/

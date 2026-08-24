@@ -1,0 +1,653 @@
+/* =============================================================
+   G DESIGN — Quotation Wizard (quote.html)
+   ============================================================= */
+
+.wpr-quote-area {
+  margin-bottom: 16px;
+}
+
+.wpr-quote-area .section-inner {
+  background: #030712;
+  border-radius: 26px;
+  padding: 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---------- progress steps ---------- */
+.q-progress {
+  list-style: none;
+  margin: 0 0 60px;
+  padding: 0;
+  display: flex;
+  counter-reset: qstep;
+}
+
+.q-progress li {
+  flex: 1;
+  position: relative;
+  text-align: center;
+}
+
+.q-progress li::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: calc(-50% + 44px);
+  right: calc(-50% + 44px);
+  height: 1px;
+  background: rgba(249, 250, 251, 0.2);
+}
+
+.q-progress li:first-child::before {
+  display: none;
+}
+
+.q-progress .q-dot {
+  counter-increment: qstep;
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #1f1f25;
+  border: 1px solid rgba(249, 250, 251, 0.2);
+  color: #f9fafb;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 12px;
+  transition: all 0.3s;
+}
+
+.q-progress .q-dot::after {
+  content: counter(qstep);
+}
+
+.q-progress li.active .q-dot {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.q-progress li.done .q-dot {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.q-progress li.done::before {
+  background: var(--color-primary);
+}
+
+.q-progress .q-label {
+  display: block;
+  color: #f9fafb;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.q-progress li:not(.active):not(.done) .q-label {
+  color: rgba(249, 250, 251, 0.45);
+}
+
+/* ---------- step panels ---------- */
+.q-step {
+  display: none;
+}
+
+.q-step.active {
+  display: block;
+  animation: qFadeUp 0.4s ease;
+}
+
+@keyframes qFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.q-heading .sub-title {
+  color: #f9fafb;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  margin: 0 0 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.q-heading .sub-title::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: var(--color-primary);
+}
+
+.q-heading h2 {
+  color: #f9fafb;
+  font-size: 34px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.q-heading p {
+  color: rgba(249, 250, 251, 0.6);
+  margin: 0 0 40px;
+}
+
+.q-heading .q-selected {
+  color: var(--color-primary);
+}
+
+/* ---------- selection cards ---------- */
+.q-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.q-card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: #0b0b0b;
+  border: 1px solid rgba(249, 250, 251, 0.12);
+  border-radius: 18px;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: inherit;
+}
+
+.q-card:hover,
+.q-card.selected {
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+}
+
+.q-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  filter: grayscale(1);
+  transition: all 0.3s;
+}
+
+.q-card:hover img {
+  filter: none;
+}
+
+.q-card .q-card-body {
+  padding: 20px;
+}
+
+.q-card .q-tag {
+  color: var(--color-primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.q-card h3 {
+  color: #f9fafb;
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.q-card p {
+  color: rgba(249, 250, 251, 0.55);
+  font-size: 13px;
+  margin: 8px 0 0;
+}
+
+/* ---------- form fields ---------- */
+.q-field {
+  margin-bottom: 34px;
+}
+
+.q-field label {
+  color: #f9fafb;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 12px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.q-field label .q-req {
+  color: var(--color-primary);
+}
+
+.q-field input[type="text"],
+.q-field input[type="number"],
+.q-field input[type="date"],
+.q-field textarea,
+.q-field select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(249, 250, 251, 0.3);
+  border-radius: 0;
+  color: #f9fafb;
+  padding: 6px 0;
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.q-field input::placeholder,
+.q-field textarea::placeholder {
+  color: rgba(249, 250, 251, 0.5);
+  font-family: var(--font-secondary);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.q-field input:focus,
+.q-field textarea:focus,
+.q-field select:focus {
+  border-bottom-color: var(--color-primary);
+}
+
+.q-field textarea {
+  height: 110px;
+  resize: vertical;
+}
+
+.q-field input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.6;
+}
+
+.q-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+/* options (radio / checkbox pills) */
+.q-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.q-option {
+  position: relative;
+}
+
+.q-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.q-option span {
+  display: inline-block;
+  padding: 10px 18px;
+  border: 1px solid rgba(249, 250, 251, 0.22);
+  border-radius: 30px;
+  color: #f9fafb;
+  font-size: 14px;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.q-option:hover span {
+  border-color: rgba(255, 107, 26, 0.6);
+}
+
+.q-option input:checked + span {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.q-option input:focus-visible + span {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* size breakdown grids */
+.q-sizegrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 16px;
+}
+
+.q-size label {
+  display: block;
+  color: rgba(249, 250, 251, 0.6);
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.q-size input {
+  text-align: center;
+}
+
+/* hidden conditional fields */
+.q-field[hidden] {
+  display: none;
+}
+
+/* validation */
+.q-field .q-error {
+  color: #ff6b6b;
+  font-size: 13px;
+  margin-top: 8px;
+  display: none;
+}
+
+.q-field.invalid input,
+.q-field.invalid textarea,
+.q-field.invalid .q-size input {
+  border-bottom-color: #ff6b6b;
+}
+
+.q-field.invalid .q-error {
+  display: block;
+}
+
+/* ---------- navigation ---------- */
+.q-btn-back-link {
+  background: transparent;
+  border: none;
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin: 0 0 24px;
+  font-family: var(--font-secondary);
+}
+
+.q-btn-back-link:hover {
+  text-decoration: underline;
+}
+
+.q-items-heading {
+  color: #f9fafb;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.q-items-sub {
+  color: rgba(249, 250, 251, 0.55);
+  font-size: 14px;
+  margin: 0 0 24px;
+}
+
+.q-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 54px;
+}
+
+.q-nav .wpr-btn {
+  min-width: 180px;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.q-btn-primary {
+  background: var(--color-primary) !important;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15), inset 0px 1px 0px rgba(255, 255, 255, 0.3), inset 0px -3px 0px rgba(0, 0, 0, 0.2) !important;
+}
+
+.q-btn-ghost {
+  background: transparent !important;
+  border: 1px solid rgba(249, 250, 251, 0.35);
+  box-shadow: none !important;
+  color: #f9fafb;
+}
+
+.q-nav .q-btn-ghost:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* ---------- file upload ---------- */
+.q-upload {
+  position: relative;
+}
+
+.q-upload-drop {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 22px 20px;
+  border: 1px dashed rgba(249, 250, 251, 0.3);
+  border-radius: 12px;
+  cursor: pointer;
+  color: rgba(249, 250, 251, 0.7);
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.q-upload-drop i {
+  color: var(--color-primary);
+  font-size: 18px;
+}
+
+.q-upload-drop:hover {
+  border-color: var(--color-primary);
+}
+
+.q-upload input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.q-file-list {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+}
+
+.q-file-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #0b0b0b;
+  border: 1px solid rgba(249, 250, 251, 0.12);
+  border-radius: 8px;
+  color: #f9fafb;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.q-file-list li button {
+  background: transparent;
+  border: none;
+  color: var(--color-primary);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.q-file-list li button:hover {
+  color: #ff6b6b;
+}
+
+/* ---------- review ---------- */
+.q-review {
+  background: #0b0b0b;
+  border: 1px solid rgba(249, 250, 251, 0.12);
+  border-radius: 18px;
+  padding: 30px 34px;
+}
+
+.q-review h3 {
+  color: var(--color-primary);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+}
+
+.q-review .q-review-service {
+  color: #f9fafb;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 24px;
+}
+
+.q-review dl {
+  margin: 0;
+}
+
+.q-review-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(249, 250, 251, 0.1);
+}
+
+.q-review-item:last-child {
+  border-bottom: none;
+}
+
+.q-review-item dt {
+  color: rgba(249, 250, 251, 0.55);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.q-review-item dd {
+  color: #f9fafb;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+  margin: 0;
+}
+
+/* ---------- success ---------- */
+.q-success {
+  text-align: center;
+  padding: 60px 0 30px;
+}
+
+.q-success .q-check {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 28px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  color: #030712;
+  animation: qPop 0.5s ease;
+}
+
+@keyframes qPop {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.q-success h2 {
+  color: #f9fafb;
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+
+.q-success p {
+  color: rgba(249, 250, 251, 0.6);
+  max-width: 520px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 991px) {
+  .wpr-quote-area .section-inner {
+    padding: 40px 28px;
+  }
+
+  .q-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .q-progress .q-label {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 575px) {
+  .wpr-quote-area .section-inner {
+    padding: 30px 20px;
+  }
+
+  .q-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .q-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .q-progress {
+    margin-bottom: 40px;
+  }
+
+  .q-progress .q-dot {
+    width: 38px;
+    height: 38px;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .q-progress li::before {
+    top: 19px;
+  }
+
+  .q-heading h2 {
+    font-size: 26px;
+  }
+
+  .q-nav {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .q-nav .wpr-btn {
+    width: 100%;
+  }
+}
