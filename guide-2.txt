@@ -1,0 +1,94 @@
+G DESIGN — M2 FINAL GIT CHECKPOINT
+
+M2 has been fully implemented and tested:
+
+- 14/14 tests PASS
+- request attachments work
+- multipart/form-data works
+- MySQL attachment records work
+- secure storage works
+- rollback works
+- M1 regression tests pass
+
+Before starting M3, perform a Git checkpoint.
+
+1. Run:
+
+git status
+git diff --stat
+git diff
+
+2. Identify every modified/deleted/untracked file.
+
+3. Classify each change:
+
+A. Required for M2
+B. Related documentation/configuration
+C. Unrelated change
+D. Potential accidental deletion/modification
+
+4. Pay particular attention to:
+
+- .env.example
+- docs/BACKEND_PLAN.md
+- guide.txt
+- public/assets/css/quote.css
+- public/assets/js/quote.js
+- backend files
+- database migration
+- documentation
+- .gitignore
+
+5. DO NOT blindly commit everything.
+
+6. Do not restore legitimate M2 changes.
+
+7. Do not delete files unless their deletion was intentional
+   and confirmed by the current architecture.
+
+8. Ensure:
+
+.env
+
+and actual credentials are NOT committed.
+
+9. Ensure:
+
+storage/uploads/
+
+does not contain client-uploaded files that will be committed.
+
+10. Once the working tree contains only intentional project
+changes, create a clean commit:
+
+git add <intentional files>
+
+git commit -m "feat: implement request attachments"
+
+11. Push:
+
+git push origin main
+
+12. Verify:
+
+git status
+
+Expected:
+
+working tree clean
+
+and:
+
+Your branch is up to date with 'origin/main'.
+
+FINAL REPORT:
+
+- files committed
+- files intentionally excluded
+- files restored, if any
+- commit hash
+- push result
+- final git status
+
+Do not modify application logic during this checkpoint.
+This is a Git hygiene and milestone operation only.

@@ -1,0 +1,10 @@
+# G DESIGN — Apache config for the public/ document root.
+
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Route all /api/** requests to the PHP front controller.
+    RewriteRule ^api/v1/(.*)$ api.php [QSA,L]
+</IfModule>

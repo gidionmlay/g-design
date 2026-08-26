@@ -150,7 +150,7 @@ Items each have: `id`, `name`, `desc`, `fields[]`.
 | Property | Used by | Purpose |
 |---|---|---|
 | `key` | all | Answer key in payload/state |
-| `type` | all | One of: `radio`, `checkbox`, `text`, `email`, `tel`, `number`, `date`, `textarea`, `sizegrid`, `upload` |
+| `type` | all | One of: `radio`, `checkbox`, `text`, `email`, `tel`, `number`, `date`, `textarea`, `select`, `sizegrid`, `upload` |
 | `label` | all | Display label (also becomes the key in submitted `requirements` object) |
 | `required` | most | Validation flag |
 | `options[]` | radio, checkbox | String option values |
@@ -173,7 +173,7 @@ Most printing/graphic items carry an `Estimated budget` radio with TZS ranges (r
 ```
 service_categories(id, slug, name, tag, image_path, description, sort_order, is_active, created_at, updated_at)
 service_items(id, category_id FK, slug, name, description, image_path?, sort_order, is_active, created_at, updated_at)
-service_fields(id, item_id FK, field_key, label, type ENUM(radio,checkbox,text,email,tel,number,date,textarea,sizegrid,upload),
+service_fields(id, item_id FK, field_key, label, type ENUM(radio,checkbox,text,email,tel,number,date,textarea,select,sizegrid,upload),
                required TINYINT, placeholder, hint, sort_order, show_when_json NULL, created_at)
 service_field_options(id, field_id FK, option_value, sort_order)
 field_size_labels(id, field_id FK, size_label, sort_order)          -- for sizegrid columns
@@ -197,7 +197,7 @@ settings(key PRIMARY, value)                                        -- mail cred
 USER lands on quote.html (?service=&item= deep links honored at init)
  ↓ STEP 1: pick CATEGORY card → panel swaps to ITEMS of that category → pick ITEM
  ↓ STEP 2: REQUIREMENTS — fields rendered from QUOTE_CONFIG[item].fields
- │    • types: radio / checkbox / text / email / tel / number / date / textarea / sizegrid / upload
+ │    • types: radio / checkbox / text / email / tel / number / date / textarea / select / sizegrid / upload
  │    • conditional visibility engine (showWhen) + sizegrid oneSizeWhen re-render on change
  ↓ STEP 3: PROJECT DETAILS — common fields (name*, email*, phone, completion_date*, notes, attachments)
  │    • attachments: max 5, ext whitelist .pdf .png .jpg .jpeg .ai .psd .zip, kept in memory (state.files[])

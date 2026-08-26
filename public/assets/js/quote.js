@@ -1,6 +1,7 @@
 /* G DESIGN — Quotation Wizard (quote.html)
-   Frontend-only for now: collects a service-specific request and shows a success
-   state. Backend (mailer/storage) will be wired later. */
+   Catalog data is loaded from the backend API (GET /api/v1/services).
+   The bundled QUOTE_CONFIG below is a TEMPORARY FALLBACK used only if the
+   API is unreachable — it will be removed once the Services CMS exists. */
 (function () {
   'use strict';
 
@@ -21,20 +22,6 @@
       image: '../assets/images/service/01.webp',
       desc: 'Identities that are recognizable and consistent across every touchpoint.',
       items: [
-        {
-          id: 'logo-design', name: 'Logo Design & Logo Animation',
-          desc: 'New logo, brand packages and logo animation.',
-          fields: [
-            { key: 'package', type: 'radio', label: 'Design Package', required: true, options: [
-              'New Logo Design & Brand Package', 'New Design & Animation', 'Animation Only'
-            ] },
-            { key: 'colour_style', type: 'text', label: 'Preferred Colour / Style', placeholder: 'e.g. Modern, minimal, orange accent', required: true },
-            { key: 'business', type: 'textarea', label: 'Company / Business Activities', placeholder: 'What does your business do?', required: true },
-            { key: 'budget', type: 'radio', label: 'Estimated budget', required: true, options: [
-              'TZS 50,000/= to TZS 200,000/=', 'TZS 200,000/= to TZS 500,000/=', 'TZS 500,000/= to TZS 700,000/='
-            ] }
-          ]
-        },
         {
           id: 'brand-identity', name: 'Brand Identity',
           desc: 'Full identity systems and refresh work.',
@@ -72,12 +59,26 @@
       desc: 'Visual communication for businesses, campaigns and individuals.',
       items: [
         {
-          id: 'flyer-brochures', name: 'Flyer & Brochures',
-          desc: 'Flyers and brochures for events, promotions and more.',
+          id: 'logo-design', name: 'Logo Design & Logo Animation',
+          desc: 'New logo, brand packages and logo animation.',
           fields: [
-            { key: 'type', type: 'radio', label: 'Type', required: true, options: ['Flyer', 'Brochures'] },
+            { key: 'logo_name', type: 'text', label: 'Logo name', placeholder: 'The name your logo should display', required: true },
+            { key: 'package', type: 'radio', label: 'Design Package', required: true, options: [
+              'New Logo Design & Brand Package', 'New Design & Animation', 'Animation Only'
+            ] },
+            { key: 'colour_style', type: 'text', label: 'Preferred Colour / Style', placeholder: 'e.g. Modern, minimal, orange accent', required: true },
+            { key: 'business', type: 'textarea', label: 'Company / Business Activities', placeholder: 'What does your business do?', required: true },
+            { key: 'budget', type: 'radio', label: 'Estimated budget', required: true, options: [
+              'TZS 50,000/= to TZS 200,000/=', 'TZS 200,000/= to TZS 500,000/=', 'TZS 500,000/= to TZS 700,000/='
+            ] }
+          ]
+        },
+        {
+          id: 'flyer-brochures', name: 'Flyer',
+          desc: 'Flyers for events, promotions and more.',
+          fields: [
             { key: 'quantity', type: 'radio', label: 'Quantity', required: true, options: ['Below 100', '100 – 500', 'Above 500'] },
-            { key: 'size', type: 'text', label: 'Print size', placeholder: 'e.g. A5, A4, A3', required: true },
+            { key: 'size', type: 'select', label: 'Print size', required: true, options: ['A6', 'A5', 'A4', 'A3'] },
             { key: 'service', type: 'radio', label: 'Service type', required: true, options: ['Print only', 'Print & design'] },
             { key: 'sides', type: 'radio', label: 'Sides', required: true, options: ['One side', 'Double side'] },
             { key: 'budget', type: 'radio', label: 'Estimated budget', required: true, options: [
@@ -90,9 +91,7 @@
           desc: 'Poster design and graphics animation.',
           fields: [
             { key: 'type', type: 'radio', label: 'Type', required: true, options: ['Poster design', 'Graphics animation'] },
-            { key: 'quantity', type: 'radio', label: 'Quantity', required: true, options: ['Below 100', '100 – 500', 'Above 500'] },
-            { key: 'size', type: 'text', label: 'Print size', placeholder: 'e.g. A5, A4, A3', required: true },
-            { key: 'service', type: 'radio', label: 'Service type', required: true, options: ['Print only', 'Print & design'] },
+            { key: 'quantity', type: 'number', label: 'Quantity', placeholder: 'Number of posters', required: true },
             { key: 'budget', type: 'radio', label: 'Estimated budget', required: true, options: [
               'Below TZS 50,000/=', 'TZS 50,000/= to TZS 200,000/=', 'TZS 200,000/= to TZS 500,000/=', 'Above TZS 500,000/='
             ] }
@@ -105,7 +104,7 @@
             { key: 'type', type: 'radio', label: 'Brochure type', required: true, options: ['Bi-fold', 'Tri-fold', 'Multi-page'] },
             { key: 'pages', type: 'number', label: 'Number of pages', required: false },
             { key: 'quantity', type: 'radio', label: 'Quantity', required: true, options: ['Below 100', '100 – 500', 'Above 500'] },
-            { key: 'size', type: 'text', label: 'Size', placeholder: 'e.g. A4, A5, custom', required: false },
+            { key: 'size', type: 'select', label: 'Size', required: false, options: ['A4', 'A3'] },
             { key: 'service', type: 'radio', label: 'Service', required: true, options: ['Design only', 'Design & print', 'Print only'] },
             { key: 'budget', type: 'radio', label: 'Estimated budget', required: true, options: [
               'Below TZS 50,000/=', 'TZS 50,000/= to TZS 200,000/=', 'TZS 200,000/= to TZS 500,000/=', 'Above TZS 500,000/='
@@ -129,11 +128,52 @@
             { key: 'service', type: 'radio', label: 'Service type', required: true, options: ['Print only', 'Print & design'] },
             { key: 'quantity', type: 'radio', label: 'Quantity', required: true, options: ['100', '200', '300', 'Above 300'] },
             { key: 'material', type: 'radio', label: 'Material type', required: true, options: [
-              'Soft touch Gloss matte Lamination Card', 'PVC card'
+              'Soft touch gloss paper', 'Lamination card', 'PVC'
             ] },
             { key: 'sides', type: 'radio', label: 'Print side', required: true, options: ['One side', 'Both side (front and back)'] },
             { key: 'budget', type: 'radio', label: 'Estimated budget', required: true, options: [
               'Below TZS 50,000/=', 'TZS 50,000/= to TZS 100,000/=', 'TZS 100,000/= to TZS 300,000/=', 'Above TZS 300,000/='
+            ] }
+          ]
+        },
+        {
+          id: 'certificate-calendar', name: 'Certificate & Calendar',
+          desc: 'Award certificates and wall or desk calendars.',
+          fields: [
+            { key: 'type', type: 'radio', label: 'Type', required: true, options: ['Certificate', 'Calendar'] },
+            { key: 'quantity', type: 'radio', label: 'Quantity', required: true, options: ['Below 50 pcs', '50 pcs to 200 pcs', 'Above 200 pcs'] },
+            { key: 'size', type: 'select', label: 'Print size', required: true, options: ['A4', 'A3'] },
+            { key: 'service', type: 'radio', label: 'Service type', required: true, options: ['Print only', 'Print & design'] },
+            { key: 'sides', type: 'radio', label: 'Sides', required: true, options: ['One side'] },
+            { key: 'budget', type: 'radio', label: 'Estimated budget', required: true, options: [
+              'Below TZS 100,000/=', 'TZS 100,000/= to TZS 300,000/=', 'TZS 300,000/= to TZS 500,000/=', 'Above TZS 500,000/='
+            ] }
+          ]
+        },
+        {
+          id: 'menu-design', name: 'Menu Design',
+          desc: 'Menus for restaurants, cafes and bars — design and print.',
+          fields: [
+            { key: 'quantity', type: 'number', label: 'Quantity', placeholder: 'Number of menus', required: true },
+            { key: 'size', type: 'select', label: 'Print size', required: true, options: ['A5', 'A4', 'A3'] },
+            { key: 'service', type: 'radio', label: 'Service type', required: true, options: ['Print only', 'Print & design'] },
+            { key: 'sides', type: 'radio', label: 'Sides', required: true, options: ['One side', 'Two side'] },
+            { key: 'budget', type: 'radio', label: 'Estimated budget', required: true, options: [
+              'Below TZS 50,000/=', 'TZS 50,000/= to TZS 200,000/=', 'TZS 200,000/= to TZS 500,000/=', 'Above TZS 500,000/='
+            ] }
+          ]
+        },
+        {
+          id: 'company-profile', name: 'Company Profile',
+          desc: 'Professional company profiles for print and sharing.',
+          fields: [
+            { key: 'quantity', type: 'number', label: 'Quantity', placeholder: 'Number of printed copies', required: true },
+            { key: 'pages', type: 'number', label: 'Total pages', placeholder: 'Number of pages you want', required: true },
+            { key: 'size', type: 'select', label: 'Print size', required: true, options: ['A4', 'A3'] },
+            { key: 'service', type: 'radio', label: 'Service type', required: true, options: ['Print only', 'Print & design'] },
+            { key: 'sides', type: 'radio', label: 'Sides', required: true, options: ['One side'] },
+            { key: 'budget', type: 'radio', label: 'Estimated budget', required: true, options: [
+              'Below TZS 100,000/=', 'TZS 100,000/= to TZS 300,000/=', 'TZS 300,000/= to TZS 500,000/=', 'Above TZS 500,000/='
             ] }
           ]
         }
@@ -311,8 +351,97 @@
     { key: 'phone', type: 'tel', label: 'Phone (optional)', placeholder: '+255 …', required: false },
     { key: 'completion_date', type: 'date', label: 'Requested completion date', required: true },
     { key: 'notes', type: 'textarea', label: 'Additional project notes', placeholder: 'Anything else we should know?', required: false },
-    { key: 'files', type: 'upload', label: 'Attach artwork / reference files', hint: 'PDF, PNG, JPEG, AI, PSD, ZIP', required: false }
+    { key: 'files', type: 'upload', label: 'Attach artwork / reference files', hint: 'PDF, JPEG, PNG, WebP', required: false }
   ];
+
+  /* ============================ CATALOG SOURCE ============================ */
+
+  /* Loads the live catalog from the database-backed API and swaps it into
+     QUOTE_CONFIG in place (same shape, so the renderer needs no changes).
+     Returns true when live data replaced the fallback. */
+  function loadCatalog(done) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '../api/v1/services', true);
+    xhr.timeout = 8000;
+    xhr.onload = function () {
+      var mapped = null;
+      try {
+        if (xhr.status === 200) mapped = mapApiCatalog(JSON.parse(xhr.responseText));
+      } catch (e) { mapped = null; }
+      if (!mapped) { done(false); return; }
+      QUOTE_CONFIG.length = 0;
+      Array.prototype.push.apply(QUOTE_CONFIG, mapped);
+      done(true);
+    };
+    xhr.onerror = function () { done(false); };
+    xhr.ontimeout = function () { done(false); };
+    xhr.send();
+  }
+
+  function pageAssetPath(path) {
+    if (!path) return '';
+    if (/^(https?:)?\/\//.test(path) || path.charAt(0) === '/') return path;
+    return '../' + path; // root-relative asset viewed from /quote/
+  }
+
+  /* Maps the API envelope {ok,data:{categories:[...]}} into QUOTE_CONFIG shape. */
+  function mapApiCatalog(payload) {
+    if (!payload || payload.ok !== true || !payload.data || !Array.isArray(payload.data.categories)) return null;
+    var categories = [];
+    for (var c = 0; c < payload.data.categories.length; c++) {
+      var cat = payload.data.categories[c];
+      if (!cat || typeof cat.slug !== 'string' || !Array.isArray(cat.items)) return null;
+      var items = [];
+      for (var i = 0; i < cat.items.length; i++) {
+        var srcItem = cat.items[i];
+        if (!srcItem || typeof srcItem.slug !== 'string' || !Array.isArray(srcItem.fields)) return null;
+        var fields = [];
+        for (var f = 0; f < srcItem.fields.length; f++) {
+          var sf = srcItem.fields[f] || {};
+          var field = {
+            key: String(sf.key || ''),
+            type: String(sf.type || ''),
+            label: String(sf.label || ''),
+            required: !!sf.required
+          };
+          if (sf.placeholder) field.placeholder = String(sf.placeholder);
+          if (sf.hint) field.hint = String(sf.hint);
+          if (Array.isArray(sf.options)) field.options = sf.options.map(String);
+          if (Array.isArray(sf.sizes)) field.sizes = sf.sizes.map(String);
+          if (sf.show_when && typeof sf.show_when === 'object') {
+            field.showWhen = {};
+            if ('key' in sf.show_when) field.showWhen.key = sf.show_when.key;
+            if ('equals' in sf.show_when) field.showWhen.equals = sf.show_when.equals;
+            if ('notIn' in sf.show_when) field.showWhen.notIn = sf.show_when.notIn;
+            if ('value' in sf.show_when) field.showWhen.value = sf.show_when.value;
+          }
+          if (sf.one_size_when && typeof sf.one_size_when === 'object') {
+            field.oneSizeWhen = {
+              key: sf.one_size_when.key,
+              value: sf.one_size_when.value,
+              label: sf.one_size_when.label
+            };
+          }
+          fields.push(field);
+        }
+        items.push({
+          id: srcItem.slug,
+          name: String(srcItem.name || ''),
+          desc: String(srcItem.description || ''),
+          fields: fields
+        });
+      }
+      categories.push({
+        id: cat.slug,
+        name: String(cat.name || ''),
+        tag: String(cat.tag || ''),
+        image: pageAssetPath(cat.image),
+        desc: String(cat.description || ''),
+        items: items
+      });
+    }
+    return categories.length ? categories : null;
+  }
 
   /* ============================ STATE ============================ */
 
@@ -325,7 +454,7 @@
   };
 
   var MAX_FILES = 5;
-  var ACCEPT = '.pdf,.png,.jpg,.jpeg,.ai,.psd,.zip';
+  var ACCEPT = '.pdf,.jpg,.jpeg,.png,.webp';
 
   var qs = function (name) {
     return new URLSearchParams(window.location.search).get(name);
@@ -359,6 +488,17 @@
   }
   function setAnswer(key, value) {
     state.answers[key] = value;
+  }
+
+  /* Requirement answers must not leak between services/items (fields share
+     keys like `size`). Contact details survive a switch. */
+  var PRESERVED_ANSWER_KEYS = ['name', 'email', 'phone', 'completion_date', 'notes'];
+  function resetAnswers() {
+    var keep = {};
+    PRESERVED_ANSWER_KEYS.forEach(function (k) {
+      if (getAnswer(k) !== undefined) keep[k] = getAnswer(k);
+    });
+    state.answers = keep;
   }
 
   /* conditional visibility: field.showWhen = { key, equals|notIn|value } */
@@ -412,6 +552,15 @@
         break;
       case 'number':
         inner = label + '<input type="number" min="0" data-field="' + esc(field.key) + '" value="' + esc(getAnswer(field.key)) + '" placeholder="' + esc(field.placeholder || '') + '">';
+        break;
+      case 'select':
+        var current = getAnswer(field.key);
+        inner = label + '<select data-field="' + esc(field.key) + '">' +
+          '<option value="" disabled' + (!current ? ' selected' : '') + '>' + esc(field.placeholder || 'Select an option') + '</option>' +
+          (field.options || []).map(function (o) {
+            return '<option value="' + attrVal(o) + '"' + (current === o ? ' selected' : '') + '>' + esc(o) + '</option>';
+          }).join('') +
+          '</select>';
         break;
       case 'date':
         inner = label + '<input type="date" data-field="' + esc(field.key) + '" value="' + esc(getAnswer(field.key)) + '" min="' + new Date().toISOString().split('T')[0] + '">';
@@ -537,7 +686,7 @@
       } else if (field.type === 'checkbox') {
         var arr = val || [];
         rows.push([label, arr.length ? arr.join(', ') : '-']);
-      } else if (field.type === 'radio' || field.type === 'text' || field.type === 'email' || field.type === 'tel' || field.type === 'number' || field.type === 'date' || field.type === 'textarea') {
+      } else if (field.type === 'radio' || field.type === 'text' || field.type === 'email' || field.type === 'tel' || field.type === 'number' || field.type === 'date' || field.type === 'textarea' || field.type === 'select') {
         var v = (val === undefined || val === null) ? '' : String(val).trim();
         if (v || field.required) rows.push([label, v || '-']);
       }
@@ -557,7 +706,7 @@
   /* ============================ VALIDATION ============================ */
 
   function collectFields(panel) {
-    $$('input[type="text"][data-field], input[type="email"][data-field], input[type="tel"][data-field], input[type="number"][data-field], input[type="date"][data-field], textarea[data-field]', panel).forEach(function (el) {
+    $$('input[type="text"][data-field], input[type="email"][data-field], input[type="tel"][data-field], input[type="number"][data-field], input[type="date"][data-field], textarea[data-field], select[data-field]', panel).forEach(function (el) {
       var key = el.getAttribute('data-field');
       if (el.type === 'number') {
         setAnswer(key, el.value !== '' ? el.value : '');
@@ -684,7 +833,8 @@
       return;
     }
     if (state.step === 4) {
-      submitRequest();
+      if (!submitting) submitRequest();
+      return;
     }
   }
 
@@ -710,36 +860,120 @@
 
   /* ============================ SUBMIT ============================ */
 
-  function submitRequest() {
-    var svc = currentService();
+  function buildFormData() {
     var item = currentItem();
-    var payload = {
-      service: svc.name,
-      item: item.name,
-      contact: {
-        name: getAnswer('name'),
-        email: getAnswer('email'),
-        phone: getAnswer('phone') || ''
-      },
-      requirements: {},
-      project: {
-        completion_date: getAnswer('completion_date'),
-        budget: getAnswer('budget'),
-        notes: getAnswer('notes') || ''
-      },
-      attachments: state.files.map(function (f) { return f.name; }),
-      submitted_at: new Date().toISOString()
-    };
+    var fd = new FormData();
 
+    fd.append('service_slug', item.id);
+    fd.append('client_name', getAnswer('name') || '');
+    fd.append('client_email', getAnswer('email') || '');
+
+    var phone = getAnswer('phone');
+    if (phone) fd.append('client_phone', phone);
+
+    var notes = getAnswer('notes');
+    if (notes) fd.append('description', notes);
+
+    var requirements = {};
     item.fields.forEach(function (field) {
       if (!isFieldVisible(field)) return;
-      payload.requirements[field.label] = getAnswer(field.key);
+      if (field.type === 'upload') return;
+      var val = getAnswer(field.key);
+      if (val !== undefined && val !== null && val !== '') {
+        requirements[field.key] = val;
+      }
     });
+    fd.append('requirements_data', JSON.stringify(requirements));
 
-    console.log('QUOTE REQUEST (frontend only):', payload);
+    for (var i = 0; i < state.files.length; i++) {
+      fd.append('files[]', state.files[i]);
+    }
 
-    showStep(5);
-    $('#q-success-text').textContent = 'We received your ' + item.name + ' request. Our team will review it and get back to you with a quotation shortly.';
+    return fd;
+  }
+
+  var submitting = false;
+
+  function setSubmitLoading(loading) {
+    submitting = loading;
+    var btn = $('#q-submit');
+    var backBtn = $('#q-back');
+    if (loading) {
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+      btn.style.opacity = '.6';
+      backBtn.style.visibility = 'hidden';
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Submit Request';
+      btn.style.opacity = '1';
+      backBtn.style.visibility = 'visible';
+    }
+  }
+
+  function submitRequest() {
+    var item = currentItem();
+    var fd = buildFormData();
+
+    setSubmitLoading(true);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '../api/v1/requests', true);
+    xhr.timeout = 30000;
+
+    xhr.onload = function () {
+      var resp;
+      try { resp = JSON.parse(xhr.responseText); } catch (e) { resp = null; }
+
+      if (xhr.status === 201 && resp && resp.ok === true) {
+        showStep(5);
+        var ref = resp.data.request_reference || '';
+        var attachInfo = '';
+        if (resp.data.attachments && resp.data.attachments.length > 0) {
+          attachInfo = '<br><strong>Attachments:</strong> ' + resp.data.attachments.length + ' file(s) uploaded';
+        }
+        $('#q-success-text').innerHTML =
+          'Your ' + esc(item.name) + ' request has been submitted successfully.' +
+          '<br><br><strong>Reference:</strong> ' + esc(ref) +
+          attachInfo +
+          '<br><br>Thank you. Our team will review your request and contact you shortly.';
+        return;
+      }
+
+      setSubmitLoading(false);
+
+      if (resp && resp.error && resp.error.code === 'FILE_VALIDATION_ERROR' && resp.error.files) {
+        var fileErrs = resp.error.files;
+        var msgs = [];
+        for (var i = 0; i < fileErrs.length; i++) {
+          msgs.push(fileErrs[i].name + ': ' + fileErrs[i].error);
+        }
+        alert('File errors:\n' + msgs.join('\n'));
+      } else if (resp && resp.error && resp.error.fields) {
+        var fieldErrors = resp.error.fields;
+        var fmsgs = [];
+        for (var k in fieldErrors) {
+          if (fieldErrors.hasOwnProperty(k)) fmsgs.push(k + ': ' + fieldErrors[k]);
+        }
+        alert('Validation errors:\n' + fmsgs.join('\n'));
+      } else if (resp && resp.error && resp.error.message) {
+        alert(resp.error.message);
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    };
+
+    xhr.onerror = function () {
+      setSubmitLoading(false);
+      alert('Network error. Please check your connection and try again.');
+    };
+
+    xhr.ontimeout = function () {
+      setSubmitLoading(false);
+      alert('Request timed out. Please try again.');
+    };
+
+    xhr.send(fd);
   }
 
   /* ============================ EVENTS ============================ */
@@ -750,12 +984,15 @@
       if (svcBtn) {
         state.serviceId = svcBtn.getAttribute('data-service');
         state.itemId = null;
+        resetAnswers();
         renderStep1();
         return;
       }
       var itemBtn = e.target.closest('[data-item]');
       if (itemBtn) {
-        state.itemId = itemBtn.getAttribute('data-item');
+        var nextItem = itemBtn.getAttribute('data-item');
+        if (state.itemId !== nextItem) resetAnswers();
+        state.itemId = nextItem;
         renderStep1();
         return;
       }
@@ -780,8 +1017,8 @@
       if (e.target.type === 'file') {
         var files = Array.prototype.slice.call(e.target.files || []);
         files.forEach(function (f) {
-          var okType = ['pdf', 'png', 'jpg', 'jpeg', 'ai', 'psd', 'zip'].indexOf((f.name.split('.').pop() || '').toLowerCase()) !== -1;
-          if (!okType) { alert('Only PDF, PNG, JPEG, AI, PSD and ZIP files are allowed.'); return; }
+          var okType = ['pdf', 'jpg', 'jpeg', 'png', 'webp'].indexOf((f.name.split('.').pop() || '').toLowerCase()) !== -1;
+          if (!okType) { alert('Only PDF, JPEG, PNG and WebP files are allowed.'); return; }
           if (state.files.length >= MAX_FILES) { alert('You can attach up to ' + MAX_FILES + ' files.'); return; }
           state.files.push(f);
         });
@@ -796,6 +1033,8 @@
       } else if (e.target.type === 'checkbox') {
         collectFields($('#q-step-' + state.step));
         reRenderAffected();
+      } else if (e.target.tagName === 'SELECT') {
+        setAnswer(field, e.target.value);
       }
     });
 
@@ -833,7 +1072,7 @@
 
   /* ============================ INIT ============================ */
 
-  function init() {
+  function start() {
     var svcParam = qs('service');
     var itemParam = qs('item');
     if (svcParam && findService(svcParam)) {
@@ -843,6 +1082,16 @@
     showStep(1, false);
     renderStep1();
     bindEvents();
+  }
+
+  function init() {
+    loadCatalog(function (live) {
+      if (!live) {
+        /* TEMPORARY fallback path — remove when the Services CMS is live. */
+        console.warn('G DESIGN quote: service catalog API unavailable — using bundled fallback catalog.');
+      }
+      start();
+    });
   }
 
   if (document.readyState === 'loading') {
