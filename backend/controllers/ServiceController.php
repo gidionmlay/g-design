@@ -53,17 +53,21 @@ final class ServiceController
             $fields = ServiceField::forItems([(int) $item['id']])[(int) $item['id']] ?? [];
             $category = ServiceCategory::findActiveById((int) $item['category_id']);
 
+            $presented = self::presentItem($item, [$item['id'] => $fields]);
+
             Response::ok([
                 'item' => [
-                    'slug'        => (string) $item['slug'],
-                    'name'        => (string) $item['name'],
-                    'description' => $item['description'] ?? null,
-                    'image'       => $item['image_path'] ?? null,
-                    'category'    => $category === null ? null : [
+                    'slug'             => (string) $item['slug'],
+                    'name'             => (string) $item['name'],
+                    'short_description'=> $item['short_description'] ?? null,
+                    'description'      => $item['description'] ?? null,
+                    'image'            => ServiceItem::publicImage((int) $item['id']),
+                    'pricing'          => ServiceItem::presentPricing($item),
+                    'category'         => $category === null ? null : [
                         'slug' => (string) $category['slug'],
                         'name' => (string) $category['name'],
                     ],
-                    'fields'      => $fields,
+                    'fields'           => $presented['fields'],
                 ],
             ]);
         }
@@ -106,11 +110,13 @@ final class ServiceController
     private static function presentItem(array $item, array $fieldMap): array
     {
         return [
-            'slug'        => (string) $item['slug'],
-            'name'        => (string) $item['name'],
-            'description' => $item['description'] ?? null,
-            'image'       => $item['image_path'] ?? null,
-            'fields'      => $fieldMap[(int) $item['id']] ?? [],
+            'slug'             => (string) $item['slug'],
+            'name'             => (string) $item['name'],
+            'short_description'=> $item['short_description'] ?? null,
+            'description'      => $item['description'] ?? null,
+            'image'            => ServiceItem::publicImage((int) $item['id']),
+            'pricing'          => ServiceItem::presentPricing($item),
+            'fields'           => $fieldMap[(int) $item['id']] ?? [],
         ];
     }
 }

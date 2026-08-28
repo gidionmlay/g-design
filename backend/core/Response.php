@@ -74,6 +74,50 @@ final class Response
     }
 
     /**
+     * Stream a file to the client with safe headers.
+     *
+     * Content-Type comes from the database-provided MIME, never from the
+     * filename. Content-Disposition uses the original filename so admins can
+     * save it back with a meaningful name.
+     *
+     * @param string $absolutePath verified, non-empty absolute path on disk
+     * @param string $mimeType     MIME stored in the database
+     * @param string $originalName original (client-supplied) filename
+     * @param bool   $download     force attachment disposition (else inline)
+     */
+    public static function streamFile(
+        string $absolutePath,
+        string $mimeType,
+        string $originalName,
+        bool $download = false
+    ): never {
+        if (!is_readable($absolutePath)) {
+            self::notFound('File not found.');
+        }
+
+        $size = filesize($absolutePath);
+        $safeName = str_replace(['"', "\r", "\n", "\0"], '', $originalName);
+        $disposition = $download ? 'attachment' : 'inline';
+
+        if (!headers_sent()) {
+            header('Content-Type: ' . $mimeType);
+            header('Content-Length: ' . (string) $size);
+            header('Content-Disposition: ' . $disposition . '; filename="' . $safeName . '"');
+            header('X-Content-Type-Options: nosniff');
+            header('X-Frame-Options: SAMEORIGIN');
+            header('Cache-Control: private, no-store');
+        }
+
+        $handle = fopen($absolutePath, 'rb');
+        if ($handle === false) {
+            self::notFound('File not found.');
+        }
+        fpassthru($handle);
+        fclose($handle);
+        exit;
+    }
+
+    /**
      * @param list<string> $allowed
      */
     public static function methodNotAllowed(array $allowed): never

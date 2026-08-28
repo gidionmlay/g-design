@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login — G DESIGN</title>
+  <link rel="icon" href="/assets/images/logo/01.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #FF6B1A;
+      --bg: #0E0F12;
+      --panel: #17181D;
+      --line: #26272E;
+      --text: #F4F5F7;
+      --muted: #9AA0A8;
+      --danger: #F4282D;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      background: radial-gradient(1200px 600px at 85% -10%, rgba(255,107,26,.14), transparent 60%), var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .card {
+      width: 100%;
+      max-width: 400px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 36px 32px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.45);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+    .brand img { width: 34px; height: 34px; }
+    .brand h1 { font-size: 20px; font-weight: 700; letter-spacing: -.02em; }
+    .brand h1 span { color: var(--accent); }
+    .sub { color: var(--muted); font-size: 13px; margin-bottom: 28px; }
+    label { display: block; font-size: 13px; font-weight: 600; margin: 18px 0 8px; }
+    input {
+      width: 100%;
+      background: #101116;
+      border: 1px solid var(--line);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 15px;
+      font-family: inherit;
+      transition: border-color .15s;
+    }
+    input:focus { outline: none; border-color: var(--accent); }
+    button {
+      width: 100%;
+      margin-top: 26px;
+      padding: 13px;
+      background: var(--accent);
+      color: #1A0D00;
+      border: none;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity .15s, transform .05s;
+    }
+    button:hover { opacity: .92; }
+    button:active { transform: translateY(1px); }
+    button:disabled { opacity: .55; cursor: not-allowed; }
+    .alert {
+      display: none;
+      margin-top: 18px;
+      padding: 11px 13px;
+      border-radius: 10px;
+      font-size: 13px;
+      border: 1px solid transparent;
+    }
+    .alert.error { background: rgba(244,40,45,.10); border-color: rgba(244,40,45,.4); color: #ff9b9e; }
+    .alert.show { display: block; }
+    .foot { margin-top: 26px; text-align: center; font-size: 12px; color: var(--muted); }
+    .foot a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="brand">
+      <img src="/assets/images/logo/01.svg" alt="G DESIGN">
+      
+    </div>
+   
+
+    <form id="login-form" novalidate>
+      <label for="username">Username</label>
+      <input id="username" name="username" type="text" autocomplete="username" placeholder="e.g. username" required>
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required>
+
+      <button id="submit" type="submit">Sign In</button>
+
+      <div id="alert" class="alert error" role="alert"></div>
+    </form>
+
+    <p class="foot"><a href="/">← Back to website</a></p>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+      var form = document.getElementById('login-form');
+      var username = document.getElementById('username');
+      var password = document.getElementById('password');
+      var btn = document.getElementById('submit');
+      var alertBox = document.getElementById('alert');
+
+      function showAlert(msg) {
+        alertBox.textContent = msg;
+        alertBox.classList.add('show');
+      }
+      function setLoading(loading) {
+        btn.disabled = loading;
+        btn.textContent = loading ? 'Signing in…' : 'Sign In';
+      }
+      function postJSON(url, data, done) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.timeout = 10000;
+        xhr.onload = function () {
+          var resp = null;
+          try { resp = JSON.parse(xhr.responseText); } catch (e) { resp = null; }
+          done(xhr.status, resp);
+        };
+        xhr.onerror = function () { done(0, null); };
+        xhr.ontimeout = function () { done(0, null); };
+        xhr.send(JSON.stringify(data));
+      }
+
+      if (window.location.search.indexOf('expired=1') !== -1) {
+        showAlert('Your session has expired. Please sign in again.');
+      }
+
+      /* Already signed in? Go straight to the dashboard. */
+      (function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/api/v1/admin/auth/me', true);
+        xhr.timeout = 6000;
+        xhr.onload = function () {
+          var resp = null;
+          try { resp = JSON.parse(xhr.responseText); } catch (e) { resp = null; }
+          if (xhr.status === 200 && resp && resp.ok === true) {
+            window.location.href = '/admin/dashboard.html';
+          }
+        };
+        xhr.send();
+      })();
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        alertBox.classList.remove('show');
+        if (!username.value.trim() || !password.value) {
+          showAlert('Please enter your username and password.');
+          return;
+        }
+        setLoading(true);
+        postJSON('/api/v1/admin/auth/login', {
+          username: username.value.trim(),
+          password: password.value
+        }, function (status, resp) {
+          setLoading(false);
+          if (status === 200 && resp && resp.ok === true) {
+            window.location.href = '/admin/dashboard.html';
+            return;
+          }
+          if (resp && resp.error && resp.error.message) {
+            showAlert(resp.error.message);
+          } else if (status === 0) {
+            showAlert('Network error. Please check your connection and try again.');
+          } else {
+            showAlert('Unable to sign in. Please try again.');
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

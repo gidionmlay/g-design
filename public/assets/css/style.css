@@ -15403,6 +15403,10 @@ section .section-inner.border-1 {
   border-style: solid;
   border-color: var(--color-border);
 }
+.wpr-footer-area .footer-logo-area a img {
+  width: 320px;
+  height: auto;
+}
 .wpr-footer-area .footer-logo-area .shape {
   position: absolute;
   z-index: 1;
@@ -15477,6 +15481,43 @@ section .section-inner.border-1 {
   justify-content: end;
   gap: 7px;
 }
+.wpr-footer-area .copyright-area .staff-top-wrapper {
+  max-width: 33%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 28px;
+}
+.wpr-footer-area .copyright-area .staff-top-wrapper .scroll-top-btn {
+  max-width: 100%;
+  width: auto;
+  margin: 0;
+}
+.wpr-footer-area .copyright-area .staff-link {
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 600;
+  color: var(--color-heading-1);
+  position: relative;
+  z-index: 1;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.wpr-footer-area .copyright-area .staff-link::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  background: var(--color-heading-1);
+  height: 1px;
+  width: 0;
+  bottom: 0;
+  left: 0;
+  transition: var(--transition);
+}
+.wpr-footer-area .copyright-area .staff-link:hover::after {
+  width: 100%;
+}
 
 .social-area-one {
   display: flex;
@@ -15535,6 +15576,17 @@ section .section-inner.border-1 {
   position: relative;
   z-index: 1;
   margin-bottom: 25px;
+}
+.wpr-team-area .team-wrapper .image-area {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+.wpr-team-area .team-wrapper .image-area img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
 }
 .team-wrapper .shape {
   position: absolute;
@@ -17760,6 +17812,10 @@ section .section-inner.border-1 {
     max-width: max-content;
   }
 
+  .wpr-footer-area .copyright-area .staff-top-wrapper {
+    max-width: max-content;
+  }
+
   .main-nav-area {
     display: none;
   }
@@ -17891,6 +17947,12 @@ section .section-inner.border-1 {
     width: 100%;
   }
   .wpr-footer-area .copyright-area .left-social-area ul {
+    justify-content: center;
+  }
+
+  .wpr-footer-area .copyright-area .staff-top-wrapper {
+    width: 100%;
+    max-width: 100%;
     justify-content: center;
   }
 

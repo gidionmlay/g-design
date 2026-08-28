@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — G DESIGN</title>
+  <link rel="icon" href="/assets/images/logo/01.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/assets/css/admin.css">
+</head>
+<body>
+  <div class="gds-shell">
+    <aside class="backdrop" id="backdrop"></aside>
+
+    <nav class="sidebar" id="sidebar" aria-label="Admin navigation">
+      <div class="brand">
+        <img src="/assets/images/logo/01.svg" alt="G DESIGN logo">
+        <div>
+          <strong>G <span>DESIGN</span></strong>
+          <small>Admin Dashboard</small>
+        </div>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-label">Menu</div>
+        <button class="nav-link" data-route="overview" type="button">
+          <span class="ico" aria-hidden="true">▦</span> Overview
+        </button>
+        <button class="nav-link" data-route="requests" type="button">
+          <span class="ico" aria-hidden="true">✉</span> Requests
+        </button>
+        <button class="nav-link" data-route="catalog" type="button">
+          <span class="ico" aria-hidden="true">▤</span> Service Catalog
+        </button>
+        <div class="nav-sublinks" id="catalog-sub">
+          <button class="nav-link nav-sublink" data-route="categories" type="button">
+            <span class="ico" aria-hidden="true">▫</span> Categories
+          </button>
+          <button class="nav-link nav-sublink" data-route="services" type="button">
+            <span class="ico" aria-hidden="true">▪</span> Services
+          </button>
+        </div>
+        <button class="nav-link" data-route="settings" type="button">
+          <span class="ico" aria-hidden="true">⚙</span> Settings
+        </button>
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="nav-group">
+        <div class="nav-label">Account</div>
+        <a class="nav-link" href="/" target="_blank" rel="noopener">
+          <span class="ico" aria-hidden="true">↗</span> View Site
+        </a>
+        <button class="nav-link" id="logout" type="button">
+          <span class="ico" aria-hidden="true">⎋</span> Logout
+        </button>
+      </div>
+    </nav>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="icon-btn" id="menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false">
+          <span aria-hidden="true">☰</span>
+        </button>
+        <h1 id="page-title">Overview</h1>
+        <div class="who">
+          <span class="avatar" id="admin-avatar" aria-hidden="true">?</span>
+          <span class="name" id="admin-name">Checking session…</span>
+        </div>
+      </header>
+
+      <main class="content" id="view" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <div class="modal" id="preview-modal" role="dialog" aria-modal="true" aria-label="Attachment preview">
+    <figure>
+      <img id="preview-img" src="" alt="">
+      <figcaption>
+        <span id="preview-name"></span>
+        <button class="btn btn-sm" id="preview-close" type="button">Close</button>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="modal" id="catalog-modal" role="dialog" aria-modal="true" aria-label="Category editor">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h2 id="catalog-modal-title">Category</h2>
+        <button class="btn btn-ghost btn-sm" id="catalog-modal-close" type="button">✕</button>
+      </div>
+      <div class="modal-body" id="catalog-modal-body"></div>
+    </div>
+  </div>
+
+  <script src="/admin/assets/js/admin.js"></script>
+  <script src="/admin/assets/js/dashboard.js"></script>
+  <script src="/admin/assets/js/requests.js"></script>
+  <script src="/admin/assets/js/request-details.js"></script>
+  <script src="/admin/assets/js/settings.js"></script>
+  <script src="/admin/assets/js/catalog.js"></script>
+</body>
+</html>

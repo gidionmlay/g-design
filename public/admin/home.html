@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — G DESIGN</title>
+  <link rel="icon" href="/assets/images/logo/01.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #FF6B1A;
+      --bg: #0E0F12;
+      --panel: #17181D;
+      --line: #26272E;
+      --text: #F4F5F7;
+      --muted: #9AA0A8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 28px;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; }
+    .brand img { width: 30px; height: 30px; }
+    .brand span { color: var(--accent); }
+    .nav { display: flex; gap: 12px; align-items: center; }
+    .nav .who { color: var(--muted); font-size: 13px; }
+    a.btn, button.btn {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-family: inherit;
+      font-size: 13px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    a.btn.accent, button.btn.accent { background: var(--accent); border-color: var(--accent); color: #1A0D00; font-weight: 700; }
+    main { max-width: 720px; margin: 48px auto; padding: 0 24px; }
+    .status {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 28px;
+    }
+    .status h2 { font-size: 20px; margin-bottom: 6px; }
+    .status .muted { color: var(--muted); font-size: 14px; }
+    .meta { display: grid; gap: 10px; margin-top: 20px; font-size: 14px; }
+    .meta div { display: flex; justify-content: space-between; border-bottom: 1px dashed var(--line); padding-bottom: 8px; }
+    .meta dt { color: var(--muted); }
+    .loading span { color: var(--accent); animation: blink 1s infinite; }
+    @keyframes blink { 50% { opacity: .4; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <img src="/assets/images/logo/01.svg" alt="G DESIGN">
+      <span>G DESIGN</span> Admin
+    </div>
+    <div class="nav">
+      <span class="who" id="who"></span>
+      <a class="btn" href="/">View site</a>
+      <button class="btn accent" id="logout">Log out</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="status">
+      <h2 id="title" class="loading"><span>Checking session…</span></h2>
+      <p class="muted" id="subtitle">Verifying your authenticated session.</p>
+      <dl class="meta" id="meta"></dl>
+    </div>
+    <p style="color:var(--muted);font-size:12px;margin-top:16px;">
+      This is a temporary protected test page for M3 (admin authentication). The full Admin Dashboard arrives in a later phase.
+    </p>
+  </main>
+
+  <script>
+    (function () {
+      'use strict';
+      var who = document.getElementById('who');
+      var title = document.getElementById('title');
+      var subtitle = document.getElementById('subtitle');
+      var meta = document.getElementById('meta');
+
+      function getJSON(url, done) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.timeout = 10000;
+        xhr.onload = function () { done(xhr.status, xhr.responseText); };
+        xhr.onerror = function () { done(0, null); };
+        xhr.send();
+      }
+
+      function render(admin) {
+        title.textContent = 'Welcome, ' + (admin.full_name || admin.username) + '.';
+        subtitle.textContent = 'You are authenticated as an administrator.';
+        title.classList.remove('loading');
+        who.textContent = admin.email;
+        meta.innerHTML =
+          '<div><dt>Name</dt><dd>' + esc(admin.full_name || '-') + '</dd></div>' +
+          '<div><dt>Username</dt><dd>' + esc(admin.username) + '</dd></div>' +
+          '<div><dt>Email</dt><dd>' + esc(admin.email) + '</dd></div>' +
+          '<div><dt>Role</dt><dd>' + esc(admin.role) + '</dd></div>';
+      }
+
+      function esc(s) {
+        return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+      }
+
+      getJSON('/api/v1/admin/auth/me', function (status, body) {
+        if (status === 200) {
+          var resp = null;
+          try { resp = JSON.parse(body); } catch (e) { resp = null; }
+          if (resp && resp.ok) { render(resp.data.admin); return; }
+        }
+        window.location.href = '/admin/index.html';
+      });
+
+      document.getElementById('logout').addEventListener('click', function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/api/v1/admin/auth/logout', true);
+        xhr.onload = function () { window.location.href = '/admin/index.html'; };
+        xhr.onerror = function () { window.location.href = '/admin/index.html'; };
+        xhr.send();
+      });
+    })();
+  </script>
+</body>
+</html>

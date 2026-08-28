@@ -1,94 +1,1467 @@
-G DESIGN — M2 FINAL GIT CHECKPOINT
+G DESIGN CREATIVE AGENCY PLATFORM
 
-M2 has been fully implemented and tested:
+============================================================
+M5 — ADMIN SERVICE & CATALOG CMS
+============================================================
 
-- 14/14 tests PASS
-- request attachments work
-- multipart/form-data works
-- MySQL attachment records work
-- secure storage works
-- rollback works
-- M1 regression tests pass
+CURRENT PROJECT STATUS
+============================================================
 
-Before starting M3, perform a Git checkpoint.
+The G DESIGN platform currently consists of:
 
-1. Run:
+M0 — Backend Foundation
+STATUS: COMPLETE
 
-git status
-git diff --stat
-git diff
+M1 — Dynamic Request Submission
+STATUS: COMPLETE
 
-2. Identify every modified/deleted/untracked file.
+M2 — Request Attachments
+STATUS: COMPLETE
 
-3. Classify each change:
+M3 — Admin Authentication
+STATUS: COMPLETE
 
-A. Required for M2
-B. Related documentation/configuration
-C. Unrelated change
-D. Potential accidental deletion/modification
+M4 — Admin Dashboard & Request Management
+STATUS: COMPLETE
 
-4. Pay particular attention to:
+M5 OBJECTIVE:
 
-- .env.example
-- docs/BACKEND_PLAN.md
-- guide.txt
-- public/assets/css/quote.css
-- public/assets/js/quote.js
-- backend files
-- database migration
-- documentation
-- .gitignore
+Build a secure Admin Service & Catalog CMS that allows the
+G DESIGN administrator to manage:
 
-5. DO NOT blindly commit everything.
+- Service Categories
+- Services
+- Service Descriptions
+- Service Images
+- Service Status
+- Display Order
+- Pricing Information
+- Dynamic Service Requirements
 
-6. Do not restore legitimate M2 changes.
+The administrator should be able to manage the service catalog
+without editing source code.
 
-7. Do not delete files unless their deletion was intentional
-   and confirmed by the current architecture.
+============================================================
+PROJECT BUSINESS CONTEXT
+============================================================
 
-8. Ensure:
+G DESIGN is a creative agency that transforms business ideas
+into compelling visual and communication experiences.
 
-.env
+Core activities include:
 
-and actual credentials are NOT committed.
+- Branding
+- Graphic Design
+- Printing
+- Content Creation
+- Creative Strategy
+- Art Direction
 
-9. Ensure:
+Examples of services may include:
 
-storage/uploads/
+BRANDING
+- Logo Design
+- Brand Identity
+- Brand Guidelines
 
-does not contain client-uploaded files that will be committed.
+GRAPHIC DESIGN
+- Poster Design
+- Flyer Design
+- Brochure Design
+- Business Card Design
+- Presentation Design
 
-10. Once the working tree contains only intentional project
-changes, create a clean commit:
+PRINTING
+- Banners
+- Stickers
+- T-Shirts and Caps
+- Mugs and Bottles
+- Business Cards
+- Posters
+- Flyers and Brochures
+- Photo Printing
 
-git add <intentional files>
+CONTENT CREATION
+- Photography
+- Video Production
+- Animation
+- Illustration
 
-git commit -m "feat: implement request attachments"
+IMPORTANT:
 
-11. Push:
+Do not hardcode these examples as the permanent database
+catalog unless they already exist or the owner explicitly
+approves them.
 
-git push origin main
+The CMS must allow the administrator to manage the actual
+catalog.
 
-12. Verify:
+============================================================
+CRITICAL RULES
+============================================================
 
-git status
+DO NOT BREAK:
 
-Expected:
+- M1 request submission
+- M2 attachments
+- M3 authentication
+- M4 dashboard
+- Existing public service pages
+- Existing API contracts unless backward compatibility is
+  maintained
 
-working tree clean
+Do NOT introduce:
+
+- Laravel
+- Django
+- Node.js
+- React
+- Vue
+- another framework
+
+Continue using:
+
+- Custom PHP
+- PDO
+- MySQL
+- Vanilla JavaScript
+- Existing HTML/CSS architecture
+
+============================================================
+PHASE 1 — FULL PROJECT INSPECTION
+============================================================
+
+Before implementation:
+
+1. Inspect the entire current repository.
+
+2. Inspect:
+
+backend/
+public/
+database/
+storage/
+docs/
+
+3. Specifically inspect:
+
+- ServiceCategory model
+- ServiceItem model
+- ServiceField model
+- ServiceFieldOption model
+- Existing service API
+- Existing public service rendering
+- Existing quote.js
+- RequestController
+- RequestModel
+- Admin authentication
+- M4 admin SPA architecture
+- Router
+- Response helpers
+- FileUpload implementation
+- Database migrations
+
+4. Identify the actual existing schema.
+
+Do not create duplicate tables or duplicate concepts.
+
+5. Create a short implementation plan based on the ACTUAL
+current architecture before modifying files.
+
+============================================================
+PHASE 2 — DATABASE AUDIT
+============================================================
+
+Inspect the existing tables.
+
+Determine whether the following already exist:
+
+service_categories
+service_items
+service_fields
+service_field_options
+
+Identify actual column names.
+
+Determine whether services already contain:
+
+- name
+- slug
+- description
+- image
+- active status
+- display order
+- category relationship
+
+Determine whether categories already contain:
+
+- name
+- slug
+- image
+- active status
+- display order
+
+DO NOT duplicate existing columns.
+
+Only create migrations for genuinely missing functionality.
+
+============================================================
+PHASE 3 — SERVICE CATEGORY CMS
+============================================================
+
+Create Admin functionality for managing categories.
+
+Admin must be able to:
+
+1. View categories
+2. Create category
+3. Edit category
+4. Activate/deactivate category
+5. Change display order
+6. Upload/change category image if supported
+
+Suggested category data:
+
+id
+name
+slug
+description
+image
+is_active
+display_order
+created_at
+updated_at
+
+However:
+
+Use the actual project naming conventions.
+
+Do not blindly create these exact columns if equivalent columns
+already exist.
+
+============================================================
+PHASE 4 — CATEGORY API
+============================================================
+
+Use the existing Admin API namespace:
+
+/api/v1/admin/
+
+Recommended endpoints:
+
+GET    /api/v1/admin/service-categories
+
+POST   /api/v1/admin/service-categories
+
+GET    /api/v1/admin/service-categories/{id}
+
+PATCH  /api/v1/admin/service-categories/{id}
+
+PATCH  /api/v1/admin/service-categories/{id}/status
+
+Follow the existing router conventions.
+
+All endpoints must require authenticated admin access.
+
+============================================================
+PHASE 5 — SERVICE CMS
+============================================================
+
+Admin must be able to:
+
+1. View services
+2. Search services
+3. Filter by category
+4. Create service
+5. Edit service
+6. Activate/deactivate service
+7. Change display order
+8. Assign category
+9. Manage description
+10. Manage service image
+11. Manage pricing display
+
+Suggested service data:
+
+id
+category_id
+name
+slug
+short_description
+description
+image
+is_active
+display_order
+
+Use the existing schema where possible.
+
+============================================================
+PHASE 6 — SERVICE PRICING MODEL
+============================================================
+
+Pricing must be flexible.
+
+Do NOT assume every service has a fixed price.
+
+Support pricing modes:
+
+fixed
+
+starting_from
+
+range
+
+quote
+
+Example:
+
+FIXED
+
+Price:
+TSh 150,000
+
+
+STARTING FROM
+
+Starting From:
+TSh 100,000
+
+
+PRICE RANGE
+
+TSh 50,000 – TSh 200,000
+
+
+REQUEST A QUOTE
+
+Price:
+Available on Request
+
+============================================================
+PRICING DATA MODEL
+============================================================
+
+Inspect existing service schema first.
+
+Only if needed, add appropriate pricing fields.
+
+Recommended conceptual structure:
+
+pricing_type
+
+Possible values:
+
+fixed
+starting_from
+range
+quote
+
+price
+
+min_price
+
+max_price
+
+currency
+
+Default currency:
+
+TZS
+
+IMPORTANT:
+
+Do not store formatted currency values.
+
+Correct:
+
+150000
+
+Incorrect:
+
+"TSh 150,000"
+
+Formatting belongs to the frontend.
+
+============================================================
+PHASE 7 — SERVICE IMAGE MANAGEMENT
+============================================================
+
+Inspect the existing image upload architecture.
+
+Do not expose upload storage directly.
+
+Recommended:
+
+storage/service-images/
+
+outside public document root.
+
+Requirements:
+
+- authenticated admin
+- image MIME validation
+- safe extensions
+- randomized filename
+- max file size
+- old image cleanup when replaced
+- database reference only
+- no filesystem paths in API responses
+
+Allowed types:
+
+JPG
+JPEG
+PNG
+WebP
+
+Do not allow:
+
+PHP
+HTML
+SVG
+JS
+EXE
+
+============================================================
+PHASE 8 — IMAGE API
+============================================================
+
+Implement secure service image access.
+
+Public services may need public images.
+
+Determine the safest existing architecture.
+
+Possible public route:
+
+GET /api/v1/service-images/{id}
+
+or an existing media strategy.
+
+Do NOT expose:
+
+storage/service-images/randomfile.webp
+
+directly unless the architecture explicitly and safely supports it.
+
+Admin upload endpoints must require authentication.
+
+============================================================
+PHASE 9 — PUBLIC SERVICE API
+============================================================
+
+Existing public API functionality must remain compatible.
+
+Verify:
+
+GET /api/v1/services
+
+continues to work.
+
+Extend it carefully if needed.
+
+Public service response may include:
+
+category
+service
+description
+pricing
+image
+requirement fields
+
+Only return active categories and services.
+
+Inactive services must:
+
+- disappear from public listings
+- not be selectable for new requests
+
+Historical requests must still preserve their existing service
+information.
+
+============================================================
+PHASE 10 — SERVICE ACTIVATION RULES
+============================================================
+
+When:
+
+is_active = false
+
+The service must not appear publicly.
+
+However:
+
+Existing historical requests must remain readable.
+
+Do not delete services that already have requests without
+careful referential handling.
+
+Prefer:
+
+inactive
+
+over destructive deletion.
+
+============================================================
+PHASE 11 — DYNAMIC REQUIREMENTS CMS
+============================================================
+
+This is a major part of M5.
+
+The administrator must manage the dynamic fields associated
+with each service.
+
+Supported field types should be based on the existing system.
+
+Likely types:
+
+text
+textarea
+number
+date
+select
+radio
+
+For each field, admin should control:
+
+- label
+- field key
+- type
+- required
+- options
+- display order
+- active state if supported
+
+============================================================
+PHASE 12 — FIELD KEY RULES
+============================================================
+
+Field keys are important because request data is stored using
+them.
+
+Examples:
+
+business_name
+preferred_color
+logo_style
+quantity
+
+Rules:
+
+- lowercase
+- underscores allowed
+- unique per service
+- no spaces
+- must be stable
+
+Changing a field label should not destroy historical data.
+
+Example:
+
+Old label:
+
+Preferred Colour
+
+New label:
+
+Preferred Brand Color
+
+Historical requests should still be understandable.
+
+============================================================
+PHASE 13 — SELECT/RADIO OPTIONS
+============================================================
+
+For:
+
+select
 
 and:
 
-Your branch is up to date with 'origin/main'.
+radio
 
-FINAL REPORT:
+Admin must manage options.
 
-- files committed
-- files intentionally excluded
-- files restored, if any
-- commit hash
-- push result
-- final git status
+Example:
 
-Do not modify application logic during this checkpoint.
-This is a Git hygiene and milestone operation only.
+Field:
+
+Logo Style
+
+Options:
+
+Minimal
+Modern
+Luxury
+Classic
+
+Admin must be able to:
+
+- add option
+- edit option
+- remove option where safe
+- set display order
+
+IMPORTANT:
+
+Do not break historical requests if an old option is removed.
+
+Historical submitted values must remain visible.
+
+============================================================
+PHASE 14 — REQUIREMENT VALIDATION
+============================================================
+
+The existing M1 server-side validation must continue working.
+
+Verify:
+
+- required fields
+- unknown fields
+- select validation
+- radio validation
+
+M5 must not weaken M1 validation.
+
+After admin changes service fields:
+
+The public request API should validate against the CURRENT
+configuration for NEW requests.
+
+Historical requests remain readable.
+
+============================================================
+PHASE 15 — SERVICE REQUIREMENTS ADMIN UI
+============================================================
+
+Create a professional field builder.
+
+Example:
+
+LOGO DESIGN
+
+SERVICE DETAILS
+-----------------
+
+Name
+Logo Design
+
+Category
+Branding
+
+Status
+Active
+
+Pricing
+Starting From TSh 150,000
+
+-----------------
+
+CLIENT REQUIREMENTS
+
+1. Business Name
+   Text
+   Required
+
+2. Preferred Color
+   Text
+   Optional
+
+3. Logo Style
+   Select
+   Required
+
+   Options:
+
+   Minimal
+   Modern
+   Luxury
+   Classic
+
+4. Project Description
+   Textarea
+   Required
+
+[ + Add Requirement ]
+
+============================================================
+PHASE 16 — ADMIN SERVICE CATALOG UI
+============================================================
+
+Integrate into the existing M4 Admin SPA.
+
+Navigation:
+
+Dashboard
+
+Requests
+
+Service Catalog
+    Categories
+    Services
+
+Account
+
+Profile
+Logout
+
+Do not create navigation for unfinished modules.
+
+============================================================
+PHASE 17 — CATEGORY MANAGEMENT UI
+============================================================
+
+Create:
+
+Categories
+
+Features:
+
+- list
+- create
+- edit
+- activate/deactivate
+- image
+- display order
+
+Example:
+
+------------------------------------------------
+
+Branding
+
+3 Services
+
+Active
+
+[ Edit ]
+
+------------------------------------------------
+
+Graphic Design
+
+5 Services
+
+Active
+
+[ Edit ]
+
+------------------------------------------------
+
+============================================================
+PHASE 18 — SERVICE MANAGEMENT UI
+============================================================
+
+Create:
+
+Services
+
+Table/list fields:
+
+Image
+Service
+Category
+Pricing
+Status
+Order
+Actions
+
+Features:
+
+- search
+- category filter
+- active filter
+- pagination
+
+Actions:
+
+Edit
+Activate/Deactivate
+
+Avoid destructive delete by default.
+
+============================================================
+PHASE 19 — SERVICE EDITOR
+============================================================
+
+Create a detailed service editor.
+
+Sections:
+
+1. Basic Information
+
+Name
+Category
+Short Description
+Full Description
+
+2. Image
+
+Current Image
+
+[ Replace Image ]
+
+3. Pricing
+
+Pricing Type
+
+Fixed
+Starting From
+Range
+Request a Quote
+
+Relevant price inputs should dynamically appear.
+
+4. Status
+
+Active
+Inactive
+
+5. Display Order
+
+Number
+
+6. Client Requirements
+
+Dynamic field builder
+
+============================================================
+PHASE 20 — ADMIN UX RULES
+============================================================
+
+Every async operation needs:
+
+Loading state
+
+Success feedback
+
+Error feedback
+
+Examples:
+
+Saving service...
+
+Service updated successfully.
+
+Unable to update service.
+
+[Try Again]
+
+Do not silently fail.
+
+============================================================
+PHASE 21 — PUBLIC WEBSITE INTEGRATION
+============================================================
+
+Inspect how services currently appear on:
+
+- homepage
+- services page
+- service details
+- quote/request page
+
+Do not redesign the public website.
+
+Connect existing UI to the CMS API where appropriate.
+
+The goal:
+
+ADMIN
+   ↓
+DATABASE
+   ↓
+PUBLIC SERVICE API
+   ↓
+WEBSITE
+
+When admin changes:
+
+- service name
+- description
+- image
+- price
+- active status
+
+the public website should reflect appropriate changes.
+
+Do not break existing static page layout.
+
+============================================================
+PHASE 22 — QUOTE FORM REGRESSION
+============================================================
+
+The dynamic quote form is critical.
+
+Test:
+
+1. Active service appears
+2. Inactive service does not appear
+3. Service requirements load
+4. Required validation works
+5. Select options work
+6. Radio options work
+7. Unknown fields rejected
+8. Historical request remains readable
+9. File upload still works
+
+============================================================
+PHASE 23 — SECURITY
+============================================================
+
+All Admin CMS endpoints require authentication.
+
+Verify:
+
+Unauthenticated:
+
+401
+
+Authenticated:
+
+Allowed.
+
+Use:
+
+- PDO prepared statements
+- input validation
+- whitelist pricing types
+- whitelist field types
+- XSS-safe rendering
+- safe file handling
+- random filenames
+
+Never trust:
+
+- image filename
+- MIME supplied by browser
+- service input
+- requirement label
+- option value
+
+============================================================
+PHASE 24 — XSS TESTING
+============================================================
+
+Test malicious values in:
+
+Service name
+
+Service description
+
+Category name
+
+Requirement label
+
+Option label
+
+Example:
+
+<script>alert(1)</script>
+
+Verify:
+
+Stored if allowed as text, but rendered safely as text.
+
+No script execution.
+
+Prefer:
+
+textContent
+
+Avoid:
+
+innerHTML
+
+for untrusted content.
+
+============================================================
+PHASE 25 — IMAGE SECURITY TESTING
+============================================================
+
+Test:
+
+1. Valid JPG
+2. Valid PNG
+3. Valid WebP
+4. Invalid PHP
+5. Invalid EXE
+6. Invalid SVG
+7. Fake extension
+8. Oversized file
+9. Path traversal filename
+10. Image replacement
+11. Old image cleanup
+
+Verify:
+
+No filesystem paths exposed.
+
+============================================================
+PHASE 26 — API TESTING
+============================================================
+
+Run actual tests.
+
+------------------------------------------------
+
+TEST 1
+
+GET categories without auth.
+
+Expected:
+
+401
+
+------------------------------------------------
+
+TEST 2
+
+GET services without auth.
+
+Expected:
+
+401
+
+------------------------------------------------
+
+TEST 3
+
+Create category as admin.
+
+Expected:
+
+201
+
+------------------------------------------------
+
+TEST 4
+
+Create service as admin.
+
+Expected:
+
+201
+
+------------------------------------------------
+
+TEST 5
+
+Create service with invalid pricing type.
+
+Expected:
+
+400
+
+------------------------------------------------
+
+TEST 6
+
+Create service with invalid category.
+
+Expected:
+
+400 or 404
+
+------------------------------------------------
+
+TEST 7
+
+Update service.
+
+Expected:
+
+200
+
+------------------------------------------------
+
+TEST 8
+
+Deactivate service.
+
+Expected:
+
+200
+
+------------------------------------------------
+
+TEST 9
+
+Inactive service disappears from public API.
+
+Expected:
+
+Not listed
+
+------------------------------------------------
+
+TEST 10
+
+Existing request using inactive service remains readable.
+
+Expected:
+
+PASS
+
+------------------------------------------------
+
+TEST 11
+
+Create dynamic field.
+
+Expected:
+
+201
+
+------------------------------------------------
+
+TEST 12
+
+Create duplicate field key.
+
+Expected:
+
+400
+
+------------------------------------------------
+
+TEST 13
+
+Create select field without options.
+
+Expected:
+
+400 if options are required
+
+------------------------------------------------
+
+TEST 14
+
+Add field options.
+
+Expected:
+
+PASS
+
+------------------------------------------------
+
+TEST 15
+
+Public service API exposes active fields.
+
+Expected:
+
+PASS
+
+------------------------------------------------
+
+TEST 16
+
+Quote request validates required new field.
+
+Expected:
+
+400 if missing
+
+------------------------------------------------
+
+TEST 17
+
+Upload valid service image.
+
+Expected:
+
+201/200
+
+------------------------------------------------
+
+TEST 18
+
+Upload invalid file.
+
+Expected:
+
+400
+
+------------------------------------------------
+
+TEST 19
+
+Unauthorized image upload.
+
+Expected:
+
+401
+
+------------------------------------------------
+
+TEST 20
+
+XSS service name.
+
+Expected:
+
+No script execution
+
+------------------------------------------------
+
+TEST 21
+
+Search services.
+
+Expected:
+
+Correct results
+
+------------------------------------------------
+
+TEST 22
+
+Filter services by category.
+
+Expected:
+
+Correct results
+
+------------------------------------------------
+
+TEST 23
+
+Pagination.
+
+Expected:
+
+Correct metadata
+
+============================================================
+PHASE 27 — REGRESSION TESTING
+============================================================
+
+Retest ALL completed phases.
+
+M0:
+
+- backend startup
+- database connection
+
+M1:
+
+- dynamic request submission
+- server validation
+
+M2:
+
+- file uploads
+- attachment records
+
+M3:
+
+- admin login
+- logout
+- /auth/me
+- protected routes
+
+M4:
+
+- dashboard overview
+- request list
+- search
+- filters
+- request details
+- requirements rendering
+- attachments
+- status updates
+
+M5 must not break previous phases.
+
+============================================================
+PHASE 28 — DATABASE TESTING
+============================================================
+
+Verify:
+
+- category/service relationships
+- service field relationships
+- option relationships
+- no orphan records
+- inactive services preserved
+- historical requests preserved
+- image references valid
+- display order works
+- pricing values correct
+
+============================================================
+PHASE 29 — DOCUMENTATION
+============================================================
+
+Create:
+
+docs/M5-SERVICE-CATALOG-CMS.md
+
+Include:
+
+1. Architecture
+2. Database structure
+3. Categories
+4. Services
+5. Pricing model
+6. Images
+7. Dynamic requirements
+8. Field options
+9. Public API
+10. Admin API
+11. Security
+12. Historical data handling
+
+Create:
+
+docs/M5-TEST-REPORT.md
+
+Format:
+
+| Test | Expected | Actual | Result |
+
+Only mark PASS after execution.
+
+============================================================
+PHASE 30 — GIT SAFETY
+============================================================
+
+Before commit:
+
+git status
+
+git diff --stat
+
+git diff
+
+Verify:
+
+- no .env
+- no credentials
+- no uploads
+- no logs
+- no temporary files
+- no test malware samples
+
+Do not commit unrelated files.
+
+============================================================
+DEFINITION OF DONE
+============================================================
+
+M5 is complete only when:
+
+[ ] Categories manageable by admin
+[ ] Services manageable by admin
+[ ] Service activation works
+[ ] Category activation works
+[ ] Display order works
+[ ] Pricing modes work
+[ ] Pricing values validated
+[ ] Currency handled correctly
+[ ] Service images upload securely
+[ ] Invalid images rejected
+[ ] Images do not expose storage paths
+[ ] Dynamic fields manageable
+[ ] Field options manageable
+[ ] Field keys validated
+[ ] Existing request validation still works
+[ ] Public service API works
+[ ] Inactive services hidden publicly
+[ ] Historical requests preserved
+[ ] Public quote form works
+[ ] Admin endpoints protected
+[ ] XSS tests pass
+[ ] SQL injection protections maintained
+[ ] M0 regression passes
+[ ] M1 regression passes
+[ ] M2 regression passes
+[ ] M3 regression passes
+[ ] M4 regression passes
+[ ] Documentation created
+[ ] Test report created
+[ ] Git safety review complete
+
+============================================================
+FINAL REPORT
+============================================================
+
+At completion provide:
+
+1. M5 Summary
+
+2. Files Created
+
+3. Files Modified
+
+4. Database Changes
+
+5. Migration Files
+
+6. New Admin APIs
+
+7. Public API Changes
+
+8. Admin CMS Features
+
+9. Dynamic Requirements Features
+
+10. Image Handling
+
+11. Pricing Model
+
+12. Security Measures
+
+13. Test Environment
+
+14. API Test Results
+
+15. Frontend Test Results
+
+16. Regression Results
+
+17. Database Verification
+
+18. Known Limitations
+
+19. Technical Debt
+
+20. Recommended M6
+
+IMPORTANT:
+
+Do not claim M5 is complete simply because files exist.
+
+Actually:
+
+- run PHP
+- connect MySQL
+- test Admin authentication
+- test Category CMS
+- test Service CMS
+- test Pricing
+- test Dynamic Fields
+- test File Upload
+- test Public Services
+- test Quote Submission
+- test M0–M4 regressions
+
+Fix failures.
+
+Rerun affected tests.
+
+Only then mark M5:
+
+PASS.
+
+============================================================
+STOP CONDITION
+============================================================
+
+After M5 is complete:
+
+STOP.
+
+Do NOT automatically start M6.
+
+Wait for project review and approval.
